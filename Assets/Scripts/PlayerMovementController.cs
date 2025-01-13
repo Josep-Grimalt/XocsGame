@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     private CharacterController cc;
+    private Rigidbody rb;
     private Vector3 movementDirection;
     
     [SerializeField] private float speed = 10;
@@ -12,7 +13,8 @@ public class PlayerMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cc = GetComponent<CharacterController>();
+        //cc = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -25,7 +27,11 @@ public class PlayerMovementController : MonoBehaviour
         
         movement = Vector3.ClampMagnitude(movement, 1f);
 
-        cc.Move(movement * speed * Time.deltaTime);
+        if(cc is not null)
+            cc.Move(movement * speed * Time.deltaTime);
+
+        if(rb is not null)
+            rb.AddForce(speed * movement, ForceMode.Force);
     }
 
     public void SetMovementDirection(Vector2 direction)

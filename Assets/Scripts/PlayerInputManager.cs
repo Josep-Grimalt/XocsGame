@@ -7,29 +7,29 @@ using UnityEngine.Rendering;
 public class PlayerInputManager : MonoBehaviour
 {
     private PlayerMovementController movementController;
-    private PlayerAction inputActions;
+
+    private InputAction moveAction;
+    [SerializeField] private PlayerInput inputActions;
 
     private void Awake() {
         movementController = GetComponent<PlayerMovementController>();
+
+        moveAction = inputActions.actions.FindAction("Move");
     }
 
 
     void OnEnable()
     {
-        inputActions = new PlayerAction();
-        inputActions.Player.Enable();
-
-        inputActions.Player.Move.performed += Move;
-        inputActions.Player.Move.canceled += Move;
+        moveAction.performed += Move;
+        moveAction.canceled += Move;
     }
 
 
     void OnDisable()
     {
-        inputActions.Player.Move.performed -= Move;
-        inputActions.Player.Move.canceled -= Move;
+        moveAction.performed -= Move;
+        moveAction.canceled -= Move;
 
-        inputActions.Player.Disable();        
     }
 
     private void Move(InputAction.CallbackContext context)
