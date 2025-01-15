@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
-public class PlayerInputManager : MonoBehaviour
+public class PlayerInputController : MonoBehaviour
 {
     private PlayerMovementController movementController;
 
