@@ -3,18 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour
 {
     private PlayerMovementController movementController;
 
     private InputAction moveAction;
+    private InputAction selectColorAction;
+    private List<GameObject> colors;
+    private int color = 1;
     [SerializeField] private PlayerInput inputActions;
+    [SerializeField] private GameObject parentColors;
 
     private void Awake() {
         movementController = GetComponent<PlayerMovementController>();
+        colors = new List<GameObject>();
 
-        moveAction = inputActions.actions.FindAction("Move");
+        foreach (Transform child in parentColors.transform)
+        {
+            colors.Add(child.gameObject);
+        }
+
+            moveAction = inputActions.actions.FindAction("Move");
+        selectColorAction = inputActions.actions.FindAction("SelectColor");
     }
 
 
@@ -22,6 +34,11 @@ public class PlayerInputController : MonoBehaviour
     {
         moveAction.performed += Move;
         moveAction.canceled += Move;
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            selectColorAction.performed += SelectColor;
+        }
     }
 
 
@@ -30,6 +47,11 @@ public class PlayerInputController : MonoBehaviour
         moveAction.performed -= Move;
         moveAction.canceled -= Move;
 
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            selectColorAction.performed -= SelectColor;
+        }
+
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -37,5 +59,203 @@ public class PlayerInputController : MonoBehaviour
         Vector2 inputVector = context.ReadValue<Vector2>();
 
         movementController.SetMovementDirection(inputVector);
+    }
+
+    private void SelectColor(InputAction.CallbackContext context)
+    {
+        Debug.Log(color);
+
+        if (context.ReadValue<float>() == 1)
+        {
+            if (color == 12)
+            {
+                color = 1;
+            }
+            else
+            {
+                color++;
+            }
+        }
+        else if (context.ReadValue<float>() == -1)
+        {
+            if (color == 1)
+            {
+                color = 12;
+            }
+            else
+            {
+                color--;
+            }
+        }
+
+        switch (color)
+        {
+            case 1:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 1")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 2:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 2")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 3:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 3")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 4:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 4")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 5:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 5")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 6:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 6")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+            case 7:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 7")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 8:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 8")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 9:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 9")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 10:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 10")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 11:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 11")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+
+            case 12:
+                foreach (GameObject colorOject in colors)
+                {
+                    if (colorOject.name == "Color 12")
+                    {
+                        colorOject.active = true;
+                    }
+                    else
+                    {
+                        colorOject.active = false;
+                    }
+                }
+                break;
+        }
     }
 }
