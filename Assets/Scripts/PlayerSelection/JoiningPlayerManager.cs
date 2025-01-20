@@ -15,6 +15,9 @@ public class JoiningPlayerManager : MonoBehaviour
             movementController.enabled = false;
             switch (playerCount)
             {
+                case 1:
+                    transform.position = new(-3, 0, -0.9f);
+                    break;
                 case 2:
                     transform.position = new(-1, 0, -0.9f);
                     break;
@@ -25,6 +28,8 @@ public class JoiningPlayerManager : MonoBehaviour
                     transform.position = new(3, 0, -0.9f);
                     break;
             }
+
+            GameManager1.Instance.AddPlayer(gameObject);
         }
         else
         {

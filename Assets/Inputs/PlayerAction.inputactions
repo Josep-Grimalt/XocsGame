@@ -198,6 +198,28 @@
                     "action": "SelectColor",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "8bdeaf19-4716-4c7f-903d-23dcb58a5c8d",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";pad",
+                    "action": "SelectColor",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "70760e30-9c0a-44f6-9983-28f1a72c9d6d",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";pad",
+                    "action": "SelectColor",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
