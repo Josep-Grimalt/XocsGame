@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Exemple de Singleton
 /// </summary>
 public class GameManager1 : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     public static GameManager1 Instance { get; private set; }
     private List<GameObject> players;
 
@@ -30,5 +32,10 @@ public class GameManager1 : MonoBehaviour
         players.Add(player);
         Debug.Log(player.name);
         Debug.Log(players.Count);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("PruebaToni");
     }
 }

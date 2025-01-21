@@ -29,7 +29,7 @@ public class JoiningPlayerManager : MonoBehaviour
                     break;
             }
 
-            GameManager1.Instance.AddPlayer(gameObject);
+            DontDestroyOnLoad(this);
         }
         else
         {
