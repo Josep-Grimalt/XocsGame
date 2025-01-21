@@ -28,6 +28,7 @@ public class GameManager1 : MonoBehaviour
     public void AddPlayer(GameObject player)
     {
         players.Add(player);
+        Debug.Log(player.name);
         Debug.Log(players.Count);
     }
 }
