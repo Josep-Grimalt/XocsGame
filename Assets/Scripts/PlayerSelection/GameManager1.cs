@@ -36,6 +36,6 @@ public class GameManager1 : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("PruebaToni");
+        SceneManager.LoadScene("GameScene 1");
     }
 }
