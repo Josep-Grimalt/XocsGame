@@ -1,0 +1,4 @@
+repository "XocsGame@bsivan1110@cloud"
+  path "/"
+    br "/main"
+    co "/main"
