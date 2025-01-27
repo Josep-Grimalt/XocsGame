@@ -4437,6 +4437,7 @@ GameObject:
   - component: {fileID: 847184537}
   - component: {fileID: 847184536}
   - component: {fileID: 847184535}
+  - component: {fileID: 847184538}
   m_Layer: 0
   m_Name: WallN
   m_TagString: Untagged
@@ -4452,13 +4453,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847184533}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 27}
   m_LocalScale: {x: 50, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1943275391}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &847184535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4476,7 +4477,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4533,6 +4534,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847184533}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &847184538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847184533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls: []
+  target: {fileID: 1943275391}
+  delay: 3
+  speed: 1
 --- !u!1 &932302463
 GameObject:
   m_ObjectHideFlags: 0
@@ -6806,6 +6823,7 @@ GameObject:
   - component: {fileID: 1631786552}
   - component: {fileID: 1631786551}
   - component: {fileID: 1631786550}
+  - component: {fileID: 1631786553}
   m_Layer: 0
   m_Name: WallS
   m_TagString: Untagged
@@ -6845,7 +6863,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6902,6 +6920,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631786548}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1631786553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631786548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls: []
+  target: {fileID: 1943275391}
+  delay: 3
+  speed: 1
 --- !u!1 &1636750998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7023,6 +7057,7 @@ GameObject:
   - component: {fileID: 1642431540}
   - component: {fileID: 1642431539}
   - component: {fileID: 1642431538}
+  - component: {fileID: 1642431541}
   m_Layer: 0
   m_Name: WallW
   m_TagString: Untagged
@@ -7062,7 +7097,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -7119,6 +7154,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642431536}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1642431541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642431536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls: []
+  target: {fileID: 1943275391}
+  delay: 3
+  speed: 1
 --- !u!1 &1642507554
 GameObject:
   m_ObjectHideFlags: 0
@@ -7998,6 +8049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943275391}
+  - component: {fileID: 1943275392}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -8024,6 +8076,26 @@ Transform:
   - {fileID: 1642431537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1943275392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943275390}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls:
+  - {fileID: 847184533}
+  - {fileID: 1631786548}
+  - {fileID: 2044776843}
+  - {fileID: 1642431536}
+  target: {fileID: 1943275391}
+  delay: 15
+  speed: 1
 --- !u!1 &1951557636
 GameObject:
   m_ObjectHideFlags: 0
@@ -8472,6 +8544,7 @@ GameObject:
   - component: {fileID: 2044776847}
   - component: {fileID: 2044776846}
   - component: {fileID: 2044776845}
+  - component: {fileID: 2044776848}
   m_Layer: 0
   m_Name: WallE
   m_TagString: Untagged
@@ -8487,13 +8560,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044776843}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 27, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1943275391}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &2044776845
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8511,7 +8584,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8568,6 +8641,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044776843}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2044776848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044776843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls: []
+  target: {fileID: 1943275391}
+  delay: 3
+  speed: 1
 --- !u!1 &2056725287
 GameObject:
   m_ObjectHideFlags: 0
