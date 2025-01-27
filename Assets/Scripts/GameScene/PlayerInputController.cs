@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour
@@ -25,7 +23,7 @@ public class PlayerInputController : MonoBehaviour
             colors.Add(child.gameObject);
         }
 
-            moveAction = inputActions.actions.FindAction("Move");
+        moveAction = inputActions.actions.FindAction("Move");
         selectColorAction = inputActions.actions.FindAction("SelectColor");
     }
 

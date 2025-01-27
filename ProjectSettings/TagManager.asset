@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Orb
   - Floor
+  - Element Changer
+  - Fire
+  - Water
+  - Wind
+  - Earth
+  - Neutral
   layers:
   - Default
   - TransparentFX

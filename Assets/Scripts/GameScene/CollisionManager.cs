@@ -4,11 +4,10 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] private float repulsionforce = 25;
-    [SerializeField] private GameObject orb;
+    [SerializeField] private List<GameObject> orb;
     [SerializeField] private float delay = 0.18f;
 
     private HashSet<string> recentCollisions = new HashSet<string>();
-    
 
     public static CollisionManager Instance { get; private set; }
 
@@ -19,7 +18,7 @@ public class CollisionManager : MonoBehaviour
         }
     }
 
-    public void HandlePlayerCollision(GameObject p1, GameObject p2, Vector3 collisionPoint)
+    public void HandlePlayerCollision(GameObject p1, GameObject p2, Vector3 collisionPoint, PlayerCollisionController.Element e1, PlayerCollisionController.Element e2)
     {
         string collisionKey = "${p1.GetInstanceID()}-{p2.GetInstanceID()}";
 
@@ -35,11 +34,49 @@ public class CollisionManager : MonoBehaviour
         rb1.AddForce(-collisionDir * repulsionforce, ForceMode.Impulse);
         rb2.AddForce(collisionDir * repulsionforce, ForceMode.Impulse);
 
-        StartCoroutine(SpawnOrb(collisionPoint, delay));
+        PlayerCollisionController.Element element = PlayerCollisionController.Element.Neutral;
+
+        if (e1 == e2)
+        {
+            element = PlayerCollisionController.Element.Neutral;
+        }
+        else if (e1 == PlayerCollisionController.Element.Neutral)
+        {
+            element = e2;
+        }
+        else if (e2 == PlayerCollisionController.Element.Neutral)
+        {
+            element = e1;
+        }
+        else
+        {
+            if ((e1 == PlayerCollisionController.Element.Fire && e2 == PlayerCollisionController.Element.Water) || (e2 == PlayerCollisionController.Element.Fire && e1 == PlayerCollisionController.Element.Water))
+            {
+                element = PlayerCollisionController.Element.Water;
+            }
+            else if ((e1 == PlayerCollisionController.Element.Wind && e2 == PlayerCollisionController.Element.Earth) || (e2 == PlayerCollisionController.Element.Wind && e1 == PlayerCollisionController.Element.Earth))
+            {
+                element = PlayerCollisionController.Element.Wind;
+            }
+            else if ((e1 == PlayerCollisionController.Element.Fire && e2 == PlayerCollisionController.Element.Wind) || (e2 == PlayerCollisionController.Element.Fire && e1 == PlayerCollisionController.Element.Wind))
+            {
+                element = PlayerCollisionController.Element.Fire;
+            }
+            else if ((e1 == PlayerCollisionController.Element.Earth && e2 == PlayerCollisionController.Element.Water) || (e2 == PlayerCollisionController.Element.Earth && e1 == PlayerCollisionController.Element.Water))
+            {
+                element = PlayerCollisionController.Element.Earth;
+            }
+            else
+            {
+                element = PlayerCollisionController.Element.Neutral;
+            }
+        }
+
+        StartCoroutine(SpawnOrb(orb[(int) element], collisionPoint, delay));
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
     }
 
-    private System.Collections.IEnumerator SpawnOrb(Vector3 direction, float delay)
+    private System.Collections.IEnumerator SpawnOrb(GameObject orb, Vector3 direction, float delay)
     {
         yield return new WaitForSeconds(delay);
 
