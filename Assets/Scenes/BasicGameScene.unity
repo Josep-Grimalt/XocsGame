@@ -7242,7 +7242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingPlatform: 0
-  walls: 0
+  walls: 1
   delay: 2
 --- !u!1 &1770275600
 GameObject:

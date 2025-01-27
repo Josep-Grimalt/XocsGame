@@ -1,26 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UIElements;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    private CharacterController cc;
     private Rigidbody rb;
     private Vector3 movementDirection;
 
     [SerializeField] private float speed = 10;
+    [SerializeField] private float rotationSpeed = 45;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        //cc = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         Fall();
+        Rotate(movementDirection);
     }
 
     private void FixedUpdate()
@@ -30,15 +33,11 @@ public class PlayerMovementController : MonoBehaviour
 
     public void Move()
     {
-        Vector3 movement = transform.forward * movementDirection.z + transform.right * movementDirection.x;
+        Vector3 movement = transform.forward * Math.Abs(movementDirection.z) + transform.forward * Math.Abs(movementDirection.x);
 
         movement = Vector3.ClampMagnitude(movement, 1f);
 
-        if (cc is not null)
-            cc.Move(movement * speed * Time.deltaTime);
-
-        if (rb is not null)
-            rb.AddForce(speed * movement, ForceMode.Force);
+        rb?.AddForce(speed * movement, ForceMode.Force);
     }
 
     public void SetMovementDirection(Vector2 direction)
@@ -52,5 +51,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Rotate(Vector3 movementDirection)
+    {
+        if(movementDirection == Vector3.zero) return;
+
+        float angle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
