@@ -93,11 +93,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 1")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -107,11 +107,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 2")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -121,11 +121,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 3")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -135,11 +135,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 4")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -149,11 +149,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 5")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -163,11 +163,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 6")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -176,11 +176,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 7")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -190,11 +190,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 8")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -204,11 +204,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 9")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -218,11 +218,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 10")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -232,11 +232,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 11")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;
@@ -246,11 +246,11 @@ public class PlayerInputController : MonoBehaviour
                 {
                     if (colorOject.name == "Color 12")
                     {
-                        colorOject.active = true;
+                        colorOject.SetActive(true);
                     }
                     else
                     {
-                        colorOject.active = false;
+                        colorOject.SetActive(false);
                     }
                 }
                 break;

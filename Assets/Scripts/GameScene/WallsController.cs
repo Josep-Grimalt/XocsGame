@@ -8,21 +8,19 @@ public class WallsController : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float delay, speed;
 
+    private float time = 0;
+    private bool moving = false;
 
-    private void Awake()
+    private void Update()
     {
-        StartCoroutine(ShrinkPlatform());
-    }
+        time += Time.deltaTime;
+        
+        if (delay == time)
+        {
+            moving = true;
+        }
 
-    private IEnumerator ShrinkPlatform()
-    {
-        yield return new WaitForSeconds(delay);
-
-        Debug.Log("should be moving");
-
-        bool moving = true;
-
-        while (moving)
+        if (moving)
         {
             moving = false;
 
