@@ -7,4 +7,9 @@ public class SceneButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("BasicGameScene");
     }
+    
+    public void BackButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
