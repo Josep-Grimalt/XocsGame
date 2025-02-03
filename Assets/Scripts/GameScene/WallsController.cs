@@ -19,7 +19,7 @@ public class WallsController : MonoBehaviour
             moving = true;
         }
 
-        if (moving && Vector3.Distance(transform.position, target.position) > 5)
+        if (moving && Vector3.Distance(transform.position, target.position) > 10)
         {
             moving = false;
 
