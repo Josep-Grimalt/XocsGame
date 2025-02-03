@@ -58,7 +58,7 @@ public class JoiningPlayerManager : MonoBehaviour
             
             if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI ugui))
             {
-                textMesh = GameObject.Find(gameObject.name + " Life").GetComponent<TextMeshProUGUI>();
+                textMesh = ugui;
             }
         }
 
