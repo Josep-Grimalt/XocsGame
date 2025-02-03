@@ -1,55 +1,41 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class JoiningPlayerManager : MonoBehaviour
 {
     [SerializeField] private float life = 3;
+    [SerializeField] private Vector3[] _spawnPoints =
+    {
+        new (-3, 0, -0.9f),
+        new(-1, 0, -0.9f),
+        new(1, 0, -0.9f),
+        new(3, 0, -0.9f)
+    };
     [SerializeField] private List<GameObject> spawnPoints;
     
     private TextMeshProUGUI textMesh;
     private PlayerMovementController movementController;
-    private int playerCount;
     private bool changedScene = true;
+    private int playerID;
     
     private void Awake()
     {
         movementController = GetComponent<PlayerMovementController>();
-        playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
+        playerID = GetComponent<PlayerInput>().playerIndex;
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             movementController.enabled = false;
             
-            switch (playerCount)
-            {
-                case 1:
-                    transform.position = new(-3, 0, -0.9f);
-                    break;
-                case 2:
-                    transform.position = new(-1, 0, -0.9f);
-                    break;
-                case 3:
-                    transform.position = new(1, 0, -0.9f);
-                    break;
-                case 4:
-                    transform.position = new(3, 0, -0.9f);
-                    break;
-            }
+            transform.position = _spawnPoints[playerID];
 
             DontDestroyOnLoad(this);
         }
-
-        if (gameObject.name == "Player")
-        {
-            gameObject.name = "Player 1";
-        }
-        else if (gameObject.name == "Player(Clone)")
-        {
-            gameObject.name = gameObject.name.Substring(0, gameObject.name.Length - "(clone)".Length) + " " + playerCount;
-        }
+        
+        gameObject.name = "Player " + playerID + 1;
     }
 
     private void Update()
@@ -60,21 +46,7 @@ public class JoiningPlayerManager : MonoBehaviour
             
             movementController.enabled = true;
             
-            switch (gameObject.name)
-            {
-                case "Player 1":
-                    transform.position = spawnPoints[0].transform.position;
-                    break;
-                case "Player 2":
-                    transform.position = spawnPoints[1].transform.position;
-                    break;
-                case "Player 3":
-                    transform.position = spawnPoints[2].transform.position;
-                    break;
-                case "Player 4":
-                    transform.position = spawnPoints[3].transform.position;
-                    break;
-            }
+            transform.position = spawnPoints[playerID].transform.position;
             
             if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI ugui))
             {
@@ -92,20 +64,6 @@ public class JoiningPlayerManager : MonoBehaviour
     {
         life -= 1;
             
-        switch (gameObject.name)
-        {
-            case "Player 1":
-                transform.position = spawnPoints[0].transform.position;
-                break;
-            case "Player 2":
-                transform.position = spawnPoints[1].transform.position;
-                break;
-            case "Player 3":
-                transform.position = spawnPoints[2].transform.position;
-                break;
-            case "Player 4":
-                transform.position = spawnPoints[3].transform.position;
-                break;
-        }
+        transform.position = spawnPoints[playerID].transform.position;
     }
 }

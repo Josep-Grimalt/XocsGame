@@ -247,7 +247,5 @@ public class PlayerInputController : MonoBehaviour
                 }
                 break;
         }
-        
-        Debug.Log(color);
     }
 }
