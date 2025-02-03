@@ -7,17 +7,17 @@ public class JoiningPlayerManager : MonoBehaviour
 {
     [SerializeField] private float life = 3;
     
-    private TextMeshPro textMesh;
+    private TextMeshProUGUI textMesh;
     
     private void Awake()
     {
         PlayerMovementController movementController = GetComponent<PlayerMovementController>();
         int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
-        textMesh = GameObject.Find(gameObject.name + " Life").GetComponent<TextMeshPro>();
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             movementController.enabled = false;
+            
             switch (playerCount)
             {
                 case 1:
@@ -39,6 +39,7 @@ public class JoiningPlayerManager : MonoBehaviour
         else
         {
             movementController.enabled = true;
+            
             switch (playerCount)
             {
                 case 1:
@@ -53,6 +54,11 @@ public class JoiningPlayerManager : MonoBehaviour
                 case 4:
                     transform.position = new(19, 0, -19);
                     break;
+            }
+            
+            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI ugui))
+            {
+                textMesh = GameObject.Find(gameObject.name + " Life").GetComponent<TextMeshProUGUI>();
             }
         }
 
