@@ -18,6 +18,20 @@ public class CollisionManager : MonoBehaviour
         }
     }
 
+    public void HandleChangablePosition(GameObject go)
+    {
+        string collisionKey = go.name;
+
+        if(recentCollisions.Contains(collisionKey)) return;
+
+        recentCollisions.Add(collisionKey);
+
+        go.transform.position = Vector3.zero;
+
+        StartCoroutine(RemoveCollisionKey(collisionKey, delay));
+
+    }
+
     public void HandlePlayerCollision(GameObject p1, GameObject p2, Vector3 collisionPoint, PlayerCollisionController.Element e1, PlayerCollisionController.Element e2)
     {
         string collisionKey = "${p1.GetInstanceID()}-{p2.GetInstanceID()}";
@@ -34,8 +48,7 @@ public class CollisionManager : MonoBehaviour
         rb1.AddForce(-collisionDir * repulsionforce, ForceMode.Impulse);
         rb2.AddForce(collisionDir * repulsionforce, ForceMode.Impulse);
 
-        PlayerCollisionController.Element element = PlayerCollisionController.Element.Neutral;
-
+        PlayerCollisionController.Element element;
         if (e1 == e2)
         {
             element = PlayerCollisionController.Element.Neutral;

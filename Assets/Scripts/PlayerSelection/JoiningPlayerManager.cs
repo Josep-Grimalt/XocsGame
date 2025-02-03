@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,21 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class JoiningPlayerManager : MonoBehaviour
 {
-    [SerializeField] private float life = 3;
-    [SerializeField] private Vector3[] _spawnPoints =
+    [SerializeField] private float life = 3, delay = 2f;
+    [SerializeField] private Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
         new(-1, 0, -0.9f),
         new(1, 0, -0.9f),
         new(3, 0, -0.9f)
     };
-    [SerializeField] private List<GameObject> spawnPoints;
-    
+    [SerializeField] private Vector3[] gameSpawnPoints =
+    {
+        new (-19, 0, 19),
+        new (19, 0, 19),
+        new (-19, 0, -19),
+        new (19, 0, -19)
+    };
+
     private TextMeshProUGUI textMesh;
     private PlayerMovementController movementController;
-    private bool changedScene = true;
     private int playerID;
-    
+
     private void Awake()
     {
         movementController = GetComponent<PlayerMovementController>();
@@ -29,41 +34,70 @@ public class JoiningPlayerManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             movementController.enabled = false;
-            
-            transform.position = _spawnPoints[playerID];
+
+            transform.position = selectionSpawnPoints[playerID];
 
             DontDestroyOnLoad(this);
         }
-        
-        gameObject.name = "Player " + playerID + 1;
-    }
 
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().buildIndex > 1 && changedScene)
+        //editor only
+        if(SceneManager.GetActiveScene().buildIndex > 1)
         {
-            changedScene = false;
-            
-            movementController.enabled = true;
-            
-            transform.position = spawnPoints[playerID].transform.position;
-            
+            transform.position = gameSpawnPoints[playerID];
+
             if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
             {
                 textMesh = ugui;
+                textMesh.SetText(gameObject.name + ": " + life);
             }
-        }
+        } 
 
-        if (SceneManager.GetActiveScene().buildIndex > 1 && textMesh != null)
+        gameObject.name = "Player " + (playerID + 1);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += ChangeSpawnPoint;
+    }
+
+    private void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
+    {
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            textMesh.SetText(gameObject.name + ": " + life);
+            movementController.enabled = true;
+
+            transform.position = gameSpawnPoints[playerID];
+
+            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
+            {
+                textMesh = ugui;
+                textMesh.SetText(gameObject.name + ": " + life);
+            }
         }
     }
 
     public void LoseLife()
     {
         life -= 1;
-            
-        transform.position = spawnPoints[playerID].transform.position;
+
+        gameSpawnPoints[playerID] = new (Random.Range(-9, 9), 1, Random.Range(-9, 9));
+
+        
+        transform.position = gameSpawnPoints[playerID];
+        // StartCoroutine(Spawn(delay));
+        // gameObject.SetActive(false);
+       
+        if (textMesh)
+        {
+            textMesh.SetText(gameObject.name + ": " + life);
+        }
+    }
+
+    private IEnumerator Spawn(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        transform.position = gameSpawnPoints[playerID];
+        gameObject.SetActive(true);
     }
 }

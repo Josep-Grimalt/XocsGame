@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.InputSystem.Android;
 using UnityEngine.UIElements;
 
 public class PlayerMovementController : MonoBehaviour
@@ -49,7 +50,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (transform.position.y <= -5)
         {
-            Destroy(gameObject);
+            GetComponent<JoiningPlayerManager>().LoseLife();
         }
     }
 
