@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,27 +27,6 @@ public class PlayerCollisionController : MonoBehaviour
         if (element == Element.Neutral)
         {
             armor.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-
-        if(other.gameObject.CompareTag("Element Changer"))
-        {
-            element = (Element) Random.Range(0, 3);
-
-            switch (element)
-            {
-                case Element.Fire:
-                    armor.GetComponent<Renderer>().material.color = Color.red;
-                    break;
-                case Element.Water:
-                    armor.GetComponent<Renderer>().material.color = Color.blue;
-                    break;
-                case Element.Wind:
-                    armor.GetComponent<Renderer>().material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1);
-                    break;
-                case Element.Earth:
-                    armor.GetComponent<Renderer>().material.color = new Color(0.2169811f, 0.1221835f, 0, 1);
-                    break;
-            }
         }
 
         if(other.gameObject.CompareTag("Fire"))
@@ -93,6 +73,30 @@ public class PlayerCollisionController : MonoBehaviour
         {
             PoolManager.ReturnObjectToPool(other.gameObject);
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Element Changer"))
+        {
+            element = (Element) Random.Range(0, 3);
+
+            switch (element)
+            {
+                case Element.Fire:
+                    armor.GetComponent<Renderer>().material.color = Color.red;
+                    break;
+                case Element.Water:
+                    armor.GetComponent<Renderer>().material.color = Color.blue;
+                    break;
+                case Element.Wind:
+                    armor.GetComponent<Renderer>().material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1);
+                    break;
+                case Element.Earth:
+                    armor.GetComponent<Renderer>().material.color = new Color(0.2169811f, 0.1221835f, 0, 1);
+                    break;
+            }
         }
     }
 
