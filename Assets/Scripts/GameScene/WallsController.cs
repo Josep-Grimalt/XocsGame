@@ -23,7 +23,6 @@ public class WallsController : MonoBehaviour
         {
             moving = false;
 
-            // transform.Translate(transform.forward * (speed * Time.deltaTime));
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
     }
