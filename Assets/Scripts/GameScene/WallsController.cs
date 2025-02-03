@@ -19,16 +19,12 @@ public class WallsController : MonoBehaviour
             moving = true;
         }
 
-        if (moving)
+        if (moving && Vector3.Distance(transform.position, target.position) > 5)
         {
             moving = false;
 
-            transform.Translate(transform.forward * (speed * Time.deltaTime));
-
-            if(Vector3.Distance(transform.localPosition, target.position) > 1)
-            {
-                moving = true;
-            }
+            // transform.Translate(transform.forward * (speed * Time.deltaTime));
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
     }
 }

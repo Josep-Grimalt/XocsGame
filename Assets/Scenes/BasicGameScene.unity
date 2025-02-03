@@ -5349,7 +5349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1943275391}
   delay: 3
-  speed: 10
+  speed: 0.25
 --- !u!1 &932302463
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,7 +7734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1943275391}
   delay: 3
-  speed: 10
+  speed: 0.25
 --- !u!1 &1636750998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7967,7 +7967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1943275391}
   delay: 3
-  speed: 10
+  speed: 0.25
 --- !u!1 &1642507554
 GameObject:
   m_ObjectHideFlags: 0
@@ -9494,7 +9494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1943275391}
   delay: 3
-  speed: 10
+  speed: 0.25
 --- !u!1 &2056725287
 GameObject:
   m_ObjectHideFlags: 0
