@@ -5,23 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour
 {
+    [SerializeField] private PlayerInput inputActions;
+    [SerializeField] private List<GameObject> colors;
+    
     private PlayerMovementController movementController;
 
     private InputAction moveAction;
     private InputAction selectColorAction;
-    private List<GameObject> colors;
     private int color = 1;
-    [SerializeField] private PlayerInput inputActions;
-    [SerializeField] private GameObject parentColors;
 
     private void Awake() {
         movementController = GetComponent<PlayerMovementController>();
-        colors = new List<GameObject>();
-
-        foreach (Transform child in parentColors.transform)
-        {
-            colors.Add(child.gameObject);
-        }
 
         moveAction = inputActions.actions.FindAction("Move");
         selectColorAction = inputActions.actions.FindAction("SelectColor");
@@ -61,8 +55,6 @@ public class PlayerInputController : MonoBehaviour
 
     private void SelectColor(InputAction.CallbackContext context)
     {
-        Debug.Log(color);
-
         if (context.ReadValue<float>() == 1)
         {
             if (color == 12)
@@ -255,5 +247,7 @@ public class PlayerInputController : MonoBehaviour
                 }
                 break;
         }
+        
+        Debug.Log(color);
     }
 }

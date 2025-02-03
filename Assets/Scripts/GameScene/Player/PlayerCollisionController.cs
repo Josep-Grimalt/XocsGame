@@ -35,7 +35,7 @@ public class PlayerCollisionController : MonoBehaviour
             
             if (element != Element.Fire)
             {
-                Destroy(gameObject);
+                GetComponent<JoiningPlayerManager>().LoseLife();
             }
         }
 
@@ -45,7 +45,7 @@ public class PlayerCollisionController : MonoBehaviour
             
             if (element != Element.Water)
             {
-                Destroy(gameObject);
+                GetComponent<JoiningPlayerManager>().LoseLife();
             }
         }
 
@@ -55,7 +55,7 @@ public class PlayerCollisionController : MonoBehaviour
             
             if (element != Element.Wind)
             {
-                Destroy(gameObject);
+                GetComponent<JoiningPlayerManager>().LoseLife();
             }
         }
 
@@ -65,14 +65,14 @@ public class PlayerCollisionController : MonoBehaviour
             
             if (element != Element.Earth)
             {
-                Destroy(gameObject);
+                GetComponent<JoiningPlayerManager>().LoseLife();
             }
         }
 
         if(other.gameObject.CompareTag("Neutral"))
         {
             PoolManager.ReturnObjectToPool(other.gameObject);
-            Destroy(gameObject);
+            GetComponent<JoiningPlayerManager>().LoseLife();
         }
     }
 

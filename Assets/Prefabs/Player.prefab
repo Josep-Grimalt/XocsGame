@@ -158,6 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434138c8093281c419743be583367650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
+  spawnPoints:
+  - {fileID: 7398153024866920844, guid: a33761bd4f605cd4699c63b484c9f832, type: 3}
+  - {fileID: 7861654380796192387, guid: 5a2c9595e27ab444486f9938d55123d1, type: 3}
+  - {fileID: 646697795394570396, guid: 23eacc50e81d83b4988a19ee81c46e10, type: 3}
+  - {fileID: 2610148198047953711, guid: 8b3c5cb13fcd43a4c98f669b7c303ed0, type: 3}
 --- !u!114 &-5471660463463307541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +177,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActions: {fileID: 2109904398091125767}
-  parentColors: {fileID: 2120279470421848814}
+  colors:
+  - {fileID: 8328381122839692935}
+  - {fileID: 3528256286156232103}
+  - {fileID: 1484701206104241797}
+  - {fileID: 4001679902693168727}
+  - {fileID: 3856299100959534836}
+  - {fileID: 4661066101198829159}
+  - {fileID: 3705246422307066143}
+  - {fileID: 5785599855070279692}
+  - {fileID: 851366603964364948}
+  - {fileID: 768180143373856973}
+  - {fileID: 5999181237596489450}
+  - {fileID: 653366963969035831}
 --- !u!114 &-3431701994890481651
 MonoBehaviour:
   m_ObjectHideFlags: 0

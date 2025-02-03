@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,13 +7,17 @@ using UnityEngine.SceneManagement;
 public class JoiningPlayerManager : MonoBehaviour
 {
     [SerializeField] private float life = 3;
+    [SerializeField] private List<GameObject> spawnPoints;
     
     private TextMeshProUGUI textMesh;
+    private PlayerMovementController movementController;
+    private int playerCount;
+    private bool changedScene = true;
     
     private void Awake()
     {
-        PlayerMovementController movementController = GetComponent<PlayerMovementController>();
-        int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
+        movementController = GetComponent<PlayerMovementController>();
+        playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
@@ -36,31 +41,6 @@ public class JoiningPlayerManager : MonoBehaviour
 
             DontDestroyOnLoad(this);
         }
-        else
-        {
-            movementController.enabled = true;
-            
-            switch (playerCount)
-            {
-                case 1:
-                    transform.position = new(-19, 0, 19);
-                    break;
-                case 2:
-                    transform.position = new(19, 0, 19);
-                    break;
-                case 3:
-                    transform.position = new(-19, 0, -19);
-                    break;
-                case 4:
-                    transform.position = new(19, 0, -19);
-                    break;
-            }
-            
-            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI ugui))
-            {
-                textMesh = ugui;
-            }
-        }
 
         if (gameObject.name == "Player")
         {
@@ -74,6 +54,58 @@ public class JoiningPlayerManager : MonoBehaviour
 
     private void Update()
     {
-        throw new NotImplementedException();
+        if (SceneManager.GetActiveScene().buildIndex > 1 && changedScene)
+        {
+            changedScene = false;
+            
+            movementController.enabled = true;
+            
+            switch (gameObject.name)
+            {
+                case "Player 1":
+                    transform.position = spawnPoints[0].transform.position;
+                    break;
+                case "Player 2":
+                    transform.position = spawnPoints[1].transform.position;
+                    break;
+                case "Player 3":
+                    transform.position = spawnPoints[2].transform.position;
+                    break;
+                case "Player 4":
+                    transform.position = spawnPoints[3].transform.position;
+                    break;
+            }
+            
+            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI ugui))
+            {
+                textMesh = ugui;
+            }
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex > 1 && textMesh != null)
+        {
+            textMesh.SetText(gameObject.name + ": " + life);
+        }
+    }
+
+    public void LoseLife()
+    {
+        life -= 1;
+            
+        switch (gameObject.name)
+        {
+            case "Player 1":
+                transform.position = spawnPoints[0].transform.position;
+                break;
+            case "Player 2":
+                transform.position = spawnPoints[1].transform.position;
+                break;
+            case "Player 3":
+                transform.position = spawnPoints[2].transform.position;
+                break;
+            case "Player 4":
+                transform.position = spawnPoints[3].transform.position;
+                break;
+        }
     }
 }
