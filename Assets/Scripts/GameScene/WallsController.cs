@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WallsController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> walls;
     [SerializeField] private Transform target;
     [SerializeField] private float delay, speed;
 
@@ -15,7 +14,7 @@ public class WallsController : MonoBehaviour
     {
         time += Time.deltaTime;
         
-        if (delay == time)
+        if (delay <= time)
         {
             moving = true;
         }
@@ -26,7 +25,7 @@ public class WallsController : MonoBehaviour
 
             transform.Translate(transform.forward * (speed * Time.deltaTime));
 
-            if(Vector3.Distance(transform.position, target.position) > 1)
+            if(Vector3.Distance(transform.localPosition, target.position) > 1)
             {
                 moving = true;
             }

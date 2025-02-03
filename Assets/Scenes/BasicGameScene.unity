@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 134428534}
   - component: {fileID: 134428533}
   m_Layer: 5
-  m_Name: Player 1
+  m_Name: Player 1 Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 167622672}
   - component: {fileID: 167622671}
   m_Layer: 5
-  m_Name: Player 2
+  m_Name: Player 2 Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3728,7 +3728,7 @@ GameObject:
   - component: {fileID: 625229765}
   - component: {fileID: 625229764}
   m_Layer: 5
-  m_Name: Player 3
+  m_Name: Player 3 Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4993,7 +4993,7 @@ GameObject:
   - component: {fileID: 791348137}
   - component: {fileID: 791348136}
   m_Layer: 5
-  m_Name: Player 4
+  m_Name: Player 4 Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5239,7 +5239,7 @@ GameObject:
   - component: {fileID: 847184536}
   - component: {fileID: 847184535}
   - component: {fileID: 847184538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5274,11 +5274,11 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5347,10 +5347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls: []
   target: {fileID: 1943275391}
   delay: 3
-  speed: 1
+  speed: 10
 --- !u!1 &932302463
 GameObject:
   m_ObjectHideFlags: 0
@@ -7625,7 +7624,7 @@ GameObject:
   - component: {fileID: 1631786551}
   - component: {fileID: 1631786550}
   - component: {fileID: 1631786553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7660,11 +7659,11 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -7733,10 +7732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls: []
   target: {fileID: 1943275391}
   delay: 3
-  speed: 1
+  speed: 10
 --- !u!1 &1636750998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7859,7 +7857,7 @@ GameObject:
   - component: {fileID: 1642431539}
   - component: {fileID: 1642431538}
   - component: {fileID: 1642431541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7894,11 +7892,11 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -7967,10 +7965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls: []
   target: {fileID: 1943275391}
   delay: 3
-  speed: 1
+  speed: 10
 --- !u!1 &1642507554
 GameObject:
   m_ObjectHideFlags: 0
@@ -8912,8 +8909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943275391}
-  - component: {fileID: 1943275392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8939,26 +8935,6 @@ Transform:
   - {fileID: 1642431537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1943275392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943275390}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walls:
-  - {fileID: 847184533}
-  - {fileID: 1631786548}
-  - {fileID: 2044776843}
-  - {fileID: 1642431536}
-  target: {fileID: 1943275391}
-  delay: 15
-  speed: 1
 --- !u!1 &1951557636
 GameObject:
   m_ObjectHideFlags: 0
@@ -9408,7 +9384,7 @@ GameObject:
   - component: {fileID: 2044776846}
   - component: {fileID: 2044776845}
   - component: {fileID: 2044776848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9443,11 +9419,11 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -9516,10 +9492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e298757fe2e0c07498dd20b55032573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls: []
   target: {fileID: 1943275391}
   delay: 3
-  speed: 1
+  speed: 10
 --- !u!1 &2056725287
 GameObject:
   m_ObjectHideFlags: 0
