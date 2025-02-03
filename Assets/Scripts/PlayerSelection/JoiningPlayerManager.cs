@@ -48,7 +48,7 @@ public class JoiningPlayerManager : MonoBehaviour
             
             transform.position = spawnPoints[playerID].transform.position;
             
-            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI ugui))
+            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
             {
                 textMesh = ugui;
             }
