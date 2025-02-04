@@ -84,10 +84,15 @@ public class JoiningPlayerManager : MonoBehaviour
 
         
         transform.position = gameSpawnPoints[playerID];
-       
+
         if (textMesh)
         {
             textMesh.SetText(gameObject.name + ": " + life);
+        }
+
+        if (life == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
