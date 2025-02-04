@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PositionChanger : MonoBehaviour
+public class ChangerPositionController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
