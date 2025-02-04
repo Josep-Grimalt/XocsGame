@@ -90,7 +90,7 @@ public class JoiningPlayerManager : MonoBehaviour
             textMesh.SetText(gameObject.name + ": " + life);
         }
 
-        if (life == 0)
+        if (life <= 0)
         {
             Destroy(gameObject);
         }
