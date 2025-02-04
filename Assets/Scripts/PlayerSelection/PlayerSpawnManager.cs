@@ -33,6 +33,17 @@ public class PlayerSpawnManager : MonoBehaviour
             movementController.enabled = false;
 
             transform.position = selectionSpawnPoints[playerID];
+            
+            GameObject parent = GameObject.Find("Canvas");
+            if (parent != null)
+            {
+                Transform panel = parent.transform.Find("Panel " + (playerID + 1));
+                if (panel != null)
+                {
+                    panel.gameObject.SetActive(true);
+                }
+            }
+
 
             DontDestroyOnLoad(this);
         }
