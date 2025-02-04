@@ -28,6 +28,7 @@ public class CollisionManager : MonoBehaviour
 
         recentCollisions.Add(collisionKey);
 
+        go.SetActive(true);
         go.transform.position = Vector3.zero;
 
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
