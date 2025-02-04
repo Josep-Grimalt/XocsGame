@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,7 @@ public class PlayerCollisionController : MonoBehaviour
 
     [SerializeField] private Element element = Element.Neutral;
     [SerializeField] private GameObject armor;
+    [SerializeField] private float delay = 5;
     
     private void OnCollisionEnter(Collision other)
     {
@@ -29,50 +31,9 @@ public class PlayerCollisionController : MonoBehaviour
             armor.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
-        if(other.gameObject.CompareTag("Fire"))
+        if(other.gameObject.layer == 3)
         {
-            PoolManager.ReturnObjectToPool(other.gameObject);
-            
-            if (element != Element.Fire)
-            {
-                GetComponent<JoiningPlayerManager>().LoseLife();
-            }
-        }
-
-        if(other.gameObject.CompareTag("Water"))
-        {
-            PoolManager.ReturnObjectToPool(other.gameObject);
-            
-            if (element != Element.Water)
-            {
-                GetComponent<JoiningPlayerManager>().LoseLife();
-            }
-        }
-
-        if(other.gameObject.CompareTag("Wind"))
-        {
-            PoolManager.ReturnObjectToPool(other.gameObject);
-            
-            if (element != Element.Wind)
-            {
-                GetComponent<JoiningPlayerManager>().LoseLife();
-            }
-        }
-
-        if(other.gameObject.CompareTag("Earth"))
-        {
-            PoolManager.ReturnObjectToPool(other.gameObject);
-            
-            if (element != Element.Earth)
-            {
-                GetComponent<JoiningPlayerManager>().LoseLife();
-            }
-        }
-
-        if(other.gameObject.CompareTag("Neutral"))
-        {
-            PoolManager.ReturnObjectToPool(other.gameObject);
-            GetComponent<JoiningPlayerManager>().LoseLife();
+            CollisionManager.Instance.HandleOrbCollision(gameObject, other.gameObject, element);
         }
     }
 
@@ -97,11 +58,22 @@ public class PlayerCollisionController : MonoBehaviour
                     armor.GetComponent<Renderer>().material.color = new Color(0.2169811f, 0.1221835f, 0, 1);
                     break;
             }
+
+            StartCoroutine(ChangerDisable(other.gameObject, delay));
         }
     }
 
     public Element GetElement()
     {
         return element;
+    }
+
+    private IEnumerator ChangerDisable(GameObject changer, float delay)
+    {
+        changer.SetActive(false);
+
+        yield return new WaitForSeconds(delay);
+
+        changer.SetActive(true);
     }
 }

@@ -1,18 +1,21 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Gradle;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] private float repulsionforce = 25;
     [SerializeField] private List<GameObject> orb;
-    [SerializeField] private float delay = 0.18f;
+    [SerializeField] private float delay = 0.18f, respawnDelay = 3;
 
     private HashSet<string> recentCollisions = new HashSet<string>();
 
     public static CollisionManager Instance { get; private set; }
 
-    private void Awake() {
-        if(!Instance)
+    private void Awake()
+    {
+        if (!Instance)
         {
             Instance = this;
         }
@@ -22,7 +25,7 @@ public class CollisionManager : MonoBehaviour
     {
         string collisionKey = go.name;
 
-        if(recentCollisions.Contains(collisionKey)) return;
+        if (recentCollisions.Contains(collisionKey)) return;
 
         recentCollisions.Add(collisionKey);
 
@@ -36,7 +39,7 @@ public class CollisionManager : MonoBehaviour
     {
         string collisionKey = "${p1.GetInstanceID()}-{p2.GetInstanceID()}";
 
-        if(recentCollisions.Contains(collisionKey)) return;
+        if (recentCollisions.Contains(collisionKey)) return;
 
         recentCollisions.Add(collisionKey);
 
@@ -85,7 +88,61 @@ public class CollisionManager : MonoBehaviour
             }
         }
 
-        StartCoroutine(SpawnOrb(orb[(int) element], collisionPoint, delay));
+        StartCoroutine(SpawnOrb(orb[(int)element], collisionPoint, delay));
+        StartCoroutine(RemoveCollisionKey(collisionKey, delay));
+    }
+
+    public void HandleOrbCollision(GameObject player, GameObject orb, PlayerCollisionController.Element element)
+    {
+        string collisionKey = "${player.name}-${orb.name}";
+
+        if (recentCollisions.Contains(collisionKey)) return;
+
+        recentCollisions.Add(collisionKey);
+
+        if (orb.CompareTag("Fire"))
+        {
+            if (element != PlayerCollisionController.Element.Fire)
+            {
+                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                StartCoroutine(RespawnPlayer(player, respawnDelay));
+            }
+        }
+
+        if (orb.CompareTag("Water"))
+        {
+            if (element != PlayerCollisionController.Element.Water)
+            {
+                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                StartCoroutine(RespawnPlayer(player, respawnDelay));
+            }
+        }
+
+        if (orb.CompareTag("Wind"))
+        {
+            if (element != PlayerCollisionController.Element.Wind)
+            {
+                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                StartCoroutine(RespawnPlayer(player, respawnDelay));
+            }
+        }
+
+        if (orb.CompareTag("Earth"))
+        {
+            if (element != PlayerCollisionController.Element.Earth)
+            {
+                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                StartCoroutine(RespawnPlayer(player, respawnDelay));
+            }
+        }
+
+        if (orb.CompareTag("Neutral"))
+        {
+            player.GetComponent<JoiningPlayerManager>().LoseLife();
+            StartCoroutine(RespawnPlayer(player, respawnDelay));
+        }
+
+        PoolManager.ReturnObjectToPool(orb);
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
     }
 
@@ -103,4 +160,12 @@ public class CollisionManager : MonoBehaviour
         recentCollisions.Remove(collisionKey);
     }
 
+    private IEnumerator RespawnPlayer(GameObject player, float delay)
+    {
+        player.SetActive(false);
+
+        yield return new WaitForSeconds(delay);
+
+        player.SetActive(true);
+    }
 }

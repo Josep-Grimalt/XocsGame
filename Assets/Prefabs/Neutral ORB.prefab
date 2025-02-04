@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 631520096253402756}
   - component: {fileID: 1472508129772970030}
   - component: {fileID: 3983709383582794368}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200501730848360931}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6212101365528014323}
   - component: {fileID: 9213257289094857593}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Neutral ORB
   m_TagString: Neutral
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6780535987545041207}
   - component: {fileID: 5278418026979092039}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire ORB
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6483747478422850012}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2828333044699551926}
   - component: {fileID: 1545691180216143957}
   - component: {fileID: 4924275527109771220}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

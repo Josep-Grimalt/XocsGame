@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8331498013010253505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1887920418299219783}
   - component: {fileID: 8035148175445888048}
   - component: {fileID: 596884186502049272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3227181604045709205}
   - component: {fileID: 6958780781398153238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wind ORB
   m_TagString: Wind
   m_Icon: {fileID: 0}

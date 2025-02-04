@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8008883746819550833}
   - component: {fileID: 3592661389541427158}
   - component: {fileID: 336148547228691472}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4376583335375466758}
   - component: {fileID: 765454275623143369}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth ORB
   m_TagString: Earth
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7723812315335753920}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

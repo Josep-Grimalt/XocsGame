@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject.Find("Floor").SetActive(!fallingPlatform);
         GameObject.Find("Walls").SetActive(walls);
         if (fallingPlatform)
         {
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
 
             int fallingPlat = UnityEngine.Random.Range(0, platforms.Count);
 
-            Destroy(platforms[fallingPlat].gameObject);
+            Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
         }
     }

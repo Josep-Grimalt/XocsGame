@@ -4,7 +4,6 @@ public class PositionChanger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-
         Debug.Log("collision");
 
         if(other.name.Contains("Wall"))

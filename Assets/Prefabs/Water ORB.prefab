@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8796012698693108962}
   - component: {fileID: 1238636831337734242}
   - component: {fileID: 5100456891932713002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7776334037352546896}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3393576143764947372}
   - component: {fileID: 6174118175284622253}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water ORB
   m_TagString: Water
   m_Icon: {fileID: 0}

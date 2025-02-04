@@ -40,6 +40,8 @@ public class JoiningPlayerManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
+        gameObject.name = "Player " + (playerID + 1);
+
         //editor only
         if(SceneManager.GetActiveScene().buildIndex > 1)
         {
@@ -50,9 +52,7 @@ public class JoiningPlayerManager : MonoBehaviour
                 textMesh = ugui;
                 textMesh.SetText(gameObject.name + ": " + life);
             }
-        } 
-
-        gameObject.name = "Player " + (playerID + 1);
+        }
     }
 
     private void OnEnable()
@@ -84,20 +84,10 @@ public class JoiningPlayerManager : MonoBehaviour
 
         
         transform.position = gameSpawnPoints[playerID];
-        // StartCoroutine(Spawn(delay));
-        // gameObject.SetActive(false);
        
         if (textMesh)
         {
             textMesh.SetText(gameObject.name + ": " + life);
         }
-    }
-
-    private IEnumerator Spawn(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        transform.position = gameSpawnPoints[playerID];
-        gameObject.SetActive(true);
     }
 }
