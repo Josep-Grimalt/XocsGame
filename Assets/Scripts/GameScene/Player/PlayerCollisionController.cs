@@ -1,10 +1,13 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PlayerCollisionController : MonoBehaviour
 {
+    [SerializeField] private Element element = Element.Neutral;
+    [SerializeField] private GameObject armor;
+    [SerializeField] private float delay = 5;
+    
     public enum Element
     {
         Fire,
@@ -13,10 +16,6 @@ public class PlayerCollisionController : MonoBehaviour
         Earth,
         Neutral
     }
-
-    [SerializeField] private Element element = Element.Neutral;
-    [SerializeField] private GameObject armor;
-    [SerializeField] private float delay = 5;
     
     private void OnCollisionEnter(Collision other)
     {

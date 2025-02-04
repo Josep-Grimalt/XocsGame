@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
@@ -104,7 +103,7 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Fire)
             {
-                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
@@ -113,7 +112,7 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Water)
             {
-                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
@@ -122,7 +121,7 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Wind)
             {
-                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
@@ -131,14 +130,14 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Earth)
             {
-                player.GetComponent<JoiningPlayerManager>().LoseLife();
+                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
 
         if (orb.CompareTag("Neutral"))
         {
-            player.GetComponent<JoiningPlayerManager>().LoseLife();
+            player.GetComponent<PlayerLifeManager>().LoseLife();
             StartCoroutine(RespawnPlayer(player, respawnDelay));
         }
 
@@ -146,14 +145,14 @@ public class CollisionManager : MonoBehaviour
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
     }
 
-    private System.Collections.IEnumerator SpawnOrb(GameObject orb, Vector3 direction, float delay)
+    private IEnumerator SpawnOrb(GameObject orb, Vector3 direction, float delay)
     {
         yield return new WaitForSeconds(delay);
 
         PoolManager.SpawnObject(orb, direction + Vector3.down * 1.5f, Quaternion.identity);
     }
 
-    private System.Collections.IEnumerator RemoveCollisionKey(string collisionKey, float delay)
+    private IEnumerator RemoveCollisionKey(string collisionKey, float delay)
     {
         yield return new WaitForSeconds(delay);
 

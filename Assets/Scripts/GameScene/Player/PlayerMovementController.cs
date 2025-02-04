@@ -1,11 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.InputSystem.Android;
-using UnityEngine.UIElements;
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -50,15 +44,15 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (transform.position.y <= -5)
         {
-            GetComponent<JoiningPlayerManager>().LoseLife();
+            GetComponent<PlayerLifeManager>().LoseLife();
         }
     }
 
-    private void Rotate(Vector3 movementDirection)
+    private void Rotate(Vector3 direction)
     {
-        if(movementDirection == Vector3.zero) return;
+        if(direction == Vector3.zero) return;
 
-        float angle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }

@@ -1,12 +1,10 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class JoiningPlayerManager : MonoBehaviour
+public class PlayerSpawnManager : MonoBehaviour
 {
-    [SerializeField] private float life = 3, delay = 2f;
     [SerializeField] private Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
@@ -22,7 +20,6 @@ public class JoiningPlayerManager : MonoBehaviour
         new (19, 0, -19)
     };
 
-    private TextMeshProUGUI textMesh;
     private PlayerMovementController movementController;
     private int playerID;
 
@@ -41,18 +38,6 @@ public class JoiningPlayerManager : MonoBehaviour
         }
 
         gameObject.name = "Player " + (playerID + 1);
-
-        //editor only
-        if(SceneManager.GetActiveScene().buildIndex > 1)
-        {
-            transform.position = gameSpawnPoints[playerID];
-
-            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
-            {
-                textMesh = ugui;
-                textMesh.SetText(gameObject.name + ": " + life);
-            }
-        }
     }
 
     private void OnEnable()
@@ -67,32 +52,6 @@ public class JoiningPlayerManager : MonoBehaviour
             movementController.enabled = true;
 
             transform.position = gameSpawnPoints[playerID];
-
-            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
-            {
-                textMesh = ugui;
-                textMesh.SetText(gameObject.name + ": " + life);
-            }
-        }
-    }
-
-    public void LoseLife()
-    {
-        life -= 1;
-
-        gameSpawnPoints[playerID] = new (Random.Range(-9, 9), 1, Random.Range(-9, 9));
-
-        
-        transform.position = gameSpawnPoints[playerID];
-
-        if (textMesh)
-        {
-            textMesh.SetText(gameObject.name + ": " + life);
-        }
-
-        if (life <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 }
