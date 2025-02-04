@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] private float repulsionforce = 25;
     [SerializeField] private List<GameObject> orb;
     [SerializeField] private float delay = 0.18f, respawnDelay = 3;
+    [SerializeField] private GameObject elementChanger;
 
     private HashSet<string> recentCollisions = new HashSet<string>();
 
@@ -28,8 +30,7 @@ public class CollisionManager : MonoBehaviour
 
         recentCollisions.Add(collisionKey);
 
-        go.SetActive(true);
-        go.transform.position = Vector3.zero;
+        Instantiate(elementChanger, Vector3.zero, Quaternion.identity);
 
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
 

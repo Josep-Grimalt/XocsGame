@@ -40,7 +40,7 @@ public class PlayerCollisionController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Element Changer"))
         {
-            element = (Element) Random.Range(0, 3);
+            element = (Element) Random.Range(0, 4);
 
             switch (element)
             {
@@ -58,7 +58,9 @@ public class PlayerCollisionController : MonoBehaviour
                     break;
             }
 
-            StartCoroutine(ChangerDisable(other.gameObject, delay));
+            BoxCollider collider = other.gameObject.GetComponent<BoxCollider>();
+
+            StartCoroutine(ChangerDisable(other.gameObject, delay, collider));
         }
     }
 
@@ -67,12 +69,14 @@ public class PlayerCollisionController : MonoBehaviour
         return element;
     }
 
-    private IEnumerator ChangerDisable(GameObject changer, float delay)
+    private IEnumerator ChangerDisable(GameObject changer, float delay, BoxCollider collider)
     {
-        changer.transform.GetChild(1).gameObject.SetActive(false);
+        changer.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        collider.enabled = false;
 
         yield return new WaitForSeconds(delay);
 
-        changer.transform.GetChild(1).gameObject.SetActive(true);
+        changer.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        collider.enabled = true;
     }
 }
