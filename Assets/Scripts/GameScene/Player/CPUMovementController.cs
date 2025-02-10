@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class CPUMovementController : PlayerMovementController
 {
@@ -16,6 +18,8 @@ public class CPUMovementController : PlayerMovementController
 
     private void Update()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 1) return;
+
         Fall();
         NearPlayer();
     }
