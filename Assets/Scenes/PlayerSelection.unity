@@ -407,7 +407,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 390973196}
         m_TargetAssemblyTypeName: SceneButtonManager, Assembly-CSharp
-        m_MethodName: StartButton
+        m_MethodName: StartGameReadyButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
