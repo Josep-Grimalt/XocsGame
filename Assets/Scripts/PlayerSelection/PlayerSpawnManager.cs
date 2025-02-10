@@ -7,22 +7,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3[] selectionSpawnPoints =
+    [SerializeField] private Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
         new(-1, 0, -0.9f),
         new(1, 0, -0.9f),
         new(3, 0, -0.9f)
     };
-    [SerializeField]
-    private Vector3[] gameSpawnPoints =
+    [SerializeField] private Vector3[] gameSpawnPoints =
     {
         new (-19, 0, 19),
         new (19, 0, 19),
         new (-19, 0, -19),
         new (19, 0, -19)
     };
+    [SerializeField] private bool isCPU = false;
 
     private Rigidbody rb;
     private int playerID;
@@ -51,13 +50,17 @@ public class PlayerSpawnManager : MonoBehaviour
 
             transform.position = selectionSpawnPoints[playerID];
 
-            GameObject parent = GameObject.Find("Canvas");
-            if (parent != null)
+            if (!isCPU)
             {
-                Transform panel = parent.transform.Find("Panel " + (playerID + 1));
-                if (panel != null)
+                GameObject parent = GameObject.Find("Canvas");
+
+                if (parent != null)
                 {
-                    panel.gameObject.SetActive(true);
+                    Transform panel = parent.transform.Find("Panel " + (playerID + 1));
+                    if (panel != null)
+                    {
+                        panel.gameObject.SetActive(true);
+                    }
                 }
             }
 

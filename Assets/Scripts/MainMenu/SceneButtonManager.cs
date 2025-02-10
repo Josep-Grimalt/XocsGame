@@ -8,13 +8,25 @@ public class SceneButtonManager : MonoBehaviour
     
     private void Awake()
     {
-        mainMenu = GameObject.Find("Main Menu");
-        optionsMenu = GameObject.Find("Options Menu");
-        optionsMenu.SetActive(false);
-        gallery = GameObject.Find("Gallery");
-        // gallery.SetActive(false);
-        matchOptionsMenu = GameObject.Find("Match Options Menu");
-        matchOptionsMenu.SetActive(false);
+        GameObject parent = GameObject.Find("Canvas");
+        
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            mainMenu = GameObject.Find("Main Menu");
+            
+            if (parent != null)
+            {
+                optionsMenu = parent.transform.Find("Options Menu").gameObject;
+                gallery = parent.transform.Find("Gallery").gameObject;
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (parent != null)
+            {
+                matchOptionsMenu = parent.transform.Find("Match Options Menu").gameObject;
+            }
+        }
     }
 
     public void StartButton()

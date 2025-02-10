@@ -100,15 +100,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionSpawnPoints:
-  - {x: -3, y: 0, z: -0.9}
-  - {x: -1, y: 0, z: -0.9}
-  - {x: 1, y: 0, z: -0.9}
-  - {x: 3, y: 0, z: -0.9}
+  - {x: -3, y: 0, z: 2.4}
+  - {x: -1, y: 0, z: 2.4}
+  - {x: 1, y: 0, z: 2.4}
+  - {x: 3, y: 0, z: 2.4}
   gameSpawnPoints:
   - {x: -19, y: 0, z: 19}
   - {x: 19, y: 0, z: 19}
   - {x: -19, y: 0, z: -19}
   - {x: 19, y: 0, z: -19}
+  isCPU: 1
 --- !u!114 &6850332954134511247
 MonoBehaviour:
   m_ObjectHideFlags: 0
