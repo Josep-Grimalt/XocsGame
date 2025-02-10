@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneButtonManager : MonoBehaviour
 {
-    private GameObject mainMenu, optionsMenu ,gallery, backButton, startButton, matchOptionsMenu;
+    private GameObject mainMenu, optionsMenu ,gallery, matchOptionsMenu;
     
     private void Awake()
     {
@@ -13,8 +13,6 @@ public class SceneButtonManager : MonoBehaviour
         optionsMenu.SetActive(false);
         gallery = GameObject.Find("Gallery");
         // gallery.SetActive(false);
-        backButton = GameObject.Find("BackButton");
-        startButton = GameObject.Find("StartButton");
         matchOptionsMenu = GameObject.Find("Match Options Menu");
         matchOptionsMenu.SetActive(false);
     }
