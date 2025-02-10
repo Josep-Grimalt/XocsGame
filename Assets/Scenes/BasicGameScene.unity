@@ -8045,6 +8045,7 @@ GameObject:
   - component: {fileID: 1759740465}
   - component: {fileID: 1759740466}
   - component: {fileID: 1759740467}
+  - component: {fileID: 1759740468}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -8097,8 +8098,23 @@ MonoBehaviour:
   obstacles:
   - {fileID: 3889702108813901627, guid: c1a1911a68994824eab9d55e2c0cea18, type: 3}
   delay: 5
-  minScale: 2
+  minScale: 1.5
   maxScale: 10
+--- !u!114 &1759740468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759740464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456a134f34118d246a72a9c13a9eb0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups:
+  - {fileID: 3422927197098013563, guid: ea754e747e3428742a1b2416c7fe667c, type: 3}
+  delay: 5
 --- !u!1 &1770275600
 GameObject:
   m_ObjectHideFlags: 0
