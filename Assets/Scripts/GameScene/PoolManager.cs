@@ -31,7 +31,7 @@ public class PoolManager : MonoBehaviour
         if (spawnableOject == null)
         {
             spawnableOject = Instantiate(prefabToSpawn, spawnPosition, spawnRotation);
-            
+
             spawnableOject.transform.SetParent(_objectPoolEmptyHolder.transform);
         }
         else
@@ -41,10 +41,10 @@ public class PoolManager : MonoBehaviour
             pool.InactiveObjects.Remove(spawnableOject);
             spawnableOject.SetActive(true);
         }
-        
+
         return spawnableOject;
     }
-    
+
     public static GameObject SpawnObject(GameObject prefabToSpawn, Transform parentTransform)
     {
         Pool pool = ObjectPools.Find(p => p.PoolName == prefabToSpawn.name);
@@ -68,27 +68,22 @@ public class PoolManager : MonoBehaviour
             pool.InactiveObjects.Remove(spawnableOject);
             spawnableOject.SetActive(true);
         }
-        
+
         return spawnableOject;
     }
 
     public static void ReturnObjectToPool(GameObject obj)
     {
-        String trueObjectName = obj.name.Substring(0, obj.name.Length - "(Clone)".Length);
+        string trueObjectName = obj.name[..^"(Clone)".Length];
         Pool pool = ObjectPools.Find(p => p.PoolName == trueObjectName);
 
-        if (pool == null)
-        {
-            
-        }
-        else
+        if (pool != null)
         {
             obj.SetActive(false);
             pool.InactiveObjects.Add(obj);
         }
     }
 }
-
 
 public class Pool
 {

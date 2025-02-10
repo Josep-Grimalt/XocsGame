@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerLifeManager : MonoBehaviour
 {
-    [SerializeField] private float life = 3;
+    [SerializeField] private int life = 3;
     [SerializeField] private Vector3[] gameSpawnPoints =
     {
         new (-19, 0, 19),
@@ -20,7 +20,14 @@ public class PlayerLifeManager : MonoBehaviour
     
     private void Awake()
     {
-        playerID = GetComponent<PlayerInput>().playerIndex;
+        if (TryGetComponent<PlayerInput>(out var input))
+        {
+            playerID = input.playerIndex;
+        }
+        else
+        {
+            //posar nombre a CPU
+        }
         
         if(SceneManager.GetActiveScene().buildIndex > 1)
         {
@@ -48,7 +55,11 @@ public class PlayerLifeManager : MonoBehaviour
         if (life <= 0)
         {
             textMesh.SetText(gameObject.name + ": 0");
-            Destroy(gameObject);
         }
+    }
+
+    public int GetLifes()
+    {
+        return life;
     }
 }

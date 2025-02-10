@@ -167,6 +167,9 @@ public class CollisionManager : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
-        player.SetActive(true);
+        if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
+            player.SetActive(true);
+        else
+            Destroy(player);
     }
 }

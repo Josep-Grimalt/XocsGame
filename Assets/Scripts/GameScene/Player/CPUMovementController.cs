@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CPUMovementController : MonoBehaviour
+public class CPUMovementController : PlayerMovementController
 {
     private NavMeshAgent agent;
     private List<GameObject> targets;
@@ -12,24 +12,39 @@ public class CPUMovementController : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        targets = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
-        targets.Remove(gameObject);
     }
 
     private void Update()
     {
+        Fall();
         NearPlayer();
-        agent.SetDestination(targets[actualTarget].transform.position);
     }
 
     private void NearPlayer()
     {
-        for(int i = 0; i < targets.Count; i++)
+        GetTargets();
+
+        if (targets.Count <= 0) return;
+
+        for (int i = 0; i < targets.Count; i++)
         {
-            if(Vector3.Distance(transform.position, targets[i].transform.position) < Vector3.Distance(transform.position, targets[actualTarget].transform.position))
+            if (Vector3.Distance(transform.position, targets[i].transform.position) < Vector3.Distance(transform.position, targets[actualTarget].transform.position))
             {
                 actualTarget = i;
             }
+        }
+
+        agent.SetDestination(targets[actualTarget].transform.position);
+    }
+
+    private void GetTargets()
+    {
+        targets = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
+        targets.Remove(gameObject);
+
+        if (actualTarget >= targets.Count)
+        {
+            actualTarget = 0;
         }
     }
 }

@@ -1,18 +1,21 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
-    [SerializeField] private Vector3[] selectionSpawnPoints =
+    [SerializeField]
+    private Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
         new(-1, 0, -0.9f),
         new(1, 0, -0.9f),
         new(3, 0, -0.9f)
     };
-    [SerializeField] private Vector3[] gameSpawnPoints =
+    [SerializeField]
+    private Vector3[] gameSpawnPoints =
     {
         new (-19, 0, 19),
         new (19, 0, 19),
@@ -25,15 +28,31 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        movementController = GetComponent<PlayerMovementController>();
-        playerID = GetComponent<PlayerInput>().playerIndex;
+        if (TryGetComponent<PlayerMovementController>(out var i))
+        {
+            movementController = i;
+        }
+        else
+        {
+            movementController = GetComponent<CPUMovementController>();
+        }
+
+        if (TryGetComponent<PlayerInput>(out var input))
+        {
+            playerID = input.playerIndex;
+            gameObject.name = "Player " + (playerID + 1);
+        }
+        else
+        {
+            playerID = int.Parse(name[^1..]) - 1;
+        }
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             movementController.enabled = false;
 
             transform.position = selectionSpawnPoints[playerID];
-            
+
             GameObject parent = GameObject.Find("Canvas");
             if (parent != null)
             {
@@ -44,11 +63,8 @@ public class PlayerSpawnManager : MonoBehaviour
                 }
             }
 
-
             DontDestroyOnLoad(this);
         }
-
-        gameObject.name = "Player " + (playerID + 1);
     }
 
     private void OnEnable()

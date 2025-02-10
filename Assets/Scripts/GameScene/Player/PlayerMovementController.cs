@@ -26,7 +26,7 @@ public class PlayerMovementController : MonoBehaviour
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         Vector3 movement = transform.forward * Math.Abs(movementDirection.z) + transform.forward * Math.Abs(movementDirection.x);
 
@@ -40,7 +40,7 @@ public class PlayerMovementController : MonoBehaviour
         movementDirection = new(direction.x, 0, direction.y);
     }
 
-    private void Fall()
+    protected void Fall()
     {
         if (transform.position.y <= -5)
         {
