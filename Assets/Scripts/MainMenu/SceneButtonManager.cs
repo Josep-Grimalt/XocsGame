@@ -4,15 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneButtonManager : MonoBehaviour
 {
-    private GameObject mainMenu;
-    private GameObject optionsMenu;
-    private GameObject gallery;
+    private GameObject mainMenu, optionsMenu ,gallery, backButton, startButton, matchOptionsMenu;
     
     private void Awake()
     {
         mainMenu = GameObject.Find("Main Menu");
         optionsMenu = GameObject.Find("Options Menu");
+        optionsMenu.SetActive(false);
         gallery = GameObject.Find("Gallery");
+        // gallery.SetActive(false);
+        backButton = GameObject.Find("BackButton");
+        startButton = GameObject.Find("StartButton");
+        matchOptionsMenu = GameObject.Find("Match Options Menu");
+        matchOptionsMenu.SetActive(false);
     }
 
     public void StartButton()
@@ -62,6 +66,8 @@ public class SceneButtonManager : MonoBehaviour
     
     public void StartGameReadyButton()
     {
-        SceneManager.LoadScene("BasicGameScene");
+        backButton.SetActive(false);
+        startButton.SetActive(false);
+        matchOptionsMenu.SetActive(true);
     }
 }
