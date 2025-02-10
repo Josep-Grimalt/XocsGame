@@ -5,7 +5,7 @@ public class ObstacleController : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private float delay;
-    [SerializeField] private int minScale, maxScale;
+    [SerializeField] private float minScale = 2.5f, maxScale = 10;
 
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class ObstacleController : MonoBehaviour
         {
             yield return new WaitForSeconds(delay);
 
-            go = Instantiate(obstacles[Random.Range(0, obstacles.Length)], new(Random.Range(-9f, 9f), 5, Random.Range(-9f, 9f)), Quaternion.identity);
+            go = Instantiate(obstacles[Random.Range(0, obstacles.Length)], new(Random.Range(-9f, 9f), 2.5f, Random.Range(-9f, 9f)), Quaternion.identity);
             go.transform.Rotate(new(0, Random.Range(0, 360), 0));
             if (Random.Range(0, 2) % 2 == 0)
             {

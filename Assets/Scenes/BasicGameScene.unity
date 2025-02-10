@@ -8097,8 +8097,8 @@ MonoBehaviour:
   obstacles:
   - {fileID: 3889702108813901627, guid: c1a1911a68994824eab9d55e2c0cea18, type: 3}
   delay: 5
-  minScale: 5
-  maxScale: 20
+  minScale: 2
+  maxScale: 10
 --- !u!1 &1770275600
 GameObject:
   m_ObjectHideFlags: 0
