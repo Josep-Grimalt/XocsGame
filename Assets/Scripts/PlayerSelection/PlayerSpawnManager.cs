@@ -67,14 +67,19 @@ public class PlayerSpawnManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
-        if(SceneManager.GetActiveScene().buildIndex > 1)
+        //EDITOR ONLY
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
             targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
 
-            if(targets)
+            if (targets)
             {
                 targets.AddMember(gameObject.transform, 0.5f, 1);
             }
+
+            transform.position = gameSpawnPoints[playerID];
+
+            rb.isKinematic = false;
         }
     }
 
@@ -87,9 +92,16 @@ public class PlayerSpawnManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            rb.isKinematic = false;
+            targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
+
+            if (targets)
+            {
+                targets.AddMember(gameObject.transform, 0.5f, 1);
+            }
 
             transform.position = gameSpawnPoints[playerID];
+
+            rb.isKinematic = false;
         }
     }
 }
