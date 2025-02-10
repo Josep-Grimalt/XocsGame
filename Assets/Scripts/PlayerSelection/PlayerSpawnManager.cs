@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -25,6 +26,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private Rigidbody rb;
     private int playerID;
+    private CinemachineTargetGroup targets;
 
     private void Awake()
     {
@@ -60,6 +62,16 @@ public class PlayerSpawnManager : MonoBehaviour
             }
 
             DontDestroyOnLoad(this);
+        }
+
+        if(SceneManager.GetActiveScene().buildIndex > 1)
+        {
+            targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
+
+            if(targets)
+            {
+                targets.AddMember(gameObject.transform, 0.5f, 1);
+            }
         }
     }
 
