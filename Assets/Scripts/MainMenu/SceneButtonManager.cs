@@ -66,8 +66,16 @@ public class SceneButtonManager : MonoBehaviour
     
     public void StartGameReadyButton()
     {
-        backButton.SetActive(false);
-        startButton.SetActive(false);
         matchOptionsMenu.SetActive(true);
+    }
+    
+    public void StartGameButton()
+    {
+        SceneManager.LoadScene("BasicGameScene");
+    }
+
+    public void BackToPlayerSelection()
+    {
+        matchOptionsMenu.SetActive(false);
     }
 }
