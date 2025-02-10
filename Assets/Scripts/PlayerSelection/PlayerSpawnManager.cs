@@ -23,18 +23,14 @@ public class PlayerSpawnManager : MonoBehaviour
         new (19, 0, -19)
     };
 
-    private PlayerMovementController movementController;
+    private Rigidbody rb;
     private int playerID;
 
     private void Awake()
     {
-        if (TryGetComponent<PlayerMovementController>(out var i))
+        if (TryGetComponent<Rigidbody>(out var i))
         {
-            movementController = i;
-        }
-        else
-        {
-            movementController = GetComponent<CPUMovementController>();
+            rb = i;
         }
 
         if (TryGetComponent<PlayerInput>(out var input))
@@ -49,7 +45,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            movementController.enabled = false;
+            rb.isKinematic = true;
 
             transform.position = selectionSpawnPoints[playerID];
 
@@ -76,7 +72,7 @@ public class PlayerSpawnManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            movementController.enabled = true;
+            rb.isKinematic = false;
 
             transform.position = gameSpawnPoints[playerID];
         }

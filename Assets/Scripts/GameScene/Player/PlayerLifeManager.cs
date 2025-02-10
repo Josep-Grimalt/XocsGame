@@ -41,7 +41,7 @@ public class PlayerLifeManager : MonoBehaviour
 
     public void LoseLife()
     {
-        life -= 1;
+        life--;
 
         gameSpawnPoints[playerID] = new (Random.Range(-9, 9), 1, Random.Range(-9, 9));
 
