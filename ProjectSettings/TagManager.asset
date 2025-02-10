@@ -11,6 +11,7 @@ TagManager:
   - Wind
   - Earth
   - Neutral
+  - PowerUp
   layers:
   - Default
   - TransparentFX
