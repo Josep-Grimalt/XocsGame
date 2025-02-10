@@ -56,4 +56,14 @@ public class PlayerMovementController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+    public void SpeedUp()
+    {
+        speed *= 2;
+    }
+
+    public void SpeedDown()
+    {
+        speed /= 2;
+    }
 }
