@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool fallingPlatform;
-    [SerializeField] private bool walls;
+    [SerializeField] private bool walls, elements;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
 
@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
             platforms = new List<GameObject>(GameObject.FindGameObjectsWithTag("Floor"));
 
             StartCoroutine(Fall(delay));
+        }
+
+        if(!elements)
+        {
+            GameObject.Find("ElementChangers").SetActive(false);
         }
     }
 
