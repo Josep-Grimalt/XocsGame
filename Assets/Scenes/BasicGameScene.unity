@@ -3908,6 +3908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsionforce: 25
+  speedUpDuration: 3
   orb:
   - {fileID: 2676272640375718447, guid: e55c1d944f4eb964c87d9db94711106a, type: 3}
   - {fileID: 7204670006241977777, guid: 4958af2f704df95409a156dd15935fc0, type: 3}
@@ -8177,7 +8178,7 @@ MonoBehaviour:
   fallingPlatform: 0
   walls: 1
   elements: 0
-  powerups: 0
+  powerups: 1
   obstacles: 0
   delay: 2
 --- !u!114 &1759740467
@@ -8211,6 +8212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerups:
   - {fileID: 3422927197098013563, guid: ea754e747e3428742a1b2416c7fe667c, type: 3}
+  - {fileID: 6594050581032252962, guid: 152299fe1d19a4441b9372877d76ca32, type: 3}
   delay: 5
 --- !u!1 &1770275600
 GameObject:

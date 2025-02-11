@@ -159,7 +159,7 @@ public class CollisionManager : MonoBehaviour
                 break;
         }
 
-        Destroy(powerup);
+        PoolManager.ReturnObjectToPool(powerup);
     }
 
     private IEnumerator SpeedUp(GameObject player)
