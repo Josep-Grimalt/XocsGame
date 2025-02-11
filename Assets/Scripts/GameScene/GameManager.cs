@@ -1,25 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameManagerSO manager;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
 
     private void Awake()
     {
-        GameObject.Find("Walls").SetActive(GameManagerSO.Instance.Walls());
-        if (GameManagerSO.Instance.FallingPlatforms())
+        GameObject.Find("Walls").SetActive(manager.Walls());
+        if (manager.FallingPlatforms())
         {
             platforms = new List<GameObject>(GameObject.FindGameObjectsWithTag("Floor"));
 
             StartCoroutine(Fall(delay));
         }
 
-        if (!GameManagerSO.Instance.Elements())
+        if(!manager.Elements())
         {
             GameObject.Find("ElementChangers").SetActive(false);
         }
@@ -31,10 +30,20 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(delay);
 
-            int fallingPlat = UnityEngine.Random.Range(0, platforms.Count);
+            int fallingPlat = Random.Range(0, platforms.Count);
 
             Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
         }
+    }
+
+    public bool Powerups()
+    {
+        return manager.Powerups();
+    }
+
+    public bool Obstacles()
+    {
+        return manager.Obstacles();
     }
 }

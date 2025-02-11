@@ -8175,11 +8175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb5a564270ecfc4293905ded6868756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingPlatform: 0
-  walls: 1
-  elements: 0
-  powerups: 1
-  obstacles: 0
+  manager: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
   delay: 2
 --- !u!114 &1759740467
 MonoBehaviour:
