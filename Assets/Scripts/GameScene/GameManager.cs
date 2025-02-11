@@ -6,22 +6,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private bool fallingPlatform;
-    [SerializeField] private bool walls, elements, powerups, obstacles;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
 
     private void Awake()
     {
-        GameObject.Find("Walls").SetActive(walls);
-        if (fallingPlatform)
+        GameObject.Find("Walls").SetActive(GameManagerSO.Instance.Walls());
+        if (GameManagerSO.Instance.FallingPlatforms())
         {
             platforms = new List<GameObject>(GameObject.FindGameObjectsWithTag("Floor"));
 
             StartCoroutine(Fall(delay));
         }
 
-        if(!elements)
+        if (!GameManagerSO.Instance.Elements())
         {
             GameObject.Find("ElementChangers").SetActive(false);
         }
@@ -38,15 +36,5 @@ public class GameManager : MonoBehaviour
             Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
         }
-    }
-
-    public bool Powerups()
-    {
-        return powerups;
-    }
-
-    public bool Obstacles()
-    {
-        return obstacles;
     }
 }
