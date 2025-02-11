@@ -147,6 +147,18 @@ public class CollisionManager : MonoBehaviour
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
     }
 
+    public void HandlePowerUp(GameObject player, GameObject powerup)
+    {
+        switch (powerup.name[..^"(Clone)".Length])
+        {
+            case "Healing":
+                player.GetComponent<PlayerLifeManager>().Heal();
+                break;
+        }
+
+        Destroy(powerup);
+    }
+
     private IEnumerator SpawnOrb(GameObject orb, Vector3 direction, float delay)
     {
         yield return new WaitForSeconds(delay);

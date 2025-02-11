@@ -7,7 +7,7 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] private Element element = Element.Neutral;
     [SerializeField] private GameObject armor;
     [SerializeField] private float delay = 5;
-    
+
     public enum Element
     {
         Fire,
@@ -16,10 +16,10 @@ public class PlayerCollisionController : MonoBehaviour
         Earth,
         Neutral
     }
-    
+
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Element element2 = other.gameObject.GetComponent<PlayerCollisionController>().GetElement();
             CollisionManager.Instance.HandlePlayerCollision(gameObject, other.gameObject, other.GetContact(0).point, element, element2);
@@ -30,17 +30,23 @@ public class PlayerCollisionController : MonoBehaviour
             armor.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
-        if(other.gameObject.layer == 3)
+        if (other.gameObject.layer == 3)
         {
             CollisionManager.Instance.HandleOrbCollision(gameObject, other.gameObject, element);
+        }
+
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            Debug.Log("Power Up");
+            CollisionManager.Instance.HandlePowerUp(gameObject, other.gameObject);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Element Changer"))
+        if (other.gameObject.CompareTag("Element Changer"))
         {
-            element = (Element) Random.Range(0, 4);
+            element = (Element)Random.Range(0, 4);
 
             switch (element)
             {

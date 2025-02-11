@@ -62,4 +62,19 @@ public class PlayerLifeManager : MonoBehaviour
     {
         return life;
     }
+
+    public void Heal()
+    {
+        if(life == 3) 
+        {
+            Debug.LogWarning("Vida màxima");
+            return;
+        }
+        life++;
+
+        if(textMesh)
+        {
+            textMesh.SetText(gameObject.name + ": " + life);
+        }
+    }
 }
