@@ -6,8 +6,10 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] private GameObject[] powerups;
     [SerializeField] private float delay = 5;
 
-    private void OnEnable() {
-        StartCoroutine(SpawnPowerup());
+    private void OnEnable()
+    {
+        if (GameObject.Find("Game Manager").GetComponent<GameManager>().Powerups())
+            StartCoroutine(SpawnPowerup());
     }
 
     private IEnumerator SpawnPowerup()

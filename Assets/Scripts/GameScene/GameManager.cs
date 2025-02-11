@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool fallingPlatform;
-    [SerializeField] private bool walls, elements;
+    [SerializeField] private bool walls, elements, powerups, obstacles;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
 
@@ -38,5 +38,15 @@ public class GameManager : MonoBehaviour
             Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
         }
+    }
+
+    public bool Powerups()
+    {
+        return powerups;
+    }
+
+    public bool Obstacles()
+    {
+        return obstacles;
     }
 }

@@ -11,7 +11,8 @@ public class ObstacleController : MonoBehaviour
     {
         // if(!GetComponent<GameManager>().Obstacles()) return;
 
-        StartCoroutine(SpawnObstacle());
+        if (GameObject.Find("Game Manager").GetComponent<GameManager>().Obstacles())
+            StartCoroutine(SpawnObstacle());
     }
 
     private IEnumerator SpawnObstacle()
