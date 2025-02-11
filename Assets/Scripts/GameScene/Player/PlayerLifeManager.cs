@@ -62,12 +62,4 @@ public class PlayerLifeManager : MonoBehaviour
     {
         return life;
     }
-
-    public void CureLife()
-    {
-        if (life < 3)
-        {
-            life++;
-        }
-    }
 }
