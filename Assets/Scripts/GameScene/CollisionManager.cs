@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
 {
-    [SerializeField] private float repulsionforce = 25;
+    [SerializeField] private float repulsionforce = 25, speedUpDuration = 1f;
     [SerializeField] private List<GameObject> orb;
     [SerializeField] private float delay = 0.18f, respawnDelay = 3;
     [SerializeField] private GameObject elementChanger;
@@ -154,9 +154,21 @@ public class CollisionManager : MonoBehaviour
             case "Healing":
                 player.GetComponent<PlayerLifeManager>().Heal();
                 break;
+            case "SpeedUp":
+                StartCoroutine(SpeedUp(player));
+                break;
         }
 
         Destroy(powerup);
+    }
+
+    private IEnumerator SpeedUp(GameObject player)
+    {
+        player.GetComponent<PlayerMovementController>().SpeedUp();
+
+        yield return new WaitForSeconds(speedUpDuration);
+
+        player.GetComponent<PlayerMovementController>().SpeedDown();
     }
 
     private IEnumerator SpawnOrb(GameObject orb, Vector3 direction, float delay)
