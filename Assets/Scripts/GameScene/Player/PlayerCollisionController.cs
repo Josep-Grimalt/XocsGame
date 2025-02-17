@@ -32,6 +32,7 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (other.gameObject.layer == 3)
         {
+            Debug.Log("collision entre player i orb");
             CollisionManager.Instance.HandleOrbCollision(gameObject, other.gameObject, element);
         }
 
