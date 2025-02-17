@@ -1,9 +1,21 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class SceneButtonManager : MonoBehaviour
 {
-    private GameObject mainMenu, optionsMenu ,gallery, matchOptionsMenu;
+    [Serializable] private class PowerUp
+    {
+        public Sprite sprite;
+        public string name;
+        public string description;
+    }
+    
+    [SerializeField] private PowerUp[] powerUps;
+    
+    private GameObject mainMenu, optionsMenu ,gallery, powerUpDescription, matchOptionsMenu;
     
     private void Awake()
     {
@@ -17,6 +29,7 @@ public class SceneButtonManager : MonoBehaviour
             {
                 optionsMenu = parent.transform.Find("Options Menu").gameObject;
                 gallery = parent.transform.Find("Gallery").gameObject;
+                powerUpDescription = parent.transform.Find("PowerUpDescription").gameObject;
             }
         }
         else if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -57,9 +70,19 @@ public class SceneButtonManager : MonoBehaviour
         gallery.SetActive(false);
     }
 
-    public void PowerUpButton()
+    public void PowerUpButton(int index)
     {
         gallery.SetActive(false);
+        powerUpDescription.GetComponentInChildren<Image>().sprite = powerUps[index].sprite;
+        powerUpDescription.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(powerUps[index].name);
+        powerUpDescription.GetComponentsInChildren<TextMeshProUGUI>()[1].SetText(powerUps[index].description);
+        powerUpDescription.SetActive(true);
+    }
+
+    public void PowerUpBackButton()
+    {
+        gallery.SetActive(true);
+        powerUpDescription.SetActive(false);
     }
 
     public void QuitButton()
