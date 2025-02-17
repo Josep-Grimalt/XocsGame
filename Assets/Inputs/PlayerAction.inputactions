@@ -13,24 +13,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Rotate",
-                    "type": "Value",
-                    "id": "7223e89f-6ec7-4409-b80e-bd5945c7ae1d",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "SelectColor",
-                    "type": "Button",
-                    "id": "173a6582-28b5-4dbb-b35f-d8ae2843dc3c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -99,76 +81,45 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "79b72565-cec3-4f53-8424-930934b1b0b4",
+            "actions": [
+                {
+                    "name": "SelectColor",
+                    "type": "Button",
+                    "id": "9222bd35-3f8c-42ef-ad68-86e2ea216c90",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "",
-                    "id": "ce46c78d-85af-4ad9-bb6a-66763e0340f6",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
+                    "name": "SelectorVertical",
+                    "type": "Value",
+                    "id": "7924bfc2-7409-431b-847f-5454167b4582",
+                    "expectedControlType": "Axis",
                     "processors": "",
-                    "groups": ";pad",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "8ba885d2-6d98-4e36-9b8d-a57e8671f66f",
-                    "path": "2DVector",
-                    "interactions": "",
+                    "name": "SelectorHorizontal",
+                    "type": "Value",
+                    "id": "23062ff7-041b-45fc-bbe7-97a5fb0456e1",
+                    "expectedControlType": "Axis",
                     "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "372be934-ee32-4610-b559-aa3f0679b241",
-                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
-                    "processors": "",
-                    "groups": ";key",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "026f3a6c-c4e4-4813-880d-b589b2d13aa3",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";key",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "cfb4e2f6-4549-47f7-a7bb-80dc5771f6b0",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";key",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "ef28271f-a151-4e70-8a99-d26eea47eefe",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";pad",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
                 {
                     "name": "1D Axis",
-                    "id": "22824ff1-a270-468e-918b-afa9941ba2bc",
+                    "id": "496ac0b4-001b-4611-96d1-4841a53a0b71",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -179,7 +130,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "0dae8f42-75af-4bf9-a0b4-d720dc22e2ca",
+                    "id": "0daecdab-d6bf-479e-9c5f-71559a50718b",
                     "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
@@ -190,7 +141,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "b4cda78a-0c56-4a69-8dbe-83ca7ec1eb5c",
+                    "id": "fe9d3fd4-a8e0-4589-8a69-a7a578a8cdd7",
                     "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
@@ -201,7 +152,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "8bdeaf19-4716-4c7f-903d-23dcb58a5c8d",
+                    "id": "99d0ee36-a5f1-4f94-9311-64fc7b44a054",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -212,7 +163,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "70760e30-9c0a-44f6-9983-28f1a72c9d6d",
+                    "id": "3721c138-7dbe-4ddb-bafe-265edaccac33",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -220,6 +171,182 @@
                     "action": "SelectColor",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Arrows [Keyboard]",
+                    "id": "8397ed67-18b3-47b0-b4d1-f9d5f284174c",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectorVertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "54359b7f-67a1-46dd-9f5b-851f98080e60",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5c85fa31-5c4b-4838-9660-969404491ef8",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "SW [Keyboard]",
+                    "id": "a0a20cd1-8ca6-4241-8155-a98e5bd8119d",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectorVertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1f9eb301-8959-48e4-9b52-3b5b73e3ef6b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5d3ddb21-161b-4293-8574-d4753afcca74",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c2e9b33e-e640-4b12-80a9-0378c0ba8e34",
+                    "path": "<Gamepad>/dpad/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";pad",
+                    "action": "SelectorVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "668bbf28-33f3-4d5e-95e3-5f958d00d0ad",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";pad",
+                    "action": "SelectorVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Arrows [Keyboard]",
+                    "id": "99d49c8b-cb2f-47ef-b719-eeed35be4870",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectorHorizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "99b603dd-5c7b-4cf8-8758-b40b0ffb5c6f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5e4b1b16-fe3a-414f-b7ca-512bdf37a7cc",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AD [Keyboard]",
+                    "id": "28dad987-9d9c-4d22-92c9-be6bf8d68658",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectorHorizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "05aed6af-a2b8-4b5e-b21b-f0c557bf6953",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "1d281d00-ac5b-4cc2-bee1-38aeb1c559bc",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "SelectorHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2115b604-f3a2-4aa7-b7c0-773f272efd52",
+                    "path": "<Gamepad>/dpad/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";pad",
+                    "action": "SelectorHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fbb742b-46b4-4fa4-9c63-c79b9034490d",
+                    "path": "<Gamepad>/leftStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";pad",
+                    "action": "SelectorHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
