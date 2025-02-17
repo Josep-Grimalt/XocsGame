@@ -71,12 +71,6 @@ public class GameManagerSO : ScriptableObject
                     powerups[i] = false;
                 }
                 break;
-            case 3:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    powerups[i] = true;
-                }
-                break;
             case 1:
                 for (int i = 0; i < powerups.Length; i++)
                 {
@@ -99,12 +93,17 @@ public class GameManagerSO : ScriptableObject
                     }
                 }
                 break;
+            case 3:
+                for (int i = 0; i < powerups.Length; i++)
+                {
+                    powerups[i] = true;
+                }
+                break;
         }
     }
 
     public void SetObstacles(int f)
     {
-        Debug.Log(f);
         switch (f)
         {
             case 0:
