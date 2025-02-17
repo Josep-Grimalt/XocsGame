@@ -67,9 +67,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 79b72565-cec3-4f53-8424-930934b1b0b4
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!65 &2440569401716948006
@@ -142,6 +142,7 @@ MonoBehaviour:
   - {x: 19, y: 0, z: 19}
   - {x: -19, y: 0, z: -19}
   - {x: 19, y: 0, z: -19}
+  isCPU: 0
 --- !u!114 &6850332954134511247
 MonoBehaviour:
   m_ObjectHideFlags: 0

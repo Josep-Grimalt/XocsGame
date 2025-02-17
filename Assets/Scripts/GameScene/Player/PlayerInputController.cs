@@ -11,38 +11,60 @@ public class PlayerInputController : MonoBehaviour
 
     private InputAction moveAction;
     private InputAction selectColorAction;
+    private InputAction selectorVerticalAction;
+    private InputAction selectorHorizontalAction;
 
     private void Awake() {
         movementController = GetComponent<PlayerMovementController>();
         uiController = GetComponent<UIController>();
 
-        moveAction = inputActions.actions.FindAction("Move");
         selectColorAction = inputActions.actions.FindAction("SelectColor");
+        selectorVerticalAction = inputActions.actions.FindAction("SelectorVertical");
+        selectorHorizontalAction = inputActions.actions.FindAction("SelectorHorizontal");
+        moveAction = inputActions.actions.FindAction("Move");
     }
 
 
     void OnEnable()
     {
-        moveAction.performed += Move;
-        moveAction.canceled += Move;
-
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        selectColorAction.performed += SelectColor;
+        selectorVerticalAction.performed += SelectorVertical;
+        selectorHorizontalAction.performed += SelectorHorizontal;
+        
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            selectColorAction.performed += SelectColor;
+            moveAction.performed += Move;
+            moveAction.canceled += Move;
         }
     }
 
 
     void OnDisable()
     {
-        moveAction.performed -= Move;
-        moveAction.canceled -= Move;
-
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        selectColorAction.performed -= SelectColor;
+        selectorVerticalAction.performed -= SelectorVertical;
+        selectorHorizontalAction.performed -= SelectorHorizontal;
+        
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            selectColorAction.performed -= SelectColor;
+            moveAction.performed -= Move;
+            moveAction.canceled -= Move;
         }
+    }
 
+    private void SelectColor(InputAction.CallbackContext context)
+    {
+        uiController.SelectColor(context.ReadValue<float>());
+    }
+
+    private void SelectorVertical(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    private void SelectorHorizontal(InputAction.CallbackContext context)
+    {
+        
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -50,10 +72,5 @@ public class PlayerInputController : MonoBehaviour
         Vector2 inputVector = context.ReadValue<Vector2>();
 
         movementController.SetMovementDirection(inputVector);
-    }
-
-    private void SelectColor(InputAction.CallbackContext context)
-    {
-        uiController.SelectColor(context);
     }
 }

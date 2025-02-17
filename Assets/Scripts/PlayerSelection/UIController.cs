@@ -8,32 +8,32 @@ public class UIController : MonoBehaviour
     
     private int color = 1;
     
-    public void SelectColor(InputAction.CallbackContext context)
+    public void SelectColor(float color)
     {
-        if (context.ReadValue<float>() == 1)
+        if (Mathf.Approximately(color, 1))
         {
-            if (color == 12)
+            if (this.color == 12)
             {
-                color = 1;
+                this.color = 1;
             }
             else
             {
-                color++;
+                this.color++;
             }
         }
-        else if (context.ReadValue<float>() == -1)
+        else if (Mathf.Approximately(color, -1))
         {
-            if (color == 1)
+            if (this.color == 1)
             {
-                color = 12;
+                this.color = 12;
             }
             else
             {
-                color--;
+                this.color--;
             }
         }
 
-        switch (color)
+        switch (this.color)
         {
             case 1:
                 foreach (GameObject colorOject in colors)
