@@ -57,6 +57,11 @@ public class SceneButtonManager : MonoBehaviour
         gallery.SetActive(false);
     }
 
+    public void PowerUpButton()
+    {
+        gallery.SetActive(false);
+    }
+
     public void QuitButton()
     {
         // Cierra la aplicación
