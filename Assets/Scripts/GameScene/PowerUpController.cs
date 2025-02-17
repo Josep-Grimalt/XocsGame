@@ -8,8 +8,11 @@ public class PowerUpController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameObject.Find("Game Manager").GetComponent<GameManager>().Powerups())
-            StartCoroutine(SpawnPowerup());
+        for (int i = 0; i < powerups.Length; i++)
+        {
+            if (GameObject.Find("Game Manager").GetComponent<GameManager>().Powerups()[i])
+                StartCoroutine(SpawnPowerup());
+        }
     }
 
     private IEnumerator SpawnPowerup()

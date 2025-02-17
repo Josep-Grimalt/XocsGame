@@ -212,13 +212,10 @@ MonoBehaviour:
   m_MultiSelect: 1
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: Healing
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option C
+    - m_Text: Speed Up
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
@@ -227,7 +224,7 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetPowerUps
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1590,19 +1587,7 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetWalls
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
-        m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
-        m_MethodName: SetWalls
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2211,7 +2196,7 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetElements
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2309,7 +2294,7 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetFallingPlatform
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4181,13 +4166,7 @@ MonoBehaviour:
   m_MultiSelect: 1
   m_Options:
     m_Options:
-    - m_Text: Option A
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option C
+    - m_Text: Walls
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
@@ -4196,7 +4175,7 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetObstacles
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

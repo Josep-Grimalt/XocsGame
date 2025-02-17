@@ -37,12 +37,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool Powerups()
+    public bool[] Powerups()
     {
         return manager.Powerups();
     }
 
-    public bool Obstacles()
+    public bool[] Obstacles()
     {
         return manager.Obstacles();
     }

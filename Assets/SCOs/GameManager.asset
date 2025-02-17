@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingPlatform: 0
   walls: 1
-  elements: 1
-  powerups: 0
-  obstacles: 0
+  elements: 0
+  powerups: 0000
+  obstacles: 00

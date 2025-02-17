@@ -4,7 +4,8 @@ using UnityEngine;
 public class GameManagerSO : ScriptableObject
 {
     [SerializeField] private bool fallingPlatform;
-    [SerializeField] private bool walls, elements, powerups, obstacles;
+    [SerializeField] private bool walls, elements;
+    [SerializeField] private bool[] powerups, obstacles;
 
     private static GameManagerSO instance;
 
@@ -20,12 +21,12 @@ public class GameManagerSO : ScriptableObject
         }
     }
 
-    public bool Powerups()
+    public bool[] Powerups()
     {
         return powerups;
     }
 
-    public bool Obstacles()
+    public bool[] Obstacles()
     {
         return obstacles;
     }
@@ -60,13 +61,64 @@ public class GameManagerSO : ScriptableObject
         elements = f;
     }
 
-    public void SetPowerUps(bool f)
+    public void SetPowerUps(int f)
     {
-        powerups = f;
+        switch (f)
+        {
+            case 0:
+                for (int i = 0; i < powerups.Length; i++)
+                {
+                    powerups[i] = false;
+                }
+                break;
+            case 3:
+                for (int i = 0; i < powerups.Length; i++)
+                {
+                    powerups[i] = true;
+                }
+                break;
+            case 1:
+                for (int i = 0; i < powerups.Length; i++)
+                {
+                    if (i + 1 != f)
+                        powerups[i] = false;
+                    else
+                    {
+                        powerups[i] = true;
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < powerups.Length; i++)
+                {
+                    if (i + 1 != f)
+                        powerups[i] = false;
+                    else
+                    {
+                        powerups[i] = true;
+                    }
+                }
+                break;
+        }
     }
 
-    public void SetObstacles(bool f)
+    public void SetObstacles(int f)
     {
-        obstacles = f;
+        Debug.Log(f);
+        switch (f)
+        {
+            case 0:
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i] = false;
+                }
+                break;
+            case 1:
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i] = true;
+                }
+                break;
+        }
     }
 }
