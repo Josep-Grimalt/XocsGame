@@ -25,10 +25,6 @@ public class PlayerLifeManager : MonoBehaviour
         {
             playerID = input.playerIndex;
         }
-        else
-        {
-            //posar nombre a CPU
-        }
     }
 
     void OnEnable()
