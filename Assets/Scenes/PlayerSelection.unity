@@ -1425,6 +1425,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUps: []
+  mainMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
+  gallery: {fileID: 0}
+  powerUpDescription: {fileID: 0}
+  matchOptionsMenu: {fileID: 1988837113}
 --- !u!1 &401851847
 GameObject:
   m_ObjectHideFlags: 0
