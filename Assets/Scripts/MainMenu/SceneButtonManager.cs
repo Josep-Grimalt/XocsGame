@@ -15,31 +15,7 @@ public class SceneButtonManager : MonoBehaviour
     
     [SerializeField] private PowerUp[] powerUps;
     
-    private GameObject mainMenu, optionsMenu ,gallery, powerUpDescription, matchOptionsMenu;
-    
-    private void Awake()
-    {
-        GameObject parent = GameObject.Find("Canvas");
-        
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            mainMenu = GameObject.Find("Main Menu");
-            
-            if (parent != null)
-            {
-                optionsMenu = parent.transform.Find("Options Menu").gameObject;
-                gallery = parent.transform.Find("Gallery").gameObject;
-                powerUpDescription = parent.transform.Find("PowerUpDescription").gameObject;
-            }
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            if (parent != null)
-            {
-                matchOptionsMenu = parent.transform.Find("Match Options Menu").gameObject;
-            }
-        }
-    }
+    [SerializeField] private GameObject mainMenu, optionsMenu ,gallery, powerUpDescription, matchOptionsMenu;
 
     public void StartButton()
     {

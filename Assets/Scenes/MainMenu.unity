@@ -1416,6 +1416,11 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: eb8a6f42440e5a5479576cc1bc772841, type: 3}
     name: Speed Up
     description: X 2 speed
+  mainMenu: {fileID: 826725425}
+  optionsMenu: {fileID: 2052108578}
+  gallery: {fileID: 39914380}
+  powerUpDescription: {fileID: 1991336119}
+  matchOptionsMenu: {fileID: 0}
 --- !u!1 &452585960
 GameObject:
   m_ObjectHideFlags: 0
