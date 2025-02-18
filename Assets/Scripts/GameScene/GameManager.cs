@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,18 +9,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameManagerSO manager;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
-
-    private void Update()
-    {
-        if(GameObject.FindGameObjectsWithTag("Player").Length < 2)
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
+    private List<GameObject> players;
 
     private void Awake()
     {
+        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
+        
         GameObject.Find("Walls").SetActive(manager.Walls());
+        
         if (manager.FallingPlatforms())
         {
             platforms = new List<GameObject>(GameObject.FindGameObjectsWithTag("Floor"));
@@ -30,6 +27,22 @@ public class GameManager : MonoBehaviour
         if(!manager.Elements())
         {
             GameObject.Find("ElementChangers").SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        foreach (GameObject player in players.ToList())
+        {
+            if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
+            {
+                players.Remove(player);
+                    
+                if (players.Count < 2)
+                {
+                    SceneManager.LoadScene(0);
+                }
+            }
         }
     }
 

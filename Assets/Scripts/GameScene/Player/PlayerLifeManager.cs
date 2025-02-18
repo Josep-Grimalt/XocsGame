@@ -55,6 +55,7 @@ public class PlayerLifeManager : MonoBehaviour
         if (life <= 0)
         {
             textMesh.SetText(gameObject.name + ": 0");
+            life = 0;
         }
     }
 

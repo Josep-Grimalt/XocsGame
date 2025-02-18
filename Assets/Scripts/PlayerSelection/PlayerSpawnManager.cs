@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -85,6 +86,7 @@ public class PlayerSpawnManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += ChangeSpawnPoint;
+        SceneManager.sceneLoaded += DestroyPlayer;
     }
 
     private void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
@@ -101,6 +103,14 @@ public class PlayerSpawnManager : MonoBehaviour
             transform.position = gameSpawnPoints[playerID];
 
             rb.isKinematic = false;
+        }
+    }
+
+    private void DestroyPlayer(Scene arg0, LoadSceneMode arg1)
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
