@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameManagerSO manager;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
+
+    private void Update()
+    {
+        if(GameObject.FindGameObjectsWithTag("Player").Length < 2)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 
     private void Awake()
     {
