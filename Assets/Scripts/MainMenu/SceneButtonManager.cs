@@ -2,7 +2,8 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class SceneButtonManager : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class SceneButtonManager : MonoBehaviour
     public void PowerUpButton(int index)
     {
         gallery.SetActive(false);
-        powerUpDescription.GetComponentInChildren<Image>().sprite = powerUps[index].sprite;
+        powerUpDescription.GetComponentsInChildren<Image>()[1].sprite = powerUps[index].sprite;
         powerUpDescription.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(powerUps[index].name);
         powerUpDescription.GetComponentsInChildren<TextMeshProUGUI>()[1].SetText(powerUps[index].description);
         powerUpDescription.SetActive(true);
