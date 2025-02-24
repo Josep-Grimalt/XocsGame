@@ -50,19 +50,19 @@ public class PlayerSpawnManager : MonoBehaviour
 
             transform.position = selectionSpawnPoints[playerID];
 
-            if (!isCPU)
-            {
-                GameObject parent = GameObject.Find("Canvas");
+            // if (!isCPU)
+            // {
+            //     GameObject parent = GameObject.Find("Canvas");
 
-                if (parent != null)
-                {
-                    Transform panel = parent.transform.Find("Panel " + (playerID + 1));
-                    if (panel != null)
-                    {
-                        panel.gameObject.SetActive(true);
-                    }
-                }
-            }
+            //     if (parent != null)
+            //     {
+            //         Transform panel = parent.transform.Find("Panel " + (playerID + 1));
+            //         if (panel != null)
+            //         {
+            //             panel.gameObject.SetActive(true);
+            //         }
+            //     }
+            // }
 
             DontDestroyOnLoad(this);
         }
