@@ -54,7 +54,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void SelectColor(InputAction.CallbackContext context)
     {
-        uiController.SelectColor(context.ReadValue<float>());
+        uiController.SelectColor(context.ReadValue<bool>());
     }
 
     private void SelectorVertical(InputAction.CallbackContext context)

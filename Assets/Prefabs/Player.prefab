@@ -142,11 +142,6 @@ MonoBehaviour:
   - {x: 19, y: 0, z: 19}
   - {x: -19, y: 0, z: -19}
   - {x: 19, y: 0, z: -19}
-  panels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   isCPU: 0
 --- !u!114 &6850332954134511247
 MonoBehaviour:
@@ -186,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293847345116278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23693ee9ef76db043a244999b6058dc7, type: 3}
   m_Name: 
@@ -508,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4282749274430278879
 Transform:
   m_ObjectHideFlags: 0
@@ -1349,7 +1344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5399093889779355064
 Transform:
   m_ObjectHideFlags: 0

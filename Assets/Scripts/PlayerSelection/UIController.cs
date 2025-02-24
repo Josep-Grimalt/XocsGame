@@ -5,35 +5,70 @@ using UnityEngine.InputSystem;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> colors;
-    
+    [SerializeField] private List<GameObject> models;
+
     private int color = 1;
-    
-    public void SelectColor(float color)
+    private int model = 1;
+
+    public void SelectColor(bool next)
     {
-        if (Mathf.Approximately(color, 1))
+        if (next)
         {
-            if (this.color == 12)
+            if (color == 12)
             {
-                this.color = 1;
+                color = 1;
             }
             else
             {
-                this.color++;
+                color++;
             }
         }
-        else if (Mathf.Approximately(color, -1))
+        else
         {
-            if (this.color == 1)
+            if (color == 1)
             {
-                this.color = 12;
+                color = 12;
             }
             else
             {
-                this.color--;
+                color--;
             }
         }
 
-        switch (this.color)
+        ChangeColor();
+    }
+
+    public void SelectModel(bool next)
+    {
+        if (next)
+        {
+            if (model == 2)
+            {
+                model = 1;
+            }
+            else
+            {
+                model++;
+            }
+        }
+        else
+        {
+            if (model == 1)
+            {
+                model = 2;
+            }
+            else
+            {
+                model--;
+            }
+        }
+
+        ChangeModel();
+    }
+
+    private void ChangeColor()
+    {
+        switch (color)
         {
             case 1:
                 foreach (GameObject colorOject in colors)
@@ -198,6 +233,40 @@ public class UIController : MonoBehaviour
                     else
                     {
                         colorOject.SetActive(false);
+                    }
+                }
+                break;
+        }
+    }
+
+    private void ChangeModel()
+    {
+        switch (model)
+        {
+            case 1:
+                foreach (GameObject modelObject in models)
+                {
+                    if (modelObject.name == "Model 1")
+                    {
+                        modelObject.SetActive(true);
+                    }
+                    else
+                    {
+                        modelObject.SetActive(false);
+                    }
+                }
+                break;
+
+            case 2:
+                foreach (GameObject modelObject in models)
+                {
+                    if (modelObject.name == "Model 2")
+                    {
+                        modelObject.SetActive(true);
+                    }
+                    else
+                    {
+                        modelObject.SetActive(false);
                     }
                 }
                 break;
