@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
 
     private int color = 1;
     private int model = 1;
+    private bool ready = false;
 
     public void SelectColor(bool next)
     {
@@ -64,6 +65,23 @@ public class UIController : MonoBehaviour
         }
 
         ChangeModel();
+    }
+
+    public int Ready(bool ready, int num)
+    {
+        if (!this.ready && ready)
+        {
+            this.ready = true;
+            num++;
+        }
+        else if (this.ready && ready)
+        {
+            this.ready = false;
+            num--;
+        }
+        
+        Debug.Log("Ready: " + this.ready);
+        return num;
     }
 
     private void ChangeColor()

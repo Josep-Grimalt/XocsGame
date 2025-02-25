@@ -27,10 +27,6 @@ public class PlayerInputController : MonoBehaviour
 
     void OnEnable()
     {
-        selectColorAction.performed += SelectColor;
-        selectorVerticalAction.performed += SelectorVertical;
-        selectorHorizontalAction.performed += SelectorHorizontal;
-        
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
             moveAction.performed += Move;
@@ -41,10 +37,6 @@ public class PlayerInputController : MonoBehaviour
 
     void OnDisable()
     {
-        selectColorAction.performed -= SelectColor;
-        selectorVerticalAction.performed -= SelectorVertical;
-        selectorHorizontalAction.performed -= SelectorHorizontal;
-        
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
             moveAction.performed -= Move;

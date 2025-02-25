@@ -7,9 +7,12 @@ using UnityEngine.UI;
 public class MultiCanvasAssigner : MonoBehaviour
 {
     [SerializeField] private Transform[] panels;
+    [SerializeField] private Button startButton;
 
     private PlayerInputManager inputManager;
     private Button[] buttons;
+    private int ready = 0;
+    private int activePanelCount = 0;
 
     void Awake()
     {
@@ -27,6 +30,7 @@ public class MultiCanvasAssigner : MonoBehaviour
 
         input.gameObject.GetComponent<PlayerInput>().uiInputModule = inputModule;
         panels[input.playerIndex].gameObject.SetActive(true);
+        activePanelCount++;
 
         buttons = panels[input.playerIndex].GetComponentsInChildren<Button>();
         AddButtonListener(input);
@@ -34,16 +38,30 @@ public class MultiCanvasAssigner : MonoBehaviour
 
     private void AddButtonListener(PlayerInput input)
     {
-        buttons[0].onClick.AddListener(() => NextColor(input));
-        buttons[1].onClick.AddListener(() => PrevColor(input));
-        buttons[2].onClick.AddListener(() => NextModel(input));
-        buttons[3].onClick.AddListener(() => PrevModel(input));
-        buttons[4].onClick.AddListener(() => Ready(input));
+        buttons[0].onClick.AddListener(() => PrevColor(input));
+        buttons[1].onClick.AddListener(() => NextColor(input));
+        buttons[2].onClick.AddListener(() => PrevModel(input));
+        buttons[3].onClick.AddListener(() => NextModel(input));
+        buttons[4].onClick.AddListener(() =>
+        {
+            Ready(input);
+            
+            if (ready == activePanelCount)
+            {
+                startButton.interactable = true;
+            }
+            else
+            {
+                startButton.interactable = false;
+            }
+        });
+        Debug.Log("Active Panel Count: " + activePanelCount);
     }
 
     private void Ready(PlayerInput input)
     {
-
+        ready = input.gameObject.GetComponent<UIController>().Ready(true, ready);
+        Debug.Log("Players Ready: " + ready);
     }
 
     private void PrevModel(PlayerInput input)
