@@ -10,17 +10,11 @@ public class PlayerInputController : MonoBehaviour
     private UIController uiController;
 
     private InputAction moveAction;
-    private InputAction selectColorAction;
-    private InputAction selectorVerticalAction;
-    private InputAction selectorHorizontalAction;
 
     private void Awake() {
         movementController = GetComponent<PlayerMovementController>();
         uiController = GetComponent<UIController>();
 
-        selectColorAction = inputActions.actions.FindAction("SelectColor");
-        selectorVerticalAction = inputActions.actions.FindAction("SelectorVertical");
-        selectorHorizontalAction = inputActions.actions.FindAction("SelectorHorizontal");
         moveAction = inputActions.actions.FindAction("Move");
     }
 
@@ -42,21 +36,6 @@ public class PlayerInputController : MonoBehaviour
             moveAction.performed -= Move;
             moveAction.canceled -= Move;
         }
-    }
-
-    private void SelectColor(InputAction.CallbackContext context)
-    {
-        uiController.SelectColor(context.ReadValue<bool>());
-    }
-
-    private void SelectorVertical(InputAction.CallbackContext context)
-    {
-        
-    }
-
-    private void SelectorHorizontal(InputAction.CallbackContext context)
-    {
-        
     }
 
     private void Move(InputAction.CallbackContext context)
