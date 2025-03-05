@@ -89,15 +89,6 @@
             "id": "79b72565-cec3-4f53-8424-930934b1b0b4",
             "actions": [
                 {
-                    "name": "SelectColor",
-                    "type": "Button",
-                    "id": "9222bd35-3f8c-42ef-ad68-86e2ea216c90",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Navigate",
                     "type": "Value",
                     "id": "8af29472-d60d-441f-90e1-0bae391c3f5c",
@@ -126,61 +117,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "1D Axis",
-                    "id": "496ac0b4-001b-4611-96d1-4841a53a0b71",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SelectColor",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "0daecdab-d6bf-479e-9c5f-71559a50718b",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";pad",
-                    "action": "SelectColor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "fe9d3fd4-a8e0-4589-8a69-a7a578a8cdd7",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";pad",
-                    "action": "SelectColor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "99d0ee36-a5f1-4f94-9311-64fc7b44a054",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";key",
-                    "action": "SelectColor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "3721c138-7dbe-4ddb-bafe-265edaccac33",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";key",
-                    "action": "SelectColor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "",
                     "id": "6a102250-19ca-4a09-b014-19d988784865",

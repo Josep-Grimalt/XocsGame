@@ -34,7 +34,7 @@ public class MultiCanvasAssigner : MonoBehaviour
     {
         InputSystemUIInputModule inputModule = panels[input.playerIndex].GetComponentInChildren<InputSystemUIInputModule>();
 
-        input.gameObject.GetComponent<PlayerInput>().uiInputModule = inputModule;
+        input.uiInputModule = inputModule;
         panels[input.playerIndex].gameObject.SetActive(true);
         activePanelCount++;
 
