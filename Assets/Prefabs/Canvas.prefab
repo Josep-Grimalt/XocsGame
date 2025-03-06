@@ -489,12 +489,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 5900173569547495137}
+    m_SelectOnDown: {fileID: 5433947697485871024}
+    m_SelectOnLeft: {fileID: 3147041176391677037}
+    m_SelectOnRight: {fileID: 3147041176391677037}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -610,12 +610,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 3147041176391677037}
+    m_SelectOnDown: {fileID: 5900173569547495137}
+    m_SelectOnLeft: {fileID: 5433947697485871024}
+    m_SelectOnRight: {fileID: 5433947697485871024}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5467213935115804165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,12 +834,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 3074327317627247416}
+    m_SelectOnDown: {fileID: 5900173569547495137}
+    m_SelectOnLeft: {fileID: 5946148387338870358}
+    m_SelectOnRight: {fileID: 5946148387338870358}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 6835196497403021082}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
-  m_PlayerRoot: {fileID: 8804936953343758474}
+  m_PlayerRoot: {fileID: 793709282563770334}
 --- !u!114 &8790239526091116220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,12 +1902,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 5900173569547495137}
+    m_SelectOnDown: {fileID: 5946148387338870358}
+    m_SelectOnLeft: {fileID: 3074327317627247416}
+    m_SelectOnRight: {fileID: 3074327317627247416}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2023,10 +2023,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 5946148387338870358}
+    m_SelectOnDown: {fileID: 3147041176391677037}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
