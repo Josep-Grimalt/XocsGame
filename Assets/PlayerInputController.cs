@@ -7,13 +7,10 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private PlayerInput inputActions;
     
     private PlayerMovementController movementController;
-    private UIController uiController;
-
     private InputAction moveAction;
 
     private void Awake() {
         movementController = GetComponent<PlayerMovementController>();
-        uiController = GetComponent<UIController>();
 
         moveAction = inputActions.actions.FindAction("Move");
     }
@@ -23,6 +20,7 @@ public class PlayerInputController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
+            inputActions.currentActionMap = moveAction.actionMap;
             moveAction.performed += Move;
             moveAction.canceled += Move;
         }

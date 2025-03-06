@@ -37,6 +37,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void SetMovementDirection(Vector2 direction)
     {
+        Debug.Log("moving");
         movementDirection = new(direction.x, 0, direction.y);
     }
 
