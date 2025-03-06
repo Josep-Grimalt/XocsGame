@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -18,22 +19,26 @@ public class PlayerInputController : MonoBehaviour
 
     void OnEnable()
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1)
-        {
-            inputActions.currentActionMap = moveAction.actionMap;
-            moveAction.performed += Move;
-            moveAction.canceled += Move;
-        }
+        moveAction.performed += Move;
+        moveAction.canceled += Move;
     }
 
-
-    void OnDisable()
+    public void UpdateActionMap()
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            moveAction.performed -= Move;
-            moveAction.canceled -= Move;
+            inputActions.SwitchCurrentActionMap("Player");
         }
+        else
+        {
+            inputActions.SwitchCurrentActionMap("UI");
+        }
+    }
+
+    void OnDisable()
+    {
+        moveAction.performed -= Move;
+        moveAction.canceled -= Move;
     }
 
     private void Move(InputAction.CallbackContext context)
