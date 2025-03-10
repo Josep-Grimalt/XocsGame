@@ -3919,6 +3919,7 @@ MonoBehaviour:
   respawnDelay: 3
   elementChanger: {fileID: 7178601793123769768, guid: 9ba97ade22223034b99497da0a817d3d,
     type: 3}
+  targetCinemachine: {fileID: 1775339767}
 --- !u!4 &651660872
 Transform:
   m_ObjectHideFlags: 0
