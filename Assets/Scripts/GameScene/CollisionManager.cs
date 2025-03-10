@@ -188,12 +188,16 @@ public class CollisionManager : MonoBehaviour
 
     private IEnumerator RespawnPlayer(GameObject player, float delay)
     {
-        player.SetActive(false);
+        player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
+        player.GetComponent<Rigidbody>().isKinematic = true;
 
         yield return new WaitForSeconds(delay);
 
         if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
-            player.SetActive(true);
+        {
+            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+            player.GetComponent<Rigidbody>().isKinematic = false;
+        }
         else
             Destroy(player);
     }

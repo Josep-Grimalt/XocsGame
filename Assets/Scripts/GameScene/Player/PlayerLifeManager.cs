@@ -43,10 +43,6 @@ public class PlayerLifeManager : MonoBehaviour
     {
         life--;
 
-        gameSpawnPoints[playerID] = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-
-        transform.position = gameSpawnPoints[playerID];
-
         if (textMesh)
         {
             textMesh.SetText(gameObject.name + ": " + life);
