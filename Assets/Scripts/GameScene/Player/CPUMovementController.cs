@@ -19,6 +19,7 @@ public class CPUMovementController : PlayerMovementController
     private void Update()
     {
         if(SceneManager.GetActiveScene().buildIndex == 1) return;
+        
 
         Fall();
         NearPlayer();
