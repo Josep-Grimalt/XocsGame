@@ -45,7 +45,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            rb.isKinematic = true;
+            // rb.isKinematic = true;
 
             transform.position = selectionSpawnPoints[playerID];
 
@@ -64,7 +64,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
             transform.position = gameSpawnPoints[playerID];
 
-            rb.isKinematic = false;
+            // rb.isKinematic = false;
         }
     }
 
@@ -87,7 +87,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
             transform.position = gameSpawnPoints[playerID];
 
-            rb.isKinematic = false;
+            // rb.isKinematic = false;
         }
     }
 
