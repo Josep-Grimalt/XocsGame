@@ -30,16 +30,15 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector3 movement = transform.forward * Math.Abs(movementDirection.z) + transform.forward * Math.Abs(movementDirection.x);
 
+        Debug.Log(movement);
         movement = Vector3.ClampMagnitude(movement, 1f);
 
         rb?.AddForce(speed * movement, ForceMode.Force);
-        Debug.Log(movement);
     }
 
     public void SetMovementDirection(Vector2 direction)
     {
-        // Debug.Log("moving");
-        movementDirection = new(direction.x, 0, direction.y);;
+        movementDirection = new(direction.x, 0, direction.y); ;
     }
 
     protected void Fall()
@@ -52,7 +51,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Rotate(Vector3 direction)
     {
-        if(direction == Vector3.zero) return;
+        if (direction == Vector3.zero) return;
 
         float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(0, angle, 0);

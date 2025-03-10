@@ -8372,7 +8372,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 293847345116278, guid: a1de63c92accc8b43ae8a3f82c774f76,
+  m_PlayerPrefab: {fileID: 293847345116278, guid: 6f02ee0349d196743a15912d1739bcb7,
     type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
