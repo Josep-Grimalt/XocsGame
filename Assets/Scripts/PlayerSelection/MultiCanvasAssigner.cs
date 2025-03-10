@@ -36,7 +36,6 @@ public class MultiCanvasAssigner : MonoBehaviour
 
         input.uiInputModule = inputModule;
         panels[input.playerIndex].gameObject.SetActive(true);
-        panels[input.playerIndex].gameObject.GetComponentInChildren<MultiplayerEventSystem>().SetSelectedGameObject(optionFirst);
         activePanelCount++;
 
         buttons[input.playerIndex] = panels[input.playerIndex].GetComponentsInChildren<Button>();

@@ -27,12 +27,15 @@ public class PlayerInputController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            inputActions.SwitchCurrentActionMap("Player");
+            inputActions.defaultActionMap = "Player";
+            inputActions.currentActionMap = moveAction.actionMap;
         }
         else
         {
-            inputActions.SwitchCurrentActionMap("UI");
+            inputActions.defaultActionMap = "UI";
         }
+        
+        Debug.Log(inputActions.currentActionMap.name);
     }
 
     void OnDisable()

@@ -39,6 +39,8 @@ public class PlayerMovementController : MonoBehaviour
     {
         Debug.Log("moving");
         movementDirection = new(direction.x, 0, direction.y);
+        Debug.Log(movementDirection);
+        Debug.Log(direction);
     }
 
     protected void Fall()

@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
             if (player.GetComponent<PlayerInputController>() != null)
             {
                 player.GetComponent<PlayerInputController>().UpdateActionMap();
+                Debug.Log("MapUpdate");
             }
         }
     }
@@ -47,6 +48,11 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject player in players.ToList())
         {
+            if (player.GetComponent<PlayerInputController>() != null)
+            {
+                player.GetComponent<PlayerInputController>().UpdateActionMap();
+            }
+            
             if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
             {
                 players.Remove(player);

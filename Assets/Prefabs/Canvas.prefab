@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 7515096288289148065}
   - component: {fileID: 8380366432164651063}
   - component: {fileID: 5467213935115804165}
+  - component: {fileID: 3682802189097686899}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -744,6 +745,32 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3682802189097686899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793709282563770334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312e9584ce5520f48916914afc48beef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {fileID: 539752932023153973}
+  - {fileID: 5693450256941571219}
+  - {fileID: 7786078866798521175}
+  - {fileID: 4292037693979967182}
+  - {fileID: 3873322108548652250}
+  - {fileID: 8044626336100922127}
+  - {fileID: 3489728678589342496}
+  - {fileID: 3873447929261169667}
+  - {fileID: 4319182217031454629}
+  - {fileID: 589145403492994118}
+  - {fileID: 9373105264942747}
+  - {fileID: 6277515816984626473}
+  model: {fileID: 2914722702965368268}
 --- !u!1 &1652833140670116594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,7 +2425,6 @@ GameObject:
   - component: {fileID: 7130159125243628828}
   - component: {fileID: 4473727693509862422}
   - component: {fileID: 2530785431570162974}
-  - component: {fileID: 128162849028511327}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2466,29 +2492,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &128162849028511327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8804936953343758474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 312e9584ce5520f48916914afc48beef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colors:
-  - {fileID: 539752932023153973}
-  - {fileID: 5693450256941571219}
-  - {fileID: 7786078866798521175}
-  - {fileID: 4292037693979967182}
-  - {fileID: 3873322108548652250}
-  - {fileID: 8044626336100922127}
-  - {fileID: 3489728678589342496}
-  - {fileID: 3873447929261169667}
-  - {fileID: 4319182217031454629}
-  - {fileID: 589145403492994118}
-  - {fileID: 9373105264942747}
-  - {fileID: 6277515816984626473}
-  model: {fileID: 2914722702965368268}
