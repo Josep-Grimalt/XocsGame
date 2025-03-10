@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -9,6 +10,7 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameManagerSO manager;
+    [SerializeField] private NavMeshSurface surface;
     [SerializeField] private float delay;
     private List<GameObject> platforms;
     private List<GameObject> players;
@@ -16,9 +18,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
-        
+
         GameObject.Find("Walls").SetActive(manager.Walls());
-        
+
         if (manager.FallingPlatforms())
         {
             platforms = new List<GameObject>(GameObject.FindGameObjectsWithTag("Floor"));
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Fall(delay));
         }
 
-        if(!manager.Elements())
+        if (!manager.Elements())
         {
             GameObject.Find("ElementChangers").SetActive(false);
         }
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
             if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
             {
                 players.Remove(player);
-                    
+
                 if (players.Count < 2)
                 {
                     SceneManager.LoadScene(0);
@@ -75,6 +77,7 @@ public class GameManager : MonoBehaviour
 
             Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
+            surface.BuildNavMesh();
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CollisionManager : MonoBehaviour
 {
@@ -175,6 +176,7 @@ public class CollisionManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         PoolManager.SpawnObject(orb, direction + Vector3.down * 1.5f, Quaternion.identity);
+        EnableObstacle(orb);
     }
 
     private IEnumerator RemoveCollisionKey(string collisionKey, float delay)
@@ -194,5 +196,10 @@ public class CollisionManager : MonoBehaviour
             player.SetActive(true);
         else
             Destroy(player);
+    }
+
+    private void EnableObstacle(GameObject orb)
+    {
+        orb.GetComponent<NavMeshObstacle>().enabled = true;
     }
 }
