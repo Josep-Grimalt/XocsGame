@@ -44,16 +44,33 @@ public class CollisionManager : MonoBehaviour
 
         recentCollisions.Add(collisionKey);
 
-        Debug.Log(collisionPoint);
-
         Vector3 collisionDir = (p2.transform.position - p1.transform.position).normalized;
         collisionDir.y = 0;
         collisionPoint.y = 0.07f;
 
         Rigidbody rb1 = p1.GetComponent<Rigidbody>();
         Rigidbody rb2 = p2.GetComponent<Rigidbody>();
+        if (p1.TryGetComponent(out CPUMovementController cpuP1))
+        {
+            cpuP1.DisableAgent();
+            rb1.isKinematic = false;
+        }
+        if (p2.TryGetComponent(out CPUMovementController cpuP2))
+        {
+            cpuP2.DisableAgent();
+            rb2.isKinematic = false;
+        }
         rb1.AddForce(-collisionDir * repulsionforce, ForceMode.Impulse);
         rb2.AddForce(collisionDir * repulsionforce, ForceMode.Impulse);
+
+        if (cpuP1)
+        {
+            StartCoroutine(ResetCPU(cpuP1, 2));
+        }
+        if (cpuP2)
+        {
+            StartCoroutine(ResetCPU(cpuP2, 2));
+        }
 
         PlayerCollisionController.Element element;
         if (e1 == e2)
@@ -185,6 +202,12 @@ public class CollisionManager : MonoBehaviour
 
     private IEnumerator RespawnPlayer(GameObject player, float delay)
     {
+        if (player.TryGetComponent(out CPUMovementController cpu))
+        {
+            cpu.DisableAgent();
+            cpu.Die();
+        }
+
         player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
         player.GetComponent<Rigidbody>().isKinematic = true;
         targetCinemachine.RemoveTarget(player);
@@ -195,10 +218,24 @@ public class CollisionManager : MonoBehaviour
         if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
         {
             player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-            player.GetComponent<Rigidbody>().isKinematic = false;
             targetCinemachine.AddTarget(player);
+            player.GetComponent<Rigidbody>().isKinematic = false;
+            if (cpu)
+            {
+                cpu.Undie();
+                StartCoroutine(ResetCPU(cpu, 0));
+            }
         }
         else
             Destroy(player);
+    }
+
+    private IEnumerator ResetCPU(CPUMovementController cpu, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (cpu.IsDead()) yield break;
+
+        cpu.EnableAgent();
     }
 }

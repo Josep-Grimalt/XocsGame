@@ -2225,19 +2225,7 @@ MonoBehaviour:
   PositionMode: 1
   RotationMode: 0
   UpdateMethod: 2
-  Targets:
-  - Object: {fileID: 0}
-    Weight: 0
-    Radius: 0
-  - Object: {fileID: 0}
-    Weight: 0
-    Radius: 0
-  - Object: {fileID: 0}
-    Weight: 0
-    Radius: 0
-  - Object: {fileID: 0}
-    Weight: 0
-    Radius: 0
+  Targets: []
   m_LegacyTargets: []
 --- !u!4 &375619988
 Transform:
@@ -8177,7 +8165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
-  surface: {fileID: 0}
+  surface: {fileID: 703485741}
   delay: 2
 --- !u!114 &1759740467
 MonoBehaviour:

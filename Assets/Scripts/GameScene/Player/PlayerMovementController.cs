@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class PlayerMovementController : MonoBehaviour
         if (transform.position.y <= -5)
         {
             GetComponent<PlayerLifeManager>().LoseLife();
+            transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+
         }
     }
 

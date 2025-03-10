@@ -9,16 +9,18 @@ public class CPUMovementController : PlayerMovementController
     private NavMeshAgent agent;
     private List<GameObject> targets;
     private int actualTarget = 0;
+    private bool isDead;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        isDead = false;
     }
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1) return;
-        
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
 
         Fall();
         NearPlayer();
@@ -28,7 +30,7 @@ public class CPUMovementController : PlayerMovementController
     {
         GetTargets();
 
-        if (targets.Count <= 0) return;
+        if (targets.Count <= 0 || !agent.enabled) return;
 
         for (int i = 0; i < targets.Count; i++)
         {
@@ -50,5 +52,30 @@ public class CPUMovementController : PlayerMovementController
         {
             actualTarget = 0;
         }
+    }
+
+    public void DisableAgent()
+    {
+        agent.enabled = false;
+    }
+
+    public void EnableAgent()
+    {
+        agent.enabled = true;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void Die()
+    {
+        isDead = true;
+    }
+
+    public void Undie()
+    {
+        isDead = false;
     }
 }

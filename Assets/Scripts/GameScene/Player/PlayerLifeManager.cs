@@ -42,7 +42,6 @@ public class PlayerLifeManager : MonoBehaviour
 
     public void LoseLife()
     {
-        Debug.Log(textMesh);
         life--;
 
         if (textMesh)
