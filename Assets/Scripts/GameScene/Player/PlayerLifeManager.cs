@@ -1,9 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 public class PlayerLifeManager : MonoBehaviour
 {
