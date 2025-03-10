@@ -33,14 +33,13 @@ public class PlayerMovementController : MonoBehaviour
         movement = Vector3.ClampMagnitude(movement, 1f);
 
         rb?.AddForce(speed * movement, ForceMode.Force);
+        Debug.Log(movement);
     }
 
     public void SetMovementDirection(Vector2 direction)
     {
-        Debug.Log("moving");
-        movementDirection = new(direction.x, 0, direction.y);
-        Debug.Log(movementDirection);
-        Debug.Log(direction);
+        // Debug.Log("moving");
+        movementDirection = new(direction.x, 0, direction.y);;
     }
 
     protected void Fall()

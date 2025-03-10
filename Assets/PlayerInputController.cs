@@ -30,10 +30,6 @@ public class PlayerInputController : MonoBehaviour
             inputActions.defaultActionMap = "Player";
             inputActions.currentActionMap = moveAction.actionMap;
         }
-        else
-        {
-            inputActions.defaultActionMap = "UI";
-        }
         
         Debug.Log(inputActions.currentActionMap.name);
     }
