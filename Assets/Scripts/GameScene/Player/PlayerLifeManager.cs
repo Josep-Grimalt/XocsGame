@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,27 +8,30 @@ using Random = UnityEngine.Random;
 public class PlayerLifeManager : MonoBehaviour
 {
     [SerializeField] private int life = 3;
-    [SerializeField]
-    private Vector3[] gameSpawnPoints =
-    {
-        new (-19, 0, 19),
-        new (19, 0, 19),
-        new (-19, 0, -19),
-        new (19, 0, -19)
-    };
 
     private TextMeshProUGUI textMesh;
-    private int playerID;
 
-    private void Awake()
+    void OnEnable()
     {
-        if (TryGetComponent<PlayerInput>(out var input))
+        SceneManager.activeSceneChanged += SearchForHUDText;
+
+        // EDITOR MODE
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            playerID = input.playerIndex;
+            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
+            {
+                textMesh = ugui;
+                textMesh.SetText(gameObject.name + ": " + life);
+            }
         }
     }
 
-    void OnEnable()
+    void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= SearchForHUDText;
+    }
+
+    private void SearchForHUDText(Scene arg0, Scene arg1)
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
@@ -41,6 +45,7 @@ public class PlayerLifeManager : MonoBehaviour
 
     public void LoseLife()
     {
+        Debug.Log(textMesh);
         life--;
 
         if (textMesh)

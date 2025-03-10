@@ -30,7 +30,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector3 movement = transform.forward * Math.Abs(movementDirection.z) + transform.forward * Math.Abs(movementDirection.x);
 
-        Debug.Log(movement);
         movement = Vector3.ClampMagnitude(movement, 1f);
 
         rb?.AddForce(speed * movement, ForceMode.Force);

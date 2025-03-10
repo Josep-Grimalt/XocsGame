@@ -9,6 +9,7 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] private List<GameObject> orb;
     [SerializeField] private float delay = 0.18f, respawnDelay = 3;
     [SerializeField] private GameObject elementChanger;
+    [SerializeField] private AddTargetCinemachine targetCinemachine;
 
     private HashSet<string> recentCollisions = new HashSet<string>();
 
@@ -44,8 +45,11 @@ public class CollisionManager : MonoBehaviour
 
         recentCollisions.Add(collisionKey);
 
+        Debug.Log(collisionPoint);
+
         Vector3 collisionDir = (p2.transform.position - p1.transform.position).normalized;
         collisionDir.y = 0;
+        collisionPoint.y = 0.07f;
 
         Rigidbody rb1 = p1.GetComponent<Rigidbody>();
         Rigidbody rb2 = p2.GetComponent<Rigidbody>();
@@ -105,7 +109,6 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Fire)
             {
-                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
@@ -114,7 +117,6 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Water)
             {
-                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
@@ -123,7 +125,6 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Wind)
             {
-                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
@@ -132,14 +133,12 @@ public class CollisionManager : MonoBehaviour
         {
             if (element != PlayerCollisionController.Element.Earth)
             {
-                player.GetComponent<PlayerLifeManager>().LoseLife();
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
             }
         }
 
         if (orb.CompareTag("Neutral"))
         {
-            player.GetComponent<PlayerLifeManager>().LoseLife();
             StartCoroutine(RespawnPlayer(player, respawnDelay));
         }
 
@@ -176,7 +175,6 @@ public class CollisionManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         PoolManager.SpawnObject(orb, direction + Vector3.down * 1.5f, Quaternion.identity);
-        EnableObstacle(orb);
     }
 
     private IEnumerator RemoveCollisionKey(string collisionKey, float delay)
@@ -190,6 +188,8 @@ public class CollisionManager : MonoBehaviour
     {
         player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
         player.GetComponent<Rigidbody>().isKinematic = true;
+        targetCinemachine.RemoveTarget(player);
+        player.GetComponent<PlayerLifeManager>().LoseLife();
 
         yield return new WaitForSeconds(delay);
 
@@ -197,13 +197,9 @@ public class CollisionManager : MonoBehaviour
         {
             player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
             player.GetComponent<Rigidbody>().isKinematic = false;
+            targetCinemachine.AddTarget(player);
         }
         else
             Destroy(player);
-    }
-
-    private void EnableObstacle(GameObject orb)
-    {
-        orb.GetComponent<NavMeshObstacle>().enabled = true;
     }
 }
