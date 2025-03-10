@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameManager
   m_EditorClassIdentifier: 
   fallingPlatform: 1
-  walls: 1
-  elements: 1
+  walls: 0
+  elements: 0
   powerups: 0000
   obstacles: 00

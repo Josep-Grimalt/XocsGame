@@ -67,11 +67,11 @@ public class CollisionManager : MonoBehaviour
 
         if (cpuP1)
         {
-            StartCoroutine(ResetCPU(cpuP1, 1));
+            StartCoroutine(ResetCPU(cpuP1, 2));
         }
         if (cpuP2)
         {
-            StartCoroutine(ResetCPU(cpuP2, 1));
+            StartCoroutine(ResetCPU(cpuP2, 2));
         }
 
         PlayerCollisionController.Element element;
@@ -208,6 +208,7 @@ public class CollisionManager : MonoBehaviour
         {
             cpu.enabled = false;
             cpu.DisableAgent();
+            cpu.Die();
         }
 
         player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
@@ -227,6 +228,7 @@ public class CollisionManager : MonoBehaviour
             }
             else
             {
+                cpu.Undie();
                 StartCoroutine(ResetCPU(cpu, 0));
             }
         }
@@ -237,6 +239,8 @@ public class CollisionManager : MonoBehaviour
     private IEnumerator ResetCPU(CPUMovementController cpu, float delay)
     {
         yield return new WaitForSeconds(delay);
+
+        if (cpu.IsDead()) yield break;
 
         cpu.enabled = true;
         cpu.EnableAgent();

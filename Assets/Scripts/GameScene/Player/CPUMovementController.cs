@@ -9,10 +9,12 @@ public class CPUMovementController : PlayerMovementController
     private NavMeshAgent agent;
     private List<GameObject> targets;
     private int actualTarget = 0;
+    private bool isDead;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        isDead = false;
     }
 
     private void Update()
@@ -60,5 +62,20 @@ public class CPUMovementController : PlayerMovementController
     public void EnableAgent()
     {
         agent.enabled = true;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void Die()
+    {
+        isDead = true;
+    }
+
+    public void Undie()
+    {
+        isDead = false;
     }
 }
