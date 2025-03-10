@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,26 +33,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        foreach (GameObject player in players)
-        {
-            if (player.GetComponent<PlayerInputController>() != null)
-            {
-                player.GetComponent<PlayerInputController>().UpdateActionMap();
-                Debug.Log("MapUpdate");
-            }
-        }
-    }
-
     private void Update()
     {
         foreach (GameObject player in players.ToList())
         {
-            if (player.GetComponent<PlayerInputController>() != null)
-            {
-                player.GetComponent<PlayerInputController>().UpdateActionMap();
-            }
             
             if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
             {

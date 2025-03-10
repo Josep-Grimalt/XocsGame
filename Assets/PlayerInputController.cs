@@ -23,17 +23,6 @@ public class PlayerInputController : MonoBehaviour
         moveAction.canceled += Move;
     }
 
-    public void UpdateActionMap()
-    {
-        // if (SceneManager.GetActiveScene().buildIndex > 1)
-        // {
-        //     inputActions.defaultActionMap = "Player";
-        //     inputActions.currentActionMap = moveAction.actionMap;
-        // }
-        //
-        // Debug.Log(inputActions.currentActionMap.name);
-    }
-
     void OnDisable()
     {
         moveAction.performed -= Move;
