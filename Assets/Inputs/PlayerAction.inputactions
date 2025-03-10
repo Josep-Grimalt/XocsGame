@@ -273,6 +273,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2a3f811a-ff59-466b-b0b6-c1998034abe0",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";key",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7e12b309-50a8-40e3-84a5-d15293886a7d",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -325,6 +336,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }

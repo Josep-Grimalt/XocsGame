@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 8380366432164651063}
   - component: {fileID: 5467213935115804165}
   - component: {fileID: 3682802189097686899}
+  - component: {fileID: 2972659473653852785}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -727,7 +728,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5467213935115804165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +772,25 @@ MonoBehaviour:
   - {fileID: 9373105264942747}
   - {fileID: 6277515816984626473}
   model: {fileID: 2914722702965368268}
+--- !u!114 &2972659473653852785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793709282563770334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd1f34f2163d8647943eec3ddddeb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevColor: {fileID: 3147041176391677037}
+  nextColor: {fileID: 3074327317627247416}
+  prevModel: {fileID: 5946148387338870358}
+  nextModel: {fileID: 5433947697485871024}
+  ready: {fileID: 5900173569547495137}
+  model: {fileID: 2914722702965368268}
+  startButton: {fileID: 0}
 --- !u!1 &1652833140670116594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1142,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 0}
   m_TrackedDevicePositionAction: {fileID: 0}
   m_TrackedDeviceOrientationAction: {fileID: 0}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
