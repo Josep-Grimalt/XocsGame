@@ -30,7 +30,7 @@ public class CPUMovementController : PlayerMovementController
     {
         GetTargets();
 
-        if (targets.Count <= 0) return;
+        if (targets.Count <= 0 || !agent.enabled) return;
 
         for (int i = 0; i < targets.Count; i++)
         {

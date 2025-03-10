@@ -53,13 +53,11 @@ public class CollisionManager : MonoBehaviour
         if (p1.TryGetComponent(out CPUMovementController cpuP1))
         {
             cpuP1.DisableAgent();
-            cpuP1.enabled = false;
             rb1.isKinematic = false;
         }
         if (p2.TryGetComponent(out CPUMovementController cpuP2))
         {
             cpuP2.DisableAgent();
-            cpuP2.enabled = false;
             rb2.isKinematic = false;
         }
         rb1.AddForce(-collisionDir * repulsionforce, ForceMode.Impulse);
@@ -206,7 +204,6 @@ public class CollisionManager : MonoBehaviour
     {
         if (player.TryGetComponent(out CPUMovementController cpu))
         {
-            cpu.enabled = false;
             cpu.DisableAgent();
             cpu.Die();
         }
@@ -222,11 +219,8 @@ public class CollisionManager : MonoBehaviour
         {
             player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
             targetCinemachine.AddTarget(player);
-            if (!cpu)
-            {
-                player.GetComponent<Rigidbody>().isKinematic = false;
-            }
-            else
+            player.GetComponent<Rigidbody>().isKinematic = false;
+            if (cpu)
             {
                 cpu.Undie();
                 StartCoroutine(ResetCPU(cpu, 0));
@@ -242,8 +236,6 @@ public class CollisionManager : MonoBehaviour
 
         if (cpu.IsDead()) yield break;
 
-        cpu.enabled = true;
         cpu.EnableAgent();
-        cpu.gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 }
