@@ -84,6 +84,7 @@ public class PlayerSpawnManager : MonoBehaviour
             }
 
             transform.position = gameSpawnPoints[playerID];
+            GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
