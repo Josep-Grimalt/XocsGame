@@ -24,6 +24,8 @@ public class AddTargetCinemachine : MonoBehaviour
 
     private void AddTarget(PlayerInput input)
     {
+        Debug.Log(input.gameObject.name);
+
         if (targets != null)
         {
             targets.AddMember(input.gameObject.transform, 0.5f, 1);
@@ -32,6 +34,8 @@ public class AddTargetCinemachine : MonoBehaviour
 
     public void AddTarget(GameObject input)
     {
+        Debug.Log("player " + input.name + " added to targets");
+
         if (targets != null)
         {
             targets.AddMember(input.transform, 0.5f, 1);
