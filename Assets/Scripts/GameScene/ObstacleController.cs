@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ObstacleController : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class ObstacleController : MonoBehaviour
             else
             {
                 go.transform.localScale = new(1, 5, Random.Range(minScale, maxScale));
+            }
+            if (go.TryGetComponent(out NavMeshObstacle obstacle))
+            {
+                obstacle.enabled = true;
             }
         }
     }
