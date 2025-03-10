@@ -17,8 +17,8 @@ public class CPUMovementController : PlayerMovementController
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1) return;
-        
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
 
         Fall();
         NearPlayer();
@@ -50,5 +50,15 @@ public class CPUMovementController : PlayerMovementController
         {
             actualTarget = 0;
         }
+    }
+
+    public void DisableAgent()
+    {
+        agent.enabled = false;
+    }
+
+    public void EnableAgent()
+    {
+        agent.enabled = true;
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5b778ab3701304aa785063392dd60e, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  fallingPlatform: 0
+  fallingPlatform: 1
   walls: 1
   elements: 1
   powerups: 0000
