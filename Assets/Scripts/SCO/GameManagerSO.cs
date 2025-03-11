@@ -71,7 +71,7 @@ public class GameManagerSO : ScriptableObject
                     powerups[i] = false;
                 }
                 break;
-            case 1:
+            case 1 - 2:
                 for (int i = 0; i < powerups.Length; i++)
                 {
                     if (i + 1 != f)
@@ -82,18 +82,7 @@ public class GameManagerSO : ScriptableObject
                     }
                 }
                 break;
-            case 2:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    if (i + 1 != f)
-                        powerups[i] = false;
-                    else
-                    {
-                        powerups[i] = true;
-                    }
-                }
-                break;
-            case 3:
+            default:
                 for (int i = 0; i < powerups.Length; i++)
                 {
                     powerups[i] = true;
@@ -112,7 +101,7 @@ public class GameManagerSO : ScriptableObject
                     obstacles[i] = false;
                 }
                 break;
-            case 1:
+            default:
                 for (int i = 0; i < obstacles.Length; i++)
                 {
                     obstacles[i] = true;
