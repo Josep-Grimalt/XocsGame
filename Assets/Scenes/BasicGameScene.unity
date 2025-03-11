@@ -8612,6 +8612,7 @@ MonoBehaviour:
   delay: 2
   PostGameHUD: {fileID: 1230762902}
   winnerText: {fileID: 1203217508}
+  continueButton: {fileID: 1720783530}
 --- !u!114 &1759740467
 MonoBehaviour:
   m_ObjectHideFlags: 0
