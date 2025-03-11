@@ -18,6 +18,7 @@ public class SceneButtonManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu, optionsMenu ,gallery, powerUpDescription, matchOptionsMenu;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject mainFrist, optionFirst, galleryFirst, powerUpDescriptionFirst, matchOptionsFirst;
+    [SerializeField] private int startingScene = 2;
 
     public void StartButton()
     {
@@ -93,11 +94,16 @@ public class SceneButtonManager : MonoBehaviour
     
     public void StartGameButton()
     {
-        SceneManager.LoadScene("BasicGameScene");
+        SceneManager.LoadScene(startingScene);
     }
 
     public void BackToPlayerSelection()
     {
         matchOptionsMenu.SetActive(false);
+    }
+
+    public void SetStartingScene(int newStartingScene)
+    {
+        startingScene += newStartingScene;
     }
 }

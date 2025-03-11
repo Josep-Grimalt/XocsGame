@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -72,6 +73,12 @@ public class PlayerSpawnManager : MonoBehaviour
         SceneManager.sceneLoaded += DestroyPlayer;
     }
 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= ChangeSpawnPoint;
+        SceneManager.sceneLoaded -= DestroyPlayer;
+    }
+
     private void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
@@ -90,7 +97,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void DestroyPlayer(Scene arg0, LoadSceneMode arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex <= 1)
         {
             Destroy(gameObject);
         }
