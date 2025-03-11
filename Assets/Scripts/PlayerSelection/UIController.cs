@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -9,7 +10,7 @@ public class UIController : MonoBehaviour
     private List<GameObject> colorsUI;
     private int color = 1;
     private int model = 1;
-    private bool ready = false;
+    private static bool[] _ready = { false, false, false, false };
 
     public void SelectColor(bool next, List<GameObject> colorsUI)
     {
@@ -71,20 +72,39 @@ public class UIController : MonoBehaviour
         return models[model].name;
     }
 
-    public int Ready(bool ready, int num)
+    public int Ready(int playerNum, bool ready)
     {
-        if (!this.ready && ready)
+        if (!_ready[playerNum] && ready)
         {
-            this.ready = true;
-            num++;
+            _ready[playerNum] = true;
         }
-        else if (this.ready && ready)
+        else if (_ready[playerNum] && ready)
         {
-            this.ready = false;
-            num--;
+            _ready[playerNum] = false;
+        }
+
+        int num = 0;
+
+        foreach (bool r in _ready)
+        {
+            if (r)
+            {
+                num++;
+            }
         }
         
+        Debug.Log("p1: " + _ready[0]);
+        Debug.Log("p2: " + _ready[1]);
+        Debug.Log("p3: " + _ready[2]);
+        Debug.Log("p4: " + _ready[3]);
+        Debug.Log("total: " + num);
+        
         return num;
+    }
+
+    public bool[] GetReady()
+    {
+        return _ready;
     }
 
     private void ChangeColor()

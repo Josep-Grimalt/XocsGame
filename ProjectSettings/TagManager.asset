@@ -12,6 +12,7 @@ TagManager:
   - Earth
   - Neutral
   - PowerUp
+  - Ready
   layers:
   - Default
   - TransparentFX

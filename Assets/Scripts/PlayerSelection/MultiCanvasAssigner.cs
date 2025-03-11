@@ -1,22 +1,39 @@
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
 
 public class MultiCanvasAssigner : MonoBehaviour
 {
     [SerializeField] private Transform[] panels;
+    [SerializeField] private Button startButton;
 
+    private Button[][] buttons;
+    private GameObject[][] colors;
+    private TextMeshProUGUI[] models;
     private PlayerInputManager inputManager;
-    private int activePanelCount = 0;
+    private static int _activePanelCount = 0;
+    private static int _readyCount = 0;
 
     void Awake()
     {
         inputManager = GetComponent<PlayerInputManager>();
+        buttons = new Button[panels.Length][];
+        colors = new GameObject[panels.Length][];
+        models = new TextMeshProUGUI[panels.Length];
+        _activePanelCount = 0;
     }
 
     void OnEnable()
     {
         inputManager.onPlayerJoined += ClaimPanel;
+    }
+
+    void OnDisable()
+    {
+        inputManager.onPlayerJoined -= ClaimPanel;
     }
 
     private void ClaimPanel(PlayerInput input)
@@ -25,8 +42,81 @@ public class MultiCanvasAssigner : MonoBehaviour
 
         input.uiInputModule = inputModule;
         panels[input.playerIndex].gameObject.SetActive(true);
-        activePanelCount++;
+        _activePanelCount++;
+        startButton.interactable = false;
 
-        panels[input.playerIndex].GetComponent<MultiButtonListener>().AddButtonListener(input, activePanelCount);
+        Debug.Log("Player Count: " + _activePanelCount);
+        
+        buttons[input.playerIndex] = panels[input.playerIndex].gameObject.GetComponentsInChildren<Button>().ToArray();
+        colors[input.playerIndex] = panels[input.playerIndex].GetComponent<PanelGetColorAndGetModel>().GetColors().ToArray();
+        models[input.playerIndex] = panels[input.playerIndex].GetComponent<PanelGetColorAndGetModel>().GetModel();
+        AddButtonListener(input);
+    }
+
+    public void AddButtonListener(PlayerInput input)
+    {
+        buttons[input.playerIndex][0].onClick.AddListener(() => PrevColor(input));
+        buttons[input.playerIndex][1].onClick.AddListener(() => NextColor(input));
+        buttons[input.playerIndex][2].onClick.AddListener(() => PrevModel(input));
+        buttons[input.playerIndex][3].onClick.AddListener(() => NextModel(input));
+        buttons[input.playerIndex][4].onClick.AddListener(() =>
+        {
+            Ready(input);
+
+            if (input.gameObject.GetComponent<UIController>().GetReady()[input.playerIndex])
+            {
+                for (int i = 0; i < buttons[input.playerIndex].Length; i++)
+                {
+                    if (i < 4)
+                    {
+                        buttons[input.playerIndex][i].interactable = false;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < buttons[input.playerIndex].Length; i++)
+                {
+                    if (i < 4)
+                    {
+                        buttons[input.playerIndex][i].interactable = true;
+                    }
+                }
+            }
+            
+            if (_readyCount == _activePanelCount)
+            {
+                startButton.interactable = true;
+            }
+            else
+            {
+                startButton.interactable = false;
+            }
+        });
+    }
+
+    private void Ready(PlayerInput input)
+    {
+        _readyCount = input.gameObject.GetComponent<UIController>().Ready(input.playerIndex, true);
+    }
+
+    private void PrevModel(PlayerInput input)
+    {
+        models[input.playerIndex].SetText(input.gameObject.GetComponent<UIController>().SelectModel(false));
+    }
+
+    private void NextModel(PlayerInput input)
+    {
+        models[input.playerIndex].SetText(input.gameObject.GetComponent<UIController>().SelectModel(true));
+    }
+
+    private void PrevColor(PlayerInput input)
+    {
+        input.gameObject.GetComponent<UIController>().SelectColor(false, colors[input.playerIndex].ToList());
+    }
+
+    private void NextColor(PlayerInput input)
+    {
+        input.gameObject.GetComponent<UIController>().SelectColor(true, colors[input.playerIndex].ToList());
     }
 }

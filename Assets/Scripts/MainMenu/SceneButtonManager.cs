@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,8 +18,9 @@ public class SceneButtonManager : MonoBehaviour
     [SerializeField] private PowerUp[] powerUps;
     [SerializeField] private GameObject mainMenu, optionsMenu ,gallery, powerUpDescription, matchOptionsMenu;
     [SerializeField] private EventSystem eventSystem;
-    [SerializeField] private GameObject mainFrist, optionFirst, galleryFirst, powerUpDescriptionFirst, matchOptionsFirst;
+    [SerializeField] private GameObject mainFrist, optionFirst, galleryFirst, powerUpDescriptionFirst, matchOptionsFirst, playerFirst;
     [SerializeField] private int startingScene = 2;
+    [SerializeField] private PlayerInputManager inputManager;
 
     public void StartButton()
     {
@@ -90,16 +92,33 @@ public class SceneButtonManager : MonoBehaviour
     {
         matchOptionsMenu.SetActive(true);
         eventSystem.SetSelectedGameObject(matchOptionsFirst);
-    }
-    
-    public void StartGameButton()
-    {
-        SceneManager.LoadScene(startingScene);
+        inputManager.DisableJoining();
+        
+        GameObject[] buttons = GameObject.FindGameObjectsWithTag("Ready");
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].GetComponent<Button>().interactable = false;
+        }
     }
 
     public void BackToPlayerSelection()
     {
         matchOptionsMenu.SetActive(false);
+        eventSystem.SetSelectedGameObject(playerFirst);
+        inputManager.EnableJoining();
+        
+        GameObject[] buttons = GameObject.FindGameObjectsWithTag("Ready");
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].GetComponent<Button>().interactable = true;
+        }
+    }
+    
+    public void StartGameButton()
+    {
+        SceneManager.LoadScene(startingScene);
     }
 
     public void SetStartingScene(int newStartingScene)
