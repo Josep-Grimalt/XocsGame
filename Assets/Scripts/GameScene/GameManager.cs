@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PostGameHUD;
     [SerializeField] private TextMeshProUGUI winnerText;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private EventSystem eventSystem;
     private List<GameObject> platforms;
     private List<GameObject> players;
 
@@ -65,10 +66,11 @@ public class GameManager : MonoBehaviour
 
                 if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
                 {
-                    EventSystem.current.SetSelectedGameObject(continueButton);
                     winnerText.text = player.name + " wins!";
                 }
             }
+
+            eventSystem.SetSelectedGameObject(continueButton);
         }
     }
 
