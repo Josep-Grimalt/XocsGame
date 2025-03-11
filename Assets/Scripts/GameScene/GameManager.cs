@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameManagerSO manager;
     [SerializeField] private NavMeshSurface surface;
     [SerializeField] private float delay;
+    [SerializeField] private GameObject PostGameHUD;
+    [SerializeField] private TextMeshProUGUI winnerText;
     private List<GameObject> platforms;
     private List<GameObject> players;
 
@@ -37,14 +40,29 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject player in players.ToList())
         {
-            
+
             if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
             {
                 players.Remove(player);
+            }
 
-                if (players.Count < 2)
+        }
+
+        if (players.Count < 2)
+        {
+            PostGameHUD.SetActive(true);
+
+            foreach (GameObject player in players)
+            {
+                player.GetComponent<Rigidbody>().isKinematic = true;
+                if (player.TryGetComponent(out CPUMovementController cpu))
                 {
-                    SceneManager.LoadScene(0);
+                    cpu.enabled = false;
+                }
+
+                if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
+                {
+                    winnerText.text = player.name + " wins!";
                 }
             }
         }
@@ -72,5 +90,15 @@ public class GameManager : MonoBehaviour
     public bool[] Obstacles()
     {
         return manager.Obstacles();
+    }
+
+    public void Continue()
+    {
+        foreach (GameObject player in players)
+        {
+            Destroy(player);
+        }
+
+        SceneManager.LoadScene(0);
     }
 }
