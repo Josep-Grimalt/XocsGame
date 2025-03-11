@@ -8614,6 +8614,7 @@ MonoBehaviour:
   winnerText: {fileID: 1203217508}
   continueButton: {fileID: 1720783530}
   eventSystem: {fileID: 409378419}
+  multiplayerManager: {fileID: 1775339764}
 --- !u!114 &1759740467
 MonoBehaviour:
   m_ObjectHideFlags: 0
