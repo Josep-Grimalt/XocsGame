@@ -18,11 +18,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winnerText;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private EventSystem eventSystem;
+    [SerializeField] private GameObject multiplayerManager;
     private List<GameObject> platforms;
     private List<GameObject> players;
 
     private void Awake()
     {
+        multiplayerManager.SetActive(true);
+
         players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
 
         GameObject.Find("Walls").SetActive(manager.Walls());
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
         if (players.Count < 2)
         {
             PostGameHUD.SetActive(true);
+            multiplayerManager.SetActive(false);
 
             foreach (GameObject player in players)
             {
@@ -69,7 +73,6 @@ public class GameManager : MonoBehaviour
                     winnerText.text = player.name + " wins!";
                 }
             }
-
             eventSystem.SetSelectedGameObject(continueButton);
         }
     }
