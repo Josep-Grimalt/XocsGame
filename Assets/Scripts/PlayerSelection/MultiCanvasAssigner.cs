@@ -17,6 +17,8 @@ public class MultiCanvasAssigner : MonoBehaviour
     private static int _activePanelCount = 0;
     private static int _readyCount = 0;
 
+    private PlayerInput playerInput;
+
     void Awake()
     {
         inputManager = GetComponent<PlayerInputManager>();
@@ -24,20 +26,25 @@ public class MultiCanvasAssigner : MonoBehaviour
         colors = new GameObject[panels.Length][];
         models = new TextMeshProUGUI[panels.Length];
         _activePanelCount = 0;
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void OnEnable()
     {
         inputManager.onPlayerJoined += ClaimPanel;
+        inputManager.onPlayerLeft += RemovePanel;
     }
 
     void OnDisable()
     {
         inputManager.onPlayerJoined -= ClaimPanel;
+        inputManager.onPlayerLeft -= RemovePanel;
     }
 
     private void ClaimPanel(PlayerInput input)
     {
+        Debug.Log(playerInput);
+        Debug.Log(input);
         InputSystemUIInputModule inputModule = panels[input.playerIndex].GetComponentInChildren<InputSystemUIInputModule>();
 
         input.uiInputModule = inputModule;
@@ -46,11 +53,22 @@ public class MultiCanvasAssigner : MonoBehaviour
         startButton.interactable = false;
 
         Debug.Log("Player Count: " + _activePanelCount);
-        
+
         buttons[input.playerIndex] = panels[input.playerIndex].gameObject.GetComponentsInChildren<Button>().ToArray();
         colors[input.playerIndex] = panels[input.playerIndex].GetComponent<PanelGetColorAndGetModel>().GetColors().ToArray();
         models[input.playerIndex] = panels[input.playerIndex].GetComponent<PanelGetColorAndGetModel>().GetModel();
         AddButtonListener(input);
+    }
+
+    private void RemovePanel(PlayerInput input)
+    {
+        panels[input.playerIndex].gameObject.SetActive(false);
+        _activePanelCount--;
+        buttons[input.playerIndex][0].onClick.RemoveAllListeners();
+        buttons[input.playerIndex][1].onClick.RemoveAllListeners();
+        buttons[input.playerIndex][2].onClick.RemoveAllListeners();
+        buttons[input.playerIndex][3].onClick.RemoveAllListeners();
+        buttons[input.playerIndex][4].onClick.RemoveAllListeners();
     }
 
     public void AddButtonListener(PlayerInput input)
@@ -83,7 +101,7 @@ public class MultiCanvasAssigner : MonoBehaviour
                     }
                 }
             }
-            
+
             if (_readyCount == _activePanelCount)
             {
                 startButton.interactable = true;
