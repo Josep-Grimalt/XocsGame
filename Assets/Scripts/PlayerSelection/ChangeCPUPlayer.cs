@@ -26,9 +26,16 @@ public class ChangeCPUPlayer : MonoBehaviour
 
     private void DeactivateCPU(PlayerInput input)
     {
-        if(activePlayers < cpuPlayers.Length)
+        if (activePlayers == 0)
         {
-            cpuPlayers[activePlayers].SetActive(false);
+            activePlayers++;
+            return;
+        }
+
+        if (activePlayers < cpuPlayers.Length)
+        {
+            cpuPlayers[activePlayers - 1].SetActive(false);
+
             activePlayers++;
         }
     }
@@ -36,6 +43,6 @@ public class ChangeCPUPlayer : MonoBehaviour
     private void ReactivateCPU(PlayerInput input)
     {
         activePlayers--;
-        cpuPlayers[activePlayers].SetActive(true);
+        cpuPlayers[activePlayers - 1].SetActive(true);
     }
 }
