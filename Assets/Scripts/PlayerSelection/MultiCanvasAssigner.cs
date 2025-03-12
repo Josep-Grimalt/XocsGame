@@ -15,14 +15,11 @@ public class MultiCanvasAssigner : MonoBehaviour
     private static int _activePanelCount = 0;
     private static int _readyCount = 0;
 
-    private PlayerInput playerInput;
-
     void Awake()
     {
         inputManager = GetComponent<PlayerInputManager>();
         buttons = new Button[panels.Length][];
         _activePanelCount = 0;
-        playerInput = GetComponent<PlayerInput>();
     }
 
     void OnEnable()
@@ -39,8 +36,6 @@ public class MultiCanvasAssigner : MonoBehaviour
 
     private void ClaimPanel(PlayerInput input)
     {
-        Debug.Log(playerInput);
-        Debug.Log(input);
         InputSystemUIInputModule inputModule = panels[input.playerIndex].GetComponentInChildren<InputSystemUIInputModule>();
 
         input.uiInputModule = inputModule;

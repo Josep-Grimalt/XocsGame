@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class ChangeCPUPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject[] cpuPlayers;
-    private int activePlayers = 0;
     private PlayerInputManager newPlayer;
 
     private void Awake()
@@ -27,30 +26,26 @@ public class ChangeCPUPlayer : MonoBehaviour
 
     private void DeactivateCPU(PlayerInput input)
     {
-        if (activePlayers == 0)
+        if (input.playerIndex == 0)
         {
-            activePlayers++;
             return;
         }
 
-        if (activePlayers < cpuPlayers.Length)
+        if (input.playerIndex - 1 < cpuPlayers.Length)
         {
-            cpuPlayers[activePlayers - 1].SetActive(false);
-            SceneManager.MoveGameObjectToScene(cpuPlayers[activePlayers - 1], SceneManager.GetActiveScene());
-            activePlayers++;
+            cpuPlayers[input.playerIndex - 1].SetActive(false);
+            SceneManager.MoveGameObjectToScene(cpuPlayers[input.playerIndex - 1], SceneManager.GetActiveScene());
         }
     }
 
     private void ReactivateCPU(PlayerInput input)
     {
-        activePlayers--;
-
-        if (activePlayers == 0)
+        if (input.playerIndex == 0)
         {
             return;
         }
 
-        cpuPlayers[activePlayers - 1].SetActive(true);
-        DontDestroyOnLoad(cpuPlayers[activePlayers - 1]);
+        cpuPlayers[input.playerIndex - 1].SetActive(true);
+        DontDestroyOnLoad(cpuPlayers[input.playerIndex - 1]);
     }
 }
