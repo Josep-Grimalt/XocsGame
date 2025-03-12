@@ -801,7 +801,8 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3682802189097686899, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6277515816984626473, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     - {fileID: 9373105264942747, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
@@ -3866,7 +3867,8 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3682802189097686899, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6277515816984626473, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     - {fileID: 9373105264942747, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
@@ -5474,7 +5476,8 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3682802189097686899, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6277515816984626473, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     - {fileID: 9373105264942747, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
@@ -7767,7 +7770,8 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3682802189097686899, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6277515816984626473, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
     - {fileID: 9373105264942747, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
