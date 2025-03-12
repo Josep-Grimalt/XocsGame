@@ -44,6 +44,12 @@ public class ChangeCPUPlayer : MonoBehaviour
     private void ReactivateCPU(PlayerInput input)
     {
         activePlayers--;
+
+        if (activePlayers == 0)
+        {
+            return;
+        }
+
         cpuPlayers[activePlayers - 1].SetActive(true);
         DontDestroyOnLoad(cpuPlayers[activePlayers - 1]);
     }
