@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ChangeCPUPlayer : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class ChangeCPUPlayer : MonoBehaviour
         if (activePlayers < cpuPlayers.Length)
         {
             cpuPlayers[activePlayers - 1].SetActive(false);
-
+            SceneManager.MoveGameObjectToScene(cpuPlayers[activePlayers - 1], SceneManager.GetActiveScene());
             activePlayers++;
         }
     }
@@ -44,5 +45,6 @@ public class ChangeCPUPlayer : MonoBehaviour
     {
         activePlayers--;
         cpuPlayers[activePlayers - 1].SetActive(true);
+        DontDestroyOnLoad(cpuPlayers[activePlayers - 1]);
     }
 }
