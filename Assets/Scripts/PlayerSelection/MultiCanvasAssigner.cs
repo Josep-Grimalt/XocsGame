@@ -11,7 +11,7 @@ public class MultiCanvasAssigner : MonoBehaviour
     [SerializeField] private Button startButton;
 
     private Button[][] buttons;
-    private GameObject[][] colors;
+    private Material[][] colors;
     private TextMeshProUGUI[] models;
     private PlayerInputManager inputManager;
     private static int _activePanelCount = 0;
@@ -23,7 +23,7 @@ public class MultiCanvasAssigner : MonoBehaviour
     {
         inputManager = GetComponent<PlayerInputManager>();
         buttons = new Button[panels.Length][];
-        colors = new GameObject[panels.Length][];
+        colors = new Material[panels.Length][];
         models = new TextMeshProUGUI[panels.Length];
         _activePanelCount = 0;
         playerInput = GetComponent<PlayerInput>();
@@ -130,11 +130,11 @@ public class MultiCanvasAssigner : MonoBehaviour
 
     private void PrevColor(PlayerInput input)
     {
-        input.gameObject.GetComponent<UIController>().SelectColor(false, colors[input.playerIndex].ToList());
+        input.gameObject.GetComponent<UIController>().SelectColor(false);
     }
 
     private void NextColor(PlayerInput input)
     {
-        input.gameObject.GetComponent<UIController>().SelectColor(true, colors[input.playerIndex].ToList());
+        input.gameObject.GetComponent<UIController>().SelectColor(true);
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PanelGetColorAndGetModel : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> colors;
+    [SerializeField] private List<Material> colors;
     [SerializeField] private TextMeshProUGUI model;
 
-    public List<GameObject> GetColors()
+    public List<Material> GetColors()
     {
         return colors;
     }

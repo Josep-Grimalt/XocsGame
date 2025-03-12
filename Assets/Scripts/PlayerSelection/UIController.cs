@@ -6,13 +6,11 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> colorsPlayer;
     [SerializeField] private List<GameObject> models;
-
-    private List<GameObject> colorsUI;
     private int color = 1;
     private int model = 1;
     private static bool[] _ready = { false, false, false, false };
 
-    public void SelectColor(bool next, List<GameObject> colorsUI)
+    public void SelectColor(bool next)
     {
         if (next)
         {
@@ -36,8 +34,6 @@ public class UIController : MonoBehaviour
                 color--;
             }
         }
-        
-        this.colorsUI = colorsUI;
 
         ChangeColor();
     }
@@ -123,32 +119,10 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 1")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
 
             case 2:
                 foreach (GameObject colorOject in colorsPlayer)
-                {
-                    if (colorOject.name == "Color 2")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
-                foreach (GameObject colorOject in colorsUI)
                 {
                     if (colorOject.name == "Color 2")
                     {
@@ -173,32 +147,10 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 3")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
 
             case 4:
                 foreach (GameObject colorOject in colorsPlayer)
-                {
-                    if (colorOject.name == "Color 4")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
-                foreach (GameObject colorOject in colorsUI)
                 {
                     if (colorOject.name == "Color 4")
                     {
@@ -223,17 +175,6 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 5")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
 
             case 6:
@@ -248,31 +189,9 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 6")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
             case 7:
                 foreach (GameObject colorOject in colorsPlayer)
-                {
-                    if (colorOject.name == "Color 7")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
-                foreach (GameObject colorOject in colorsUI)
                 {
                     if (colorOject.name == "Color 7")
                     {
@@ -297,32 +216,10 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 8")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
 
             case 9:
                 foreach (GameObject colorOject in colorsPlayer)
-                {
-                    if (colorOject.name == "Color 9")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
-                foreach (GameObject colorOject in colorsUI)
                 {
                     if (colorOject.name == "Color 9")
                     {
@@ -347,17 +244,6 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 10")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
 
             case 11:
@@ -372,32 +258,10 @@ public class UIController : MonoBehaviour
                         colorOject.SetActive(false);
                     }
                 }
-                foreach (GameObject colorOject in colorsUI)
-                {
-                    if (colorOject.name == "Color 11")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
                 break;
 
             case 12:
                 foreach (GameObject colorOject in colorsPlayer)
-                {
-                    if (colorOject.name == "Color 12")
-                    {
-                        colorOject.SetActive(true);
-                    }
-                    else
-                    {
-                        colorOject.SetActive(false);
-                    }
-                }
-                foreach (GameObject colorOject in colorsUI)
                 {
                     if (colorOject.name == "Color 12")
                     {
