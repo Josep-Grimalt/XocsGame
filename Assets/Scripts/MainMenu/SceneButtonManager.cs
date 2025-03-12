@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 
 public class SceneButtonManager : MonoBehaviour
@@ -124,5 +126,10 @@ public class SceneButtonManager : MonoBehaviour
     public void SetStartingScene(int newStartingScene)
     {
         startingScene += newStartingScene;
+    }
+
+    public void SetRandomStartingScene(int scenesCount)
+    {
+        startingScene += Random.Range(0, scenesCount);
     }
 }

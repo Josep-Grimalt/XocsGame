@@ -1,3 +1,5 @@
+using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameManager", menuName = "Scriptable Objects/GameManager")]
@@ -75,23 +77,13 @@ public class GameManagerSO : ScriptableObject
                 for (int i = 0; i < powerups.Length; i++)
                 {
                     if (i + 1 != f)
-                        powerups[i] = false;
-                    else
-                    {
                         powerups[i] = true;
-                    }
-                }
-                break;
-            default:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    powerups[i] = true;
                 }
                 break;
         }
     }
 
-    public void SetObstacles(int f)
+    public void SetObstacles(bool value, int f)
     {
         switch (f)
         {
@@ -101,10 +93,11 @@ public class GameManagerSO : ScriptableObject
                     obstacles[i] = false;
                 }
                 break;
-            default:
+            case 1:
                 for (int i = 0; i < obstacles.Length; i++)
                 {
-                    obstacles[i] = true;
+                    if (i + 1 == f)
+                        obstacles[i] = true;
                 }
                 break;
         }
