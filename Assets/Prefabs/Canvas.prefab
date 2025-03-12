@@ -1121,7 +1121,8 @@ MonoBehaviour:
     type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
-  m_ScrollWheelAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 3685641011317676475, guid: 902c5ee23f5cc8d4a9ae9be7aef3b248,
+    type: 3}
   m_TrackedDevicePositionAction: {fileID: 0}
   m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 0
