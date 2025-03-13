@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,23 +12,26 @@ public class ObstacleController : MonoBehaviour
 
     private void OnEnable()
     {
-        // if(!GetComponent<GameManager>().Obstacles()) return;
-        for (int i = 0; i < obstacles.Length; i++)
-        {
-            if (gameManager.Obstacles()[i])
-                StartCoroutine(SpawnObstacle());
-        }
+        if (!gameManager.Obstacles().Contains(true)) return;
+
+        StartCoroutine(SpawnObstacle());
     }
 
     private IEnumerator SpawnObstacle()
     {
         GameObject go;
+        int i;
 
-        while (true)
+        while (gameObject.activeSelf)
         {
             yield return new WaitForSeconds(delay);
 
-            go = Instantiate(obstacles[Random.Range(0, obstacles.Length)], new(Random.Range(-9f, 9f), 2.5f, Random.Range(-9f, 9f)), Quaternion.identity);
+            do
+            {
+                i = Random.Range(0, gameManager.Obstacles().Length);
+            } while (!gameManager.Obstacles()[i]);
+
+            go = Instantiate(obstacles[i], new(Random.Range(-9f, 9f), 2.5f, Random.Range(-9f, 9f)), Quaternion.identity);
             go.transform.Rotate(new(0, Random.Range(0, 360), 0));
             if (Random.Range(0, 2) % 2 == 0)
             {
@@ -37,6 +41,7 @@ public class ObstacleController : MonoBehaviour
             {
                 go.transform.localScale = new(1, 5, Random.Range(minScale, maxScale));
             }
+
             if (go.TryGetComponent(out NavMeshObstacle obstacle))
             {
                 obstacle.enabled = true;
