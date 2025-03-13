@@ -5803,24 +5803,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
-        m_MethodName: Obstacles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
-        m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetNumber
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
+        m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
+        m_MethodName: Obstacles
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7640,24 +7640,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
-        m_MethodName: PowerUps
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
-        m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
         m_MethodName: SetNumber
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
+        m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
+        m_MethodName: PowerUps
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8276,8 +8276,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
-        m_MethodName: PowerUps
-        m_Mode: 0
+        m_MethodName: SetNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8288,8 +8288,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
         m_TargetAssemblyTypeName: GameManagerSO, Assembly-CSharp
-        m_MethodName: SetNumber
-        m_Mode: 3
+        m_MethodName: PowerUps
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
