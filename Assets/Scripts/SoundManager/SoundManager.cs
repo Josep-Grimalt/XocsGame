@@ -1,29 +1,180 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager I {get; private set;}
+    public static SoundManager I { get; private set; }
     [SerializeField] private SoundLibrary soundLibrary;
+    [SerializeField] private bool playMusic;
+    [SerializeField] private SoundName musicClip;
+
+    private readonly AudioSource musicAudioSrc;
+    private Dictionary<SoundName, float> soundTimers;
+
     void Awake()
     {
-        if(I)
+        if (I)
         {
             Destroy(gameObject);
         }
         else
         {
             I = this;
+            InitializeSoundTimers();
             DontDestroyOnLoad(I);
         }
     }
 
     void Start()
     {
-        
+        if (playMusic)
+        {
+            PlayBackgroundSound(musicClip, musicAudioSrc);
+        }
+
     }
 
-    public void PlaySound()
+    public void PlaySound(SoundName soundName, float pitch = 1)
     {
-        
+        SoundClip soundClip = GetAudioClip(soundName);
+        if (soundClip == null || !CanPlaySound(soundClip)) return;
+
+        GameObject soundGO = new("2D Sound");
+        soundGO.transform.SetParent(transform);
+
+        AudioSource audioSrc2D = soundGO.AddComponent<AudioSource>();
+        audioSrc2D.loop = soundClip.loop;
+        audioSrc2D.volume = soundClip.volume;
+        audioSrc2D.pitch = pitch;
+
+        if (audioSrc2D.loop)
+        {
+            audioSrc2D.clip = soundClip.audioClip;
+            audioSrc2D.Play();
+        }
+        else
+        {
+            audioSrc2D.PlayOneShot(soundClip.audioClip);
+            Destroy(soundGO, soundClip.audioClip.length);
+        }
+    }
+
+    public void PlaySound(SoundName soundName, Vector3 position, float pitch = 1)
+    {
+        SoundClip soundClip = GetAudioClip(soundName);
+        if (soundClip == null || !CanPlaySound(soundClip)) return;
+
+        GameObject soundGO = new("3D Sound");
+        soundGO.transform.position = position;
+
+        AudioSource audioSrc3D = soundGO.AddComponent<AudioSource>();
+        audioSrc3D.loop = soundClip.loop;
+        audioSrc3D.volume = soundClip.volume;
+        audioSrc3D.pitch = pitch;
+
+        if (audioSrc3D.loop)
+        {
+            audioSrc3D.clip = soundClip.audioClip;
+            audioSrc3D.Play();
+        }
+        else
+        {
+            audioSrc3D.PlayOneShot(soundClip.audioClip);
+            Destroy(soundGO, soundClip.audioClip.length);
+        }
+    }
+
+    public void PlaySound(SoundName soundName, Transform parent, float pitch = 1)
+    {
+        SoundClip soundClip = GetAudioClip(soundName);
+        if (soundClip == null || !CanPlaySound(soundClip)) return;
+
+        GameObject soundGO = new("2D Sound");
+        soundGO.transform.SetParent(parent);
+
+        AudioSource audioSrc = soundGO.AddComponent<AudioSource>();
+        audioSrc.loop = soundClip.loop;
+        audioSrc.volume = soundClip.volume;
+        audioSrc.pitch = pitch;
+
+        if (audioSrc.loop)
+        {
+            audioSrc.clip = soundClip.audioClip;
+            audioSrc.Play();
+        }
+        else
+        {
+            audioSrc.PlayOneShot(soundClip.audioClip);
+            Destroy(soundGO, soundClip.audioClip.length);
+        }
+    }
+
+    public void PlayBackgroundSound(SoundName soundName, AudioSource audioSource)
+    {
+        SoundClip soundClip = GetAudioClip(soundName);
+        if (soundClip == null || !CanPlaySound(soundClip)) return;
+
+        if (!audioSource)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.loop = true;
+        audioSource.volume = soundClip.volume;
+        audioSource.clip = soundClip.audioClip;
+
+        audioSource.Play();
+    }
+
+    public void StopBackgroundSound()
+    {
+        if (musicAudioSrc) musicAudioSrc.Stop();
+    }
+
+    private void InitializeSoundTimers()
+    {
+        soundTimers = new Dictionary<SoundName, float>();
+
+        foreach (SoundClip soundClip in soundLibrary.soundClips)
+        {
+            if (soundClip.hasPlayTimer)
+            {
+                soundTimers[soundClip.soundName] = soundClip.playTimer;
+            }
+        }
+    }
+
+    private bool CanPlaySound(SoundClip soundClip)
+    {
+        if (!soundClip.hasPlayTimer || !soundTimers.ContainsKey(soundClip.soundName))
+        {
+            if (soundClip.hasPlayTimer) soundTimers[soundClip.soundName] = Time.time;
+
+            return true;
+        }
+
+        float lastTimePlayed = soundTimers[soundClip.soundName];
+        if (Time.time > lastTimePlayed + soundClip.playTimer)
+        {
+            soundTimers[soundClip.soundName] = Time.time;
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private SoundClip GetAudioClip(SoundName soundName)
+    {
+        foreach (SoundClip soundClip in soundLibrary.soundClips)
+        {
+            if (soundClip.soundName.Equals(soundName))
+            {
+                return soundClip;
+            }
+        }
+        return null;
     }
 }
