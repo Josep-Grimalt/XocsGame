@@ -756,7 +756,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1988837114}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 793709282563770334, guid: d8452cca6e097a94ab2e69085bdf5d7e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1285852632}
   m_SourcePrefab: {fileID: 100100000, guid: d8452cca6e097a94ab2e69085bdf5d7e, type: 3}
 --- !u!1 &118586308
 GameObject:
@@ -6633,6 +6637,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276278695}
   m_CullTransparentMesh: 1
+--- !u!1 &1285852628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 793709282563770334, guid: d8452cca6e097a94ab2e69085bdf5d7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 86674204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1285852632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285852628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cb961996c2a3d4fbcd22b089c3473e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 1150309616}
+  content: {fileID: 354157625}
+  eventSystem: {fileID: 2130925241}
 --- !u!224 &1311556926 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2094352153732692305, guid: d8452cca6e097a94ab2e69085bdf5d7e,
