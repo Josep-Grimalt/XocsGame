@@ -23,12 +23,12 @@ public class GameManagerSO : ScriptableObject
         }
     }
 
-    public bool[] Powerups()
+    public bool[] GetPowerups()
     {
         return powerups;
     }
 
-    public bool[] Obstacles()
+    public bool[] GetObstacles()
     {
         return obstacles;
     }
@@ -63,43 +63,13 @@ public class GameManagerSO : ScriptableObject
         elements = f;
     }
 
-    public void SetPowerUps(int f)
+    public void SetPowerUps(bool[] powerups)
     {
-        switch (f)
-        {
-            case 0:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    powerups[i] = false;
-                }
-                break;
-            case 1 - 2:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    if (i + 1 != f)
-                        powerups[i] = true;
-                }
-                break;
-        }
+        this.powerups = powerups;
     }
 
-    public void SetObstacles(bool value, int f)
+    public void SetObstacles(bool[] obstacles)
     {
-        switch (f)
-        {
-            case 0:
-                for (int i = 0; i < obstacles.Length; i++)
-                {
-                    obstacles[i] = false;
-                }
-                break;
-            case 1:
-                for (int i = 0; i < obstacles.Length; i++)
-                {
-                    if (i + 1 == f)
-                        obstacles[i] = true;
-                }
-                break;
-        }
+        this.obstacles = obstacles;
     }
 }

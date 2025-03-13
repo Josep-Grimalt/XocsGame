@@ -93,12 +93,12 @@ public class GameManager : MonoBehaviour
 
     public bool[] Powerups()
     {
-        return manager.Powerups();
+        return manager.GetPowerups();
     }
 
     public bool[] Obstacles()
     {
-        return manager.Obstacles();
+        return manager.GetObstacles();
     }
 
     public void Continue()
