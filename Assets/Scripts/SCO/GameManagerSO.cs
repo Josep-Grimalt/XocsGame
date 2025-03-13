@@ -10,6 +10,7 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private bool[] powerups, obstacles;
 
     private static GameManagerSO instance;
+    private int number;
 
     public static GameManagerSO Instance
     {
@@ -63,13 +64,18 @@ public class GameManagerSO : ScriptableObject
         elements = f;
     }
 
-    public void SetPowerUps(bool[] powerups)
+    public void PowerUps(bool f)
     {
-        this.powerups = powerups;
+        powerups[number] = f;
     }
 
-    public void SetObstacles(bool[] obstacles)
+    public void Obstacles(bool f)
     {
-        this.obstacles = obstacles;
+        obstacles[number] = f;
+    }
+
+    public void SetNumber(int n)
+    {
+        number = n;
     }
 }
