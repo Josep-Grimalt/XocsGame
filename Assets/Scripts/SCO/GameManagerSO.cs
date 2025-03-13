@@ -1,8 +1,6 @@
-using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameManager", menuName = "Scriptable Objects/GameManager")]
+[CreateAssetMenu(fileName = "GameManager", menuName = "SCO/GameManager")]
 public class GameManagerSO : ScriptableObject
 {
     [SerializeField] private bool fallingPlatform;
