@@ -1,8 +1,6 @@
-using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameManager", menuName = "Scriptable Objects/GameManager")]
+[CreateAssetMenu(fileName = "GameManager", menuName = "SCO/GameManager")]
 public class GameManagerSO : ScriptableObject
 {
     [SerializeField] private bool fallingPlatform;
@@ -10,6 +8,7 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private bool[] powerups, obstacles;
 
     private static GameManagerSO instance;
+    private int number;
 
     public static GameManagerSO Instance
     {
@@ -23,12 +22,12 @@ public class GameManagerSO : ScriptableObject
         }
     }
 
-    public bool[] Powerups()
+    public bool[] GetPowerups()
     {
         return powerups;
     }
 
-    public bool[] Obstacles()
+    public bool[] GetObstacles()
     {
         return obstacles;
     }
@@ -63,43 +62,18 @@ public class GameManagerSO : ScriptableObject
         elements = f;
     }
 
-    public void SetPowerUps(int f)
+    public void PowerUps(bool f)
     {
-        switch (f)
-        {
-            case 0:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    powerups[i] = false;
-                }
-                break;
-            case 1 - 2:
-                for (int i = 0; i < powerups.Length; i++)
-                {
-                    if (i + 1 != f)
-                        powerups[i] = true;
-                }
-                break;
-        }
+        powerups[number] = f;
     }
 
-    public void SetObstacles(bool value, int f)
+    public void Obstacles(bool f)
     {
-        switch (f)
-        {
-            case 0:
-                for (int i = 0; i < obstacles.Length; i++)
-                {
-                    obstacles[i] = false;
-                }
-                break;
-            case 1:
-                for (int i = 0; i < obstacles.Length; i++)
-                {
-                    if (i + 1 == f)
-                        obstacles[i] = true;
-                }
-                break;
-        }
+        obstacles[number] = f;
+    }
+
+    public void SetNumber(int n)
+    {
+        number = n;
     }
 }

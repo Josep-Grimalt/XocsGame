@@ -1,16 +1,45 @@
 using UnityEngine;
 
-public class SoundLibrary : MonoBehaviour
+[CreateAssetMenu(fileName = "SoundLibrary", menuName = "SCO/SoundLibrary")]
+public class SoundLibrary : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public SoundClip[] soundClips;
 
-    // Update is called once per frame
-    void Update()
+    private void OnValidate()
     {
-        
+        foreach (SoundClip soundClip in soundClips)
+        {
+            if (soundClip.hasPlayTimer && soundClip.playTimer == 0)
+            {
+                soundClip.playTimer = soundClip.audioClip.length;
+            }
+        }
+    }
+}
+
+public enum SoundName
+{
+    
+}
+
+[System.Serializable]
+public class SoundClip
+{
+    public SoundName soundName;
+    public AudioClip audioClip;
+    public bool loop;
+    [Range(0f, 1f)]
+    public float volume = 1f;
+    public bool hasPlayTimer;
+    public float playTimer;
+    [Range(0f, 1f)]
+    public float spatialBlend;
+    [Range(-3f, 3f)]
+    public float pitch = 1f;
+
+    public SoundClip()
+    {
+        volume = 1f;
+        pitch = 1f;
     }
 }

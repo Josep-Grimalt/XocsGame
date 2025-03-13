@@ -8697,6 +8697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 3889702108813901627, guid: c1a1911a68994824eab9d55e2c0cea18, type: 3}
+  gameManager: {fileID: 1759740466}
   delay: 5
   minScale: 1.5
   maxScale: 10
@@ -8716,6 +8717,7 @@ MonoBehaviour:
   - {fileID: 3422927197098013563, guid: ea754e747e3428742a1b2416c7fe667c, type: 3}
   - {fileID: 6594050581032252962, guid: 152299fe1d19a4441b9372877d76ca32, type: 3}
   delay: 5
+  gameManager: {fileID: 1759740466}
 --- !u!1 &1770275600
 GameObject:
   m_ObjectHideFlags: 0
