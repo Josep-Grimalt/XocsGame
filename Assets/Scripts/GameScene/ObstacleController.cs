@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class ObstacleController : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstacles;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private float delay;
     [SerializeField] private float minScale = 2.5f, maxScale = 10;
 
@@ -13,7 +14,7 @@ public class ObstacleController : MonoBehaviour
         // if(!GetComponent<GameManager>().Obstacles()) return;
         for (int i = 0; i < obstacles.Length; i++)
         {
-            if (GameObject.Find("Game Manager").GetComponent<GameManager>().Obstacles()[i])
+            if (gameManager.Obstacles()[i])
                 StartCoroutine(SpawnObstacle());
         }
     }
