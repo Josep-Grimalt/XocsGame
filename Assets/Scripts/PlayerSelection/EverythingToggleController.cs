@@ -4,59 +4,41 @@ using UnityEngine.UI;
 
 public class EverythingToggleController : MonoBehaviour
 {
-    [SerializeField] private Toggle obstacleToggle, powerupToggle;
+    [SerializeField] private Toggle everyObstacleToggle, everyPowerupToggle, nothingObstacleToggle, nothingPowerupToggle;
     [SerializeField] private Toggle[] obstacles, powerups;
     [SerializeField] private GameManagerSO manager;
 
-    void OnEnable()
-    {
-        foreach (Toggle obstacle in obstacles)
-        {
-            obstacle.onValueChanged.RemoveListener(UpdateObstacleToggle);
-            obstacle.onValueChanged.AddListener(UpdateObstacleToggle);
-        }
-
-        foreach (Toggle powerup in powerups)
-        {
-            powerup.onValueChanged.RemoveListener(UpdatePowerupToggle);
-            powerup.onValueChanged.AddListener(UpdatePowerupToggle);
-        }
-    }
-
-    void OnDisable()
-    {
-        foreach (Toggle obstacle in obstacles)
-        {
-            obstacle.onValueChanged.RemoveListener(UpdateObstacleToggle);
-        }
-
-        foreach (Toggle powerup in powerups)
-        {
-            powerup.onValueChanged.RemoveListener(UpdatePowerupToggle);
-        }
-    }
-
-    private void UpdateObstacleToggle(bool isOn)
+    public void UpdateObstacleToggle(bool isOn)
     {
         bool newState = manager.EveryObstacle();
 
-        if (obstacleToggle.isOn != newState)
+        if (everyObstacleToggle.isOn != newState)
         {
-            obstacleToggle.onValueChanged.RemoveListener(UpdateObstacleToggle);
-            obstacleToggle.SetIsOnWithoutNotify(newState);
-            obstacleToggle.onValueChanged.AddListener(UpdateObstacleToggle);
+            everyObstacleToggle.onValueChanged.RemoveListener(UpdateObstacleToggle);
+            everyObstacleToggle.SetIsOnWithoutNotify(newState);
+            everyObstacleToggle.onValueChanged.AddListener(UpdateObstacleToggle);
         }
     }
 
-    private void UpdatePowerupToggle(bool isOn)
+    public void UpdatePowerupToggle(bool isOn)
     {
         bool newState = manager.EveryPowerUp();
 
-        if (powerupToggle.isOn != newState)
+        if (everyPowerupToggle.isOn != newState)
         {
-            powerupToggle.onValueChanged.RemoveListener(UpdatePowerupToggle);
-            powerupToggle.SetIsOnWithoutNotify(newState);
-            powerupToggle.onValueChanged.AddListener(UpdatePowerupToggle);
+            everyPowerupToggle.onValueChanged.RemoveListener(UpdatePowerupToggle);
+            everyPowerupToggle.SetIsOnWithoutNotify(newState);
+            everyPowerupToggle.onValueChanged.AddListener(UpdatePowerupToggle);
         }
+    }
+
+    public void NothingObstacle(bool isOn)
+    {
+        nothingObstacleToggle.isOn = manager.NoObstacle();
+    }
+
+    public void NothingPowerup(bool isOn)
+    {
+        nothingPowerupToggle .isOn = manager.NoPowerUp();
     }
 }

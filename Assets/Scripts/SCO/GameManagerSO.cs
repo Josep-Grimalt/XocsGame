@@ -87,4 +87,14 @@ public class GameManagerSO : ScriptableObject
     {
         return !powerups.Contains(false);
     }
+
+    public bool NoObstacle()
+    {
+        return !obstacles.Contains(true);
+    }
+
+    public bool NoPowerUp()
+    {
+        return !powerups.Contains(true);
+    }
 }
