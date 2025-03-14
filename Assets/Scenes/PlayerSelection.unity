@@ -2661,10 +2661,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2010829921}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
-        m_MethodName: set_isOn
-        m_Mode: 6
+      - m_Target: {fileID: 390973197}
+        m_TargetAssemblyTypeName: EverythingToggleController, Assembly-CSharp
+        m_MethodName: NothingObstacle
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5865,8 +5865,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 390973197}
-        m_TargetAssemblyTypeName: EverythingToggleController, Assembly-CSharp
-        m_MethodName: UpdateObstacleToggle
+        m_TargetAssemblyTypeName: ToggleController, Assembly-CSharp
+        m_MethodName: EveryObstacle
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6267,10 +6267,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2111678918}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
-        m_MethodName: set_isOn
-        m_Mode: 6
+      - m_Target: {fileID: 390973197}
+        m_TargetAssemblyTypeName: ToggleController, Assembly-CSharp
+        m_MethodName: NothingPowerup
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7747,8 +7747,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 390973197}
-        m_TargetAssemblyTypeName: EverythingToggleController, Assembly-CSharp
-        m_MethodName: UpdatePowerupToggle
+        m_TargetAssemblyTypeName: ToggleController, Assembly-CSharp
+        m_MethodName: EveryPowerup
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8407,8 +8407,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 390973197}
-        m_TargetAssemblyTypeName: EverythingToggleController, Assembly-CSharp
-        m_MethodName: UpdatePowerupToggle
+        m_TargetAssemblyTypeName: ToggleController, Assembly-CSharp
+        m_MethodName: EveryPowerup
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
