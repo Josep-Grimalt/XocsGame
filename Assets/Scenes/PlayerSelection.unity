@@ -2421,6 +2421,7 @@ GameObject:
   - component: {fileID: 390973193}
   - component: {fileID: 390973192}
   - component: {fileID: 390973196}
+  - component: {fileID: 390973197}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2541,6 +2542,25 @@ MonoBehaviour:
   playerFirst: {fileID: 689998551}
   startingScene: 2
   inputManager: {fileID: 232347591}
+--- !u!114 &390973197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390973191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb621fc42223b9549bdb3f05f647fc42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleToggle: {fileID: 393975866}
+  powerupToggle: {fileID: 1193752476}
+  obstacles:
+  - {fileID: 1091828891}
+  powerups:
+  - {fileID: 1567078919}
+  - {fileID: 1436089867}
 --- !u!1 &393975864
 GameObject:
   m_ObjectHideFlags: 0

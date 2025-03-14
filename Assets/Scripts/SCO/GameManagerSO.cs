@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "GameManager", menuName = "SCO/GameManager")]
 public class GameManagerSO : ScriptableObject
@@ -7,7 +8,6 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private bool fallingPlatform;
     [SerializeField] private bool walls, elements;
     [SerializeField] private bool[] powerups, obstacles;
-    
 
     private static GameManagerSO instance;
     private int number;
@@ -79,19 +79,13 @@ public class GameManagerSO : ScriptableObject
         number = n;
     }
 
-    public void EveryObstacle()
+    public bool EveryObstacle()
     {
-        if (obstacles.Contains(false))
-        {
-
-        }
+        return obstacles.Contains(false);
     }
 
-    public void EveryPowerUp()
+    public bool EveryPowerUp()
     {
-        if (powerups.Contains(false))
-        {
-
-        }
+        return powerups.Contains(false);
     }
 }
