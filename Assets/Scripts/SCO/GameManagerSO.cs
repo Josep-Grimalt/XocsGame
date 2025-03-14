@@ -1,6 +1,5 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "GameManager", menuName = "SCO/GameManager")]
 public class GameManagerSO : ScriptableObject
@@ -81,11 +80,11 @@ public class GameManagerSO : ScriptableObject
 
     public bool EveryObstacle()
     {
-        return obstacles.Contains(false);
+        return !obstacles.Contains(false);
     }
 
     public bool EveryPowerUp()
     {
-        return powerups.Contains(false);
+        return !powerups.Contains(false);
     }
 }
