@@ -35,6 +35,20 @@ public class ToggleController : MonoBehaviour
 
     public void NothingPowerup(bool isOn)
     {
-        nothingPowerupToggle .isOn = manager.NoPowerUp();
+        nothingPowerupToggle.isOn = manager.NoPowerUp();
+    }
+
+    public void AntiObstacle(bool isOn)
+    {
+        if (!isOn) return;
+
+        everyObstacleToggle.isOn = false;
+    }
+
+    public void AntiPowerup(bool isOn)
+    {
+        if (!isOn) return;
+
+        everyPowerupToggle.isOn = false;
     }
 }
