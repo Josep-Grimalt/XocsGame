@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8696169253479114910}
   - component: {fileID: 1172952046075714827}
   m_Layer: 0
-  m_Name: ParedRegilla
+  m_Name: ParedRejilla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
