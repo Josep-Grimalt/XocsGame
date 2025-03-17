@@ -43,8 +43,6 @@ public class MultiCanvasAssigner : MonoBehaviour
         _activePanelCount++;
         startButton.interactable = false;
 
-        Debug.Log("Player Count: " + _activePanelCount);
-
         buttons[input.playerIndex] = panels[input.playerIndex].gameObject.GetComponentsInChildren<Button>().ToArray();
         AddButtonListener(input);
     }
