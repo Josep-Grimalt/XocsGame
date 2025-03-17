@@ -6,15 +6,13 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private List<ModelMaterialControllerSO> colorsPlayer;
     [SerializeField] private List<GameObject> models;
-    
+
     private int color = 0;
     private int model = 0;
     private static bool[] _ready = { false, false, false, false };
 
     public void SelectColor(bool next)
     {
-        Debug.Log("Color: " + color);
-        Debug.Log("Model: " + model);
         if (next)
         {
             if (color == colorsPlayer[model].GetMaterials().Count - 1)
