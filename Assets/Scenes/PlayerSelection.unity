@@ -555,7 +555,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1314033532}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1505467472}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7145,7 +7145,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 301585137}
   m_HandleRect: {fileID: 301585136}
   m_Direction: 2
-  m_Value: 1.0000004
+  m_Value: 0.9999998
   m_Size: 0.5709219
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8127,7 +8127,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 754151045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.00000029802322}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -9448,18 +9448,6 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1091828891}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
-        m_MethodName: set_isOn
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 393975866}
         m_TargetAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
         m_MethodName: set_isOn
@@ -9556,7 +9544,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1251145132}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

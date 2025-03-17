@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class PlayerCollisionController : MonoBehaviour
 {
     [SerializeField] private Element element = Element.Neutral;
-    [SerializeField] private GameObject armor;
+    [SerializeField] private GameObject[] armor;
     [SerializeField] private float delay = 5;
 
     public enum Element
@@ -28,7 +28,7 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (element == Element.Neutral)
         {
-            armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.yellow);
+            armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.yellow));
         }
 
         if (other.gameObject.layer == 3)
@@ -52,16 +52,16 @@ public class PlayerCollisionController : MonoBehaviour
             switch (element)
             {
                 case Element.Fire:
-                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.red);
+                    armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.red));
                     break;
                 case Element.Water:
-                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.blue);
+                    armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.blue));
                     break;
                 case Element.Wind:
-                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1));
+                    armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1)));
                     break;
                 case Element.Earth:
-                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.2169811f, 0.1221835f, 0, 1));
+                    armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.2169811f, 0.1221835f, 0, 1)));
                     break;
             }
 
