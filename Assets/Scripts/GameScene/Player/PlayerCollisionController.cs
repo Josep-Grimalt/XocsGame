@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,7 +28,7 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (element == Element.Neutral)
         {
-            armor.GetComponent<Renderer>().material.color = Color.yellow;
+            armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.yellow);
         }
 
         if (other.gameObject.layer == 3)
@@ -51,16 +52,16 @@ public class PlayerCollisionController : MonoBehaviour
             switch (element)
             {
                 case Element.Fire:
-                    armor.GetComponent<Renderer>().material.color = Color.red;
+                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.red);
                     break;
                 case Element.Water:
-                    armor.GetComponent<Renderer>().material.color = Color.blue;
+                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.blue);
                     break;
                 case Element.Wind:
-                    armor.GetComponent<Renderer>().material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1);
+                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1));
                     break;
                 case Element.Earth:
-                    armor.GetComponent<Renderer>().material.color = new Color(0.2169811f, 0.1221835f, 0, 1);
+                    armor.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.2169811f, 0.1221835f, 0, 1));
                     break;
             }
 
