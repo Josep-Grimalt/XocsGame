@@ -23,7 +23,8 @@ public enum SoundName
     Fighting,
     GetOut,
     Healing,
-    Speed
+    Speed,
+    Death
 }
 
 [System.Serializable]

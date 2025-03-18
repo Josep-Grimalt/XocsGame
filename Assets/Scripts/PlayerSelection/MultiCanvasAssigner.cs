@@ -9,6 +9,7 @@ public class MultiCanvasAssigner : MonoBehaviour
 {
     [SerializeField] private Transform[] panels;
     [SerializeField] private Button startButton;
+    [SerializeField] private GameObject join;
 
     private Button[][] buttons;
     private PlayerInputManager inputManager;
@@ -45,6 +46,7 @@ public class MultiCanvasAssigner : MonoBehaviour
 
         buttons[input.playerIndex] = panels[input.playerIndex].gameObject.GetComponentsInChildren<Button>().ToArray();
         AddButtonListener(input);
+        join.SetActive(false);
     }
 
     private void RemovePanel(PlayerInput input)
@@ -56,6 +58,11 @@ public class MultiCanvasAssigner : MonoBehaviour
         buttons[input.playerIndex][2].onClick.RemoveAllListeners();
         buttons[input.playerIndex][3].onClick.RemoveAllListeners();
         buttons[input.playerIndex][4].onClick.RemoveAllListeners();
+
+        if (inputManager.playerCount < 1)
+        {
+            join.SetActive(true);
+        }
     }
 
     public void AddButtonListener(PlayerInput input)

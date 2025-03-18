@@ -122,6 +122,8 @@ public class CollisionManager : MonoBehaviour
 
         recentCollisions.Add(collisionKey);
 
+        SoundManager.I.PlaySound(SoundName.Death, player.transform);
+
         if (orb.CompareTag("Fire"))
         {
             if (element != PlayerCollisionController.Element.Fire)
