@@ -43,6 +43,7 @@ public class CollisionManager : MonoBehaviour
         if (recentCollisions.Contains(collisionKey)) return;
 
         recentCollisions.Add(collisionKey);
+        SoundManager.I.PlaySound(SoundName.GetOut);
 
         Vector3 collisionDir = (p2.transform.position - p1.transform.position).normalized;
         collisionDir.y = 0;

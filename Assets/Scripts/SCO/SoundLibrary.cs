@@ -19,7 +19,9 @@ public class SoundLibrary : ScriptableObject
 
 public enum SoundName
 {
-    
+    Ambiance,
+    Fighting,
+    GetOut
 }
 
 [System.Serializable]

@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundClips:
   - soundName: 0
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: d0bf1d5a72b0b88428b81b87b6675865, type: 3}
+    loop: 1
+    volume: 0.405
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 1
+    audioClip: {fileID: 8300000, guid: b0dd88faa8981a640a1682d23adba7bc, type: 3}
     loop: 0
-    volume: 0
+    volume: 1
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0
