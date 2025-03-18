@@ -190,12 +190,12 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1565,7 +1565,7 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
@@ -1654,12 +1654,12 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1827,7 +1827,7 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5233512430711006557, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
@@ -1837,7 +1837,7 @@ PrefabInstance:
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6084,6 +6084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 915738676}
+  - component: {fileID: 915738677}
   m_Layer: 0
   m_Name: LlamasAntorchas
   m_TagString: Untagged
@@ -6114,6 +6115,18 @@ Transform:
   - {fileID: 1723648266}
   m_Father: {fileID: 1184473193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915738677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915738675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885acb9f41259ad408a2147007d7e015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932302463
 GameObject:
   m_ObjectHideFlags: 0
@@ -6368,12 +6381,12 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6933,7 +6946,7 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5233512430711006557, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
@@ -8704,7 +8717,7 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5233512430711006557, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
@@ -8714,7 +8727,7 @@ PrefabInstance:
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9866,12 +9879,12 @@ PrefabInstance:
     - target: {fileID: 3905092106676613242, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340824317823345245, guid: 21236ea751246cb48906c8e2b524e7b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9951,7 +9964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3889702108813901627, guid: c1a1911a68994824eab9d55e2c0cea18, type: 3}
+  - {fileID: 919132149155446097, guid: 34eea3d23c376d54e9e37f45a993460c, type: 3}
   gameManager: {fileID: 1759740466}
   delay: 5
   minScale: 1.5
