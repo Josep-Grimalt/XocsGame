@@ -84,6 +84,7 @@ public class MultiCanvasAssigner : MonoBehaviour
                         buttons[input.playerIndex][i].interactable = false;
                     }
                 }
+                SoundManager.I.PlaySound(SoundName.Ready);
             }
             else
             {
@@ -109,7 +110,6 @@ public class MultiCanvasAssigner : MonoBehaviour
 
     private void Ready(PlayerInput input)
     {
-        SoundManager.I.PlaySound(SoundName.Ready);
         _readyCount = input.gameObject.GetComponent<UIController>().Ready(input.playerIndex, true);
     }
 
