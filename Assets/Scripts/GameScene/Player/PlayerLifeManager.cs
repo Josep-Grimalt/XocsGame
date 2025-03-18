@@ -70,7 +70,7 @@ public class PlayerLifeManager : MonoBehaviour
         }
 
         life++;
-        SoundManager.I.PlaySound(SoundName.Healing);
+        SoundManager.I.PlaySound(SoundName.Healing, transform);
 
         if (textMesh)
         {
