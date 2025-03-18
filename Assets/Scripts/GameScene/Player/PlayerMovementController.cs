@@ -62,6 +62,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void SpeedUp()
     {
+        SoundManager.I.PlaySound(SoundName.Speed);
         speed *= 2;
     }
 

@@ -68,7 +68,9 @@ public class PlayerLifeManager : MonoBehaviour
             Debug.LogWarning("Vida màxima");
             return;
         }
+
         life++;
+        SoundManager.I.PlaySound(SoundName.Healing);
 
         if (textMesh)
         {

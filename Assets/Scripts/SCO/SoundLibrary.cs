@@ -21,7 +21,9 @@ public enum SoundName
 {
     Ambiance,
     Fighting,
-    GetOut
+    GetOut,
+    Healing,
+    Speed
 }
 
 [System.Serializable]
