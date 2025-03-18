@@ -32,7 +32,7 @@ MonoBehaviour:
   - soundName: 2
     audioClip: {fileID: 8300000, guid: b0dd88faa8981a640a1682d23adba7bc, type: 3}
     loop: 0
-    volume: 1
+    volume: 0.5
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0
@@ -47,6 +47,22 @@ MonoBehaviour:
     pitch: 0
   - soundName: 4
     audioClip: {fileID: 8300000, guid: 3b309f0557e5a58489671ec7ff7704c2, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 5
+    audioClip: {fileID: 8300000, guid: 889672d9210c021439de4924b0b44ddf, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 6
+    audioClip: {fileID: 8300000, guid: a01efe1f6cc62384c9c688430c1cfaf9, type: 3}
     loop: 0
     volume: 1
     hasPlayTimer: 0

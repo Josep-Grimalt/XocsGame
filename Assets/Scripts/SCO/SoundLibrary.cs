@@ -24,7 +24,8 @@ public enum SoundName
     GetOut,
     Healing,
     Speed,
-    Death
+    Death,
+    Ready
 }
 
 [System.Serializable]
