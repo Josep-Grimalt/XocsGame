@@ -8,11 +8,13 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private PlayerInput inputActions;
 
     private PlayerMovementController movementController;
+    private UIController isReady;
     private InputAction moveAction, cancelAction;
 
     private void Awake()
     {
         movementController = GetComponent<PlayerMovementController>();
+        isReady = GetComponent<UIController>();
 
         moveAction = inputActions.actions.FindAction("Move");
         cancelAction = inputActions.actions.FindAction("Cancel");
@@ -42,7 +44,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void Disconnect(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().buildIndex != 1) return;
+        if (SceneManager.GetActiveScene().buildIndex != 1 || isReady.GetReady()[inputActions.playerIndex]) return;
 
         inputActions.DeactivateInput();
         Destroy(gameObject);
