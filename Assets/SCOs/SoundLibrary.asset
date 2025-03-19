@@ -101,3 +101,19 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
+  - soundName: 13
+    audioClip: {fileID: 8300000, guid: 3db33580e67b04641895ced902bdc6d0, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 3
+    audioClip: {fileID: 8300000, guid: 6f177b181793e424db458c0035375c57, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
