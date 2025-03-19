@@ -90,22 +90,27 @@ public class CollisionManager : MonoBehaviour
         {
             if ((e1 == PlayerCollisionController.Element.Fire && e2 == PlayerCollisionController.Element.Water) || (e2 == PlayerCollisionController.Element.Fire && e1 == PlayerCollisionController.Element.Water))
             {
+                SoundManager.I.PlaySound(SoundName.Water, collisionPoint);
                 element = PlayerCollisionController.Element.Water;
             }
             else if ((e1 == PlayerCollisionController.Element.Wind && e2 == PlayerCollisionController.Element.Earth) || (e2 == PlayerCollisionController.Element.Wind && e1 == PlayerCollisionController.Element.Earth))
             {
+                SoundManager.I.PlaySound(SoundName.Wind, collisionPoint);
                 element = PlayerCollisionController.Element.Wind;
             }
             else if ((e1 == PlayerCollisionController.Element.Fire && e2 == PlayerCollisionController.Element.Wind) || (e2 == PlayerCollisionController.Element.Fire && e1 == PlayerCollisionController.Element.Wind))
             {
+                SoundManager.I.PlaySound(SoundName.Fire, collisionPoint);
                 element = PlayerCollisionController.Element.Fire;
             }
             else if ((e1 == PlayerCollisionController.Element.Earth && e2 == PlayerCollisionController.Element.Water) || (e2 == PlayerCollisionController.Element.Earth && e1 == PlayerCollisionController.Element.Water))
             {
+                SoundManager.I.PlaySound(SoundName.Earth, collisionPoint);
                 element = PlayerCollisionController.Element.Earth;
             }
             else
             {
+                SoundManager.I.PlaySound(SoundName.Neutral, collisionPoint);
                 element = PlayerCollisionController.Element.Neutral;
             }
         }

@@ -37,6 +37,14 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
+  - soundName: 3
+    audioClip: {fileID: 8300000, guid: 6f177b181793e424db458c0035375c57, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
   - soundName: 4
     audioClip: {fileID: 8300000, guid: aa93d915a42c43c40985a1b8d2b60571, type: 3}
     loop: 0
@@ -61,17 +69,17 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
-  - soundName: 14
-    audioClip: {fileID: 8300000, guid: a01efe1f6cc62384c9c688430c1cfaf9, type: 3}
+  - soundName: 11
+    audioClip: {fileID: 8300000, guid: f6a2004eaa443d445b0dd9cfd5e49e27, type: 3}
     loop: 0
     volume: 1
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0
     pitch: 0
-  - soundName: 16
-    audioClip: {fileID: 8300000, guid: ac47bb02b407e494685429c40a3890b1, type: 3}
-    loop: 0
+  - soundName: 8
+    audioClip: {fileID: 8300000, guid: 0fba49c859144a34f81295eb6dc4eddc, type: 3}
+    loop: 1
     volume: 1
     hasPlayTimer: 0
     playTimer: 0
@@ -85,8 +93,16 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
-  - soundName: 15
-    audioClip: {fileID: 8300000, guid: 51b8b486f18c5ba4cbd393ce2cea7257, type: 3}
+  - soundName: 10
+    audioClip: {fileID: 8300000, guid: f6a2004eaa443d445b0dd9cfd5e49e27, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 17
+    audioClip: {fileID: 8300000, guid: f6a2004eaa443d445b0dd9cfd5e49e27, type: 3}
     loop: 0
     volume: 1
     hasPlayTimer: 0
@@ -109,8 +125,32 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
-  - soundName: 3
-    audioClip: {fileID: 8300000, guid: 6f177b181793e424db458c0035375c57, type: 3}
+  - soundName: 14
+    audioClip: {fileID: 8300000, guid: a01efe1f6cc62384c9c688430c1cfaf9, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 15
+    audioClip: {fileID: 8300000, guid: 51b8b486f18c5ba4cbd393ce2cea7257, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 16
+    audioClip: {fileID: 8300000, guid: ac47bb02b407e494685429c40a3890b1, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 17
+    audioClip: {fileID: 8300000, guid: f6a2004eaa443d445b0dd9cfd5e49e27, type: 3}
     loop: 0
     volume: 1
     hasPlayTimer: 0
