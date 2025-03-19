@@ -93,3 +93,11 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
+  - soundName: 12
+    audioClip: {fileID: 8300000, guid: 5309cc3130f8dc64ab6020f620751e4d, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
