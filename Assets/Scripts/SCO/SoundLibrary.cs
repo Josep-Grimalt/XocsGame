@@ -25,7 +25,9 @@ public enum SoundName
     Healing,
     Speed,
     Death,
-    Ready
+    Ready,
+    MenuNavigation,
+    MenuClick
 }
 
 [System.Serializable]
