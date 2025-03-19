@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
             PostGameHUD.SetActive(true);
             multiplayerManager.SetActive(false);
 
+            SoundManager.I.PlaySound(SoundName.Victory);
+
             foreach (GameObject player in players)
             {
                 player.GetComponent<Rigidbody>().isKinematic = true;
