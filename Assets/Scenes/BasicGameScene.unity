@@ -783,7 +783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -79, y: 0}
+  m_AnchoredPosition: {x: -99.999954, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &167622671
@@ -4348,7 +4348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 79, y: 0}
+  m_AnchoredPosition: {x: 99.999954, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &625229764
@@ -9964,7 +9964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 919132149155446097, guid: 34eea3d23c376d54e9e37f45a993460c, type: 3}
+  - {fileID: 5986393631401412023, guid: 5e88839afc3acd2419b7f0df877a677e, type: 3}
   gameManager: {fileID: 1759740466}
   delay: 5
   minScale: 1.5
