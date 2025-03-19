@@ -31,7 +31,7 @@ public class ObstacleController : MonoBehaviour
                 i = Random.Range(0, gameManager.Obstacles().Length);
             } while (!gameManager.Obstacles()[i]);
 
-            go = Instantiate(obstacles[i], new(Random.Range(-9f, 9f), 2.5f, Random.Range(-9f, 9f)), Quaternion.identity);
+            go = Instantiate(obstacles[i], new(Random.Range(-9f, 9f), 0f, Random.Range(-9f, 9f)), Quaternion.identity);
             go.transform.Rotate(new(0, Random.Range(0, 360), 0));
             if (Random.Range(0, 2) % 2 == 0)
             {
