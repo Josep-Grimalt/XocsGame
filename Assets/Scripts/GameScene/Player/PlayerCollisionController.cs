@@ -49,6 +49,8 @@ public class PlayerCollisionController : MonoBehaviour
         {
             element = (Element)Random.Range(0, 4);
 
+            SoundManager.I.PlaySound(SoundName.Change);
+
             switch (element)
             {
                 case Element.Fire:
