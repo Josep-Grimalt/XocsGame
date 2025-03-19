@@ -4139,8 +4139,8 @@ MonoBehaviour:
 
     to join'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: -5699173292833344690, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe,
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

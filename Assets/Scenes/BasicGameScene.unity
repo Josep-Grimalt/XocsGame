@@ -665,8 +665,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Player 1: 3'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: -5699173292833344690, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe,
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -808,8 +808,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Player 2: 3'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: -5699173292833344690, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe,
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4373,8 +4373,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Player 3: 3'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: -5699173292833344690, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe,
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5599,8 +5599,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Player 4: 3'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: -5699173292833344690, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe,
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5998,15 +5998,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6127,6 +6128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885acb9f41259ad408a2147007d7e015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireObjects: []
 --- !u!1 &932302463
 GameObject:
   m_ObjectHideFlags: 0
@@ -7352,8 +7354,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player 1 wins!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa5ae0fa8613d9d4bb127d6bdc32c4fe, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 205add684ee40b04eab392f825192223, type: 2}
+  m_sharedMaterial: {fileID: -7442363808605382384, guid: 205add684ee40b04eab392f825192223,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7377,7 +7380,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 52.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7418,7 +7421,7 @@ MonoBehaviour:
   m_margin: {x: -47.151413, y: 0, z: -107.640015, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1203217509
@@ -7444,7 +7447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1230762903
 RectTransform:
   m_ObjectHideFlags: 0
