@@ -21,7 +21,7 @@ public class CPUMovementController : PlayerMovementController
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) return;
 
-
+        animator.SetFloat("Speed", agent.speed);
         Fall();
         NearPlayer();
     }

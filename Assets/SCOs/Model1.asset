@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Model1
   m_EditorClassIdentifier: 
   materials:
-  - {fileID: 2100000, guid: a5b33805ded499449a8c70ddde6bccf7, type: 2}
-  - {fileID: 2100000, guid: b7727f62693cff74a888d0d6d47e450e, type: 2}
+  - {fileID: 2100000, guid: 9fd1e6f67fe26d94fac11cb2807f9aa1, type: 2}
+  - {fileID: 2100000, guid: 43f3a05adb9cc2e4284bfc7a73ff709f, type: 2}
+  - {fileID: 2100000, guid: ac4896872154b394096c292d81dc2cdd, type: 2}
+  - {fileID: 2100000, guid: 64acb637fd5d3d14082fad167a30dca2, type: 2}

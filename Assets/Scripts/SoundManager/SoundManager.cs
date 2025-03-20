@@ -131,6 +131,14 @@ public class SoundManager : MonoBehaviour
         if (musicAudioSrc) musicAudioSrc.Stop();
     }
 
+    public void StopAllSounds()
+    {
+        foreach (AudioSource audioSource in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            audioSource.Stop();
+        }
+    }
+
     private void InitializeSoundTimers()
     {
         soundTimers = new Dictionary<SoundName, float>();

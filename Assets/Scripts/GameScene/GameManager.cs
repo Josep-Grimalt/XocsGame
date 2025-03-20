@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject multiplayerManager;
     private List<GameObject> platforms;
     private List<GameObject> players;
+    private bool victorySound;
 
     private void Awake()
     {
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
         {
             GameObject.Find("ElementChangers").SetActive(false);
         }
+
+        victorySound = false;
     }
 
     private void Update()
@@ -59,8 +62,6 @@ public class GameManager : MonoBehaviour
         {
             PostGameHUD.SetActive(true);
             multiplayerManager.SetActive(false);
-
-            SoundManager.I.PlaySound(SoundName.Victory);
 
             foreach (GameObject player in players)
             {
@@ -111,5 +112,14 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.LoadScene(0);
+    }
+
+    private void VictorySound()
+    {
+        if (!victorySound)
+        {
+            victorySound = true;
+            SoundManager.I.PlaySound(SoundName.Victory);
+        }
     }
 }
