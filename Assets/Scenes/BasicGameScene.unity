@@ -6808,18 +6808,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1930722f00b824c86bce7bffd532fb, type: 3}
---- !u!114 &1021427272 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1021427271}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70eeef038cf52da4bbd80337f2b4bd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1032549752
 GameObject:
   m_ObjectHideFlags: 0
@@ -10200,7 +10188,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1021427272}
+      - m_Target: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
+          type: 3}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: StopAllSounds
         m_Mode: 1
