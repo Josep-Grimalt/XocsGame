@@ -70,7 +70,7 @@ MonoBehaviour:
     spatialBlend: 0
     pitch: 0
   - soundName: 7
-    audioClip: {fileID: 8300000, guid: f6a2004eaa443d445b0dd9cfd5e49e27, type: 3}
+    audioClip: {fileID: 8300000, guid: 0e51803a4cecd3e4aaa1cb798cc6d08e, type: 3}
     loop: 1
     volume: 1
     hasPlayTimer: 0
