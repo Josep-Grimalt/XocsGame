@@ -8,6 +8,7 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] private Element element = Element.Neutral;
     [SerializeField] private GameObject[] armor;
     [SerializeField] private float delay = 5;
+    [SerializeField] private Animator animator;
 
     public enum Element
     {
@@ -22,6 +23,7 @@ public class PlayerCollisionController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            animator.SetTrigger("Hit");
             Element element2 = other.gameObject.GetComponent<PlayerCollisionController>().GetElement();
             CollisionManager.Instance.HandlePlayerCollision(gameObject, other.gameObject, other.GetContact(0).point, element, element2);
         }

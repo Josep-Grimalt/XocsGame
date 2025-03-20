@@ -9,6 +9,7 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] private float speed = 10;
     [SerializeField] private float rotationSpeed = 45;
+    [SerializeField] protected Animator animator;
 
 
     void Start()
@@ -18,6 +19,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
+        animator.SetFloat("Speed", rb.linearVelocity.magnitude);
         Fall();
         Rotate(movementDirection);
     }

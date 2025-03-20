@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private List<ModelMaterialControllerSO> colorsPlayer;
     [SerializeField] private List<GameObject> models;
+    [SerializeField] private Animator animator;
 
     private int color = 0;
     private int model = 0;
@@ -69,6 +70,7 @@ public class UIController : MonoBehaviour
 
     public int Ready(int playerNum, bool ready)
     {
+        animator.SetTrigger("Ready");
         _ready[playerNum] = _ready[playerNum] switch
         {
             false when ready => true,
