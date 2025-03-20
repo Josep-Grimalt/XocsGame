@@ -127,13 +127,12 @@ public class CollisionManager : MonoBehaviour
 
         recentCollisions.Add(collisionKey);
 
-        SoundManager.I.PlaySound(SoundName.Death, player.transform);
-
         if (orb.CompareTag("Fire"))
         {
             if (element != PlayerCollisionController.Element.Fire)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                SoundManager.I.PlaySound(SoundName.Death, player.transform);
             }
         }
 
@@ -142,6 +141,7 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Water)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                SoundManager.I.PlaySound(SoundName.Death, player.transform);
             }
         }
 
@@ -150,6 +150,7 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Wind)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                SoundManager.I.PlaySound(SoundName.Death, player.transform);
             }
         }
 
@@ -158,12 +159,14 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Earth)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                SoundManager.I.PlaySound(SoundName.Death, player.transform);
             }
         }
 
         if (orb.CompareTag("Neutral"))
         {
             StartCoroutine(RespawnPlayer(player, respawnDelay));
+            SoundManager.I.PlaySound(SoundName.Death, player.transform);
         }
 
         PoolManager.ReturnObjectToPool(orb);
