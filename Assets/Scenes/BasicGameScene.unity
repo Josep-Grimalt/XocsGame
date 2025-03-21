@@ -3314,7 +3314,7 @@ GameObject:
   - component: {fileID: 455817304}
   - component: {fileID: 455817303}
   m_Layer: 6
-  m_Name: Cilindro
+  m_Name: CilindroWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3348,8 +3348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df34cf08862df8f44ba955dcd6e2ad40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
-  reduction: {x: -0.1, y: 0, z: -0.1}
+  delay: 1
+  reduction: {x: -0.5, y: 0, z: -0.5}
 --- !u!54 &455817304
 Rigidbody:
   m_ObjectHideFlags: 0

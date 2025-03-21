@@ -2,26 +2,28 @@ using UnityEngine;
 
 public class CilindroController : MonoBehaviour
 {
-    [SerializeField] private float delay;
-    [SerializeField] private Vector3 reduction = new(-.1f, 0f, -.1f);
+    [SerializeField] private float delay = 1f;
+    [SerializeField] private Vector3 reduction = new(-0.5f, 0f, -0.5f);
 
     private float time = 0;
-    private bool moving = false;
 
     private void Update()
     {
         time += Time.deltaTime;
 
-        if (delay <= time)
+        if (time >= delay)
         {
-            moving = true;
+            Reduction();
+
+            time = 0;
         }
+    }
 
-        if (moving && (transform.localScale.x < 10 || transform.localScale.z < 10))
+    private void Reduction()
+    {
+        if (transform.localScale.x > 15f && transform.localScale.z > 15f)
         {
-            moving = false;
-
-            transform.localScale -= reduction;
+            transform.localScale += reduction;
         }
     }
 }
