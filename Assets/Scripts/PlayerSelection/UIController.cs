@@ -70,7 +70,7 @@ public class UIController : MonoBehaviour
 
     public int Ready(int playerNum, bool ready)
     {
-        animator.SetTrigger("Ready");
+        animator.SetBool("Ready", ready);
         _ready[playerNum] = _ready[playerNum] switch
         {
             false when ready => true,
