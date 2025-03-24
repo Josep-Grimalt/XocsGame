@@ -2652,7 +2652,6 @@ GameObject:
   - component: {fileID: 455817302}
   - component: {fileID: 455817304}
   - component: {fileID: 455817305}
-  - component: {fileID: 455817306}
   m_Layer: 6
   m_Name: CilindroWall
   m_TagString: Untagged
@@ -2674,6 +2673,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1645487981}
+  - {fileID: 1811123803}
   m_Father: {fileID: 1943275391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &455817304
@@ -2719,29 +2719,7 @@ MonoBehaviour:
   reductionTime: 2
   reductionAmount: 3
   minimumScale: 15
---- !u!136 &455817306
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455817301}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.985
-  m_Height: 4.44
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  radiusReference: {fileID: 0}
 --- !u!1 &462378595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,8 +5600,32 @@ PrefabInstance:
     - {fileID: 6850332954134511247, guid: 6f02ee0349d196743a15912d1739bcb7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 293847345116278, guid: 6f02ee0349d196743a15912d1739bcb7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1079184152}
   m_SourcePrefab: {fileID: 100100000, guid: 6f02ee0349d196743a15912d1739bcb7, type: 3}
+--- !u!1 &1079184151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 293847345116278, guid: 6f02ee0349d196743a15912d1739bcb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079184150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1079184152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079184151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6fa904f828048548d7698702f66b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitCenter: {fileID: 455817302}
+  radiusReference: {fileID: 1811123803}
 --- !u!1 &1087770168
 GameObject:
   m_ObjectHideFlags: 0
@@ -8844,6 +8846,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798110336}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1811123802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811123803}
+  m_Layer: 6
+  m_Name: RadiusReference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1811123803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811123802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.984, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 455817302}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896871974
 GameObject:
   m_ObjectHideFlags: 0
