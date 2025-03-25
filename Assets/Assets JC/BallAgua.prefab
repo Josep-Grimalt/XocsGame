@@ -19708,7 +19708,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_Color: {r: 0.19090424, g: 0.39255726, b: 0.6226415, a: 1}
   m_Intensity: 5
   m_Range: 3
   m_SpotAngle: 30
@@ -19808,6 +19808,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964429153062912154, guid: 5f83705c3477c3640a62029d7215ad3e,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964429153062912154, guid: 5f83705c3477c3640a62029d7215ad3e,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 899854857
       objectReference: {fileID: 0}
     - target: {fileID: 5964429153062912155, guid: 5f83705c3477c3640a62029d7215ad3e,
         type: 3}

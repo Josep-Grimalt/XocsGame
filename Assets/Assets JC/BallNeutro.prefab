@@ -309,7 +309,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_Color: {r: 1, g: 0.92222285, b: 0.6556604, a: 1}
   m_Intensity: 5
   m_Range: 3
   m_SpotAngle: 30
@@ -449,6 +449,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: S_Fireball_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527298531764070783, guid: 2bddad797c2838042a856f26f2f43f67,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527298531764070783, guid: 2bddad797c2838042a856f26f2f43f67,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 899854857
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
