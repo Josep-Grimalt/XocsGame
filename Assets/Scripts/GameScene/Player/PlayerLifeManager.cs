@@ -80,11 +80,11 @@ public class PlayerLifeManager : MonoBehaviour
 
     public void DontMove()
     {
-        GetComponent<PlayerInputController>().enabled = false;
+        GetComponent<PlayerMovementController>().enabled = false;
     }
 
     public void Move()
     {
-        GetComponent<PlayerInputController>().enabled = true;
+        GetComponent<PlayerMovementController>().enabled = true;
     }
 }
