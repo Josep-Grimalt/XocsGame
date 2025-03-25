@@ -7,19 +7,9 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeManager : MonoBehaviour
 {
     [SerializeField] private int life = 3;
+    [SerializeField] private LayerMask playerMask;
 
     private TextMeshProUGUI textMesh;
-    private bool move;
-
-    private void Update()
-    {
-        if (move)
-        {
-            var vector3 = transform.position;
-            vector3.y = 0f;
-            transform.position = vector3;
-        }
-    }
 
     void OnEnable()
     {
@@ -94,21 +84,21 @@ public class PlayerLifeManager : MonoBehaviour
     public void DontMove()
     {
         GetComponent<PlayerMovementController>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
-        move = true;
+        GetComponent<BoxCollider>().excludeLayers = playerMask;
     }
 
     public void Move()
     {
         GetComponent<PlayerMovementController>().enabled = true;
-        StartCoroutine(EnableCollider());
+        StartCoroutine(IncludeLayer());
     }
 
-    private IEnumerator EnableCollider()
+    private IEnumerator IncludeLayer()
     {
         yield return new WaitForSeconds(1f);
         
-        GetComponent<BoxCollider>().enabled = true;
-        move = false;
+        GetComponent<BoxCollider>().includeLayers = playerMask;
+        GetComponent<BoxCollider>().excludeLayers = 0;
+        Debug.Log("Include");
     }
 }
