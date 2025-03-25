@@ -236,7 +236,10 @@ MonoBehaviour:
   - {fileID: 6060687215231776828}
   - {fileID: 1778437523179217560}
   - {fileID: 3835605473849848150}
-  avatars: []
+  avatars:
+  - {fileID: 9000000, guid: 1c9bb4de19779654a9e116fa4a2a7d41, type: 3}
+  - {fileID: 9000000, guid: 16e49b2b67c8c064e964705122f99e1a, type: 3}
+  - {fileID: 9000000, guid: adcff44bb646efc44a30c4b7c8aea1ed, type: 2}
   animator: {fileID: 2040674450916483066}
 --- !u!114 &-3431701994890481651
 MonoBehaviour:

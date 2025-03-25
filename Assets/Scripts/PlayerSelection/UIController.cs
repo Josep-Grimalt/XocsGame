@@ -97,12 +97,9 @@ public class UIController : MonoBehaviour
         for (var i = 0; i < models.Count; i++)
         {
             models[i].SetActive(i == model);
-            if (i == model)
-            {
-                animator.avatar = avatars[i];
-            }
         }
 
+        animator.avatar = avatars[model];
         color = 0;
         ChangeColor();
     }
