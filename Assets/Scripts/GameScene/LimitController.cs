@@ -21,7 +21,7 @@ public class LimitController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        
+
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
             limitCenter = GameObject.FindGameObjectWithTag("Limit").transform;
@@ -31,6 +31,8 @@ public class LimitController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!limitCenter || !radiusReference) return;
+
         Vector3 offset = rb.position - limitCenter.position;
         float radius = Vector3.Distance(limitCenter.position, radiusReference.position);
         if (offset.magnitude > radius)
