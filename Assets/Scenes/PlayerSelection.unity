@@ -2920,11 +2920,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2823482067558520996, guid: 2e6f5ebefc552c7438a99bdb2d745562,
+    - target: {fileID: 1165692505917076669, guid: 2e6f5ebefc552c7438a99bdb2d745562,
         type: 3}
-      propertyPath: animator
+      propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 428615451}
+      objectReference: {fileID: 9000000, guid: 1c9bb4de19779654a9e116fa4a2a7d41, type: 3}
     - target: {fileID: 7587232921781934771, guid: 2e6f5ebefc552c7438a99bdb2d745562,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2983,12 +2983,6 @@ PrefabInstance:
 --- !u!1 &428615450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 293847345116278, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-    type: 3}
-  m_PrefabInstance: {fileID: 428615449}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &428615451 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1165692505917076669, guid: 2e6f5ebefc552c7438a99bdb2d745562,
     type: 3}
   m_PrefabInstance: {fileID: 428615449}
   m_PrefabAsset: {fileID: 0}
@@ -3141,16 +3135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 130612224964060350, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 443973309}
-    - target: {fileID: 2823482067558520996, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 443973309}
     - target: {fileID: 7587232921781934771, guid: 2e6f5ebefc552c7438a99bdb2d745562,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3209,12 +3193,6 @@ PrefabInstance:
 --- !u!1 &443973308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 293847345116278, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-    type: 3}
-  m_PrefabInstance: {fileID: 443973307}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &443973309 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1165692505917076669, guid: 2e6f5ebefc552c7438a99bdb2d745562,
     type: 3}
   m_PrefabInstance: {fileID: 443973307}
   m_PrefabAsset: {fileID: 0}
@@ -9931,16 +9909,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 4
       objectReference: {fileID: 0}
-    - target: {fileID: 130612224964060350, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 2071649833}
-    - target: {fileID: 2823482067558520996, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 2071649833}
     - target: {fileID: 7587232921781934771, guid: 2e6f5ebefc552c7438a99bdb2d745562,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9999,12 +9967,6 @@ PrefabInstance:
 --- !u!1 &2071649832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 293847345116278, guid: 2e6f5ebefc552c7438a99bdb2d745562,
-    type: 3}
-  m_PrefabInstance: {fileID: 2071649831}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2071649833 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1165692505917076669, guid: 2e6f5ebefc552c7438a99bdb2d745562,
     type: 3}
   m_PrefabInstance: {fileID: 2071649831}
   m_PrefabAsset: {fileID: 0}
