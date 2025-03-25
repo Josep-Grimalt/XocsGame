@@ -91,7 +91,8 @@ public class PlayerSpawnManager : MonoBehaviour
                 targets.AddMember(gameObject.transform, 0.5f, 1);
             }
 
-            animator.SetBool("SceneChange", true);
+            if (animator)
+                animator.SetBool("SceneChange", true);
             transform.position = gameSpawnPoints[playerID];
             GetComponent<Rigidbody>().isKinematic = false;
         }
