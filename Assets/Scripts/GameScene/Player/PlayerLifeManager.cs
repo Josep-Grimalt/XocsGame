@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +9,17 @@ public class PlayerLifeManager : MonoBehaviour
     [SerializeField] private int life = 3;
 
     private TextMeshProUGUI textMesh;
+    private bool move;
+
+    private void Update()
+    {
+        if (move)
+        {
+            var vector3 = transform.position;
+            vector3.y = 0f;
+            transform.position = vector3;
+        }
+    }
 
     void OnEnable()
     {
@@ -81,10 +94,21 @@ public class PlayerLifeManager : MonoBehaviour
     public void DontMove()
     {
         GetComponent<PlayerMovementController>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        move = true;
     }
 
     public void Move()
     {
         GetComponent<PlayerMovementController>().enabled = true;
+        StartCoroutine(EnableCollider());
+    }
+
+    private IEnumerator EnableCollider()
+    {
+        yield return new WaitForSeconds(1f);
+        
+        GetComponent<BoxCollider>().enabled = true;
+        move = false;
     }
 }
