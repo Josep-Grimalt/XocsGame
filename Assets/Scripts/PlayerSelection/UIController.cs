@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private List<ModelMaterialControllerSO> colorsPlayer;
     [SerializeField] private List<GameObject> models;
+    [SerializeField] private List<Avatar> avatars;
     [SerializeField] private Animator animator;
 
     private int color = 0;
@@ -98,7 +99,9 @@ public class UIController : MonoBehaviour
             models[i].SetActive(i == model);
         }
 
+        animator.avatar = avatars[model];
         color = 0;
         ChangeColor();
     }
+
 }
