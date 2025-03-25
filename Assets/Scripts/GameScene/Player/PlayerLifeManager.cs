@@ -77,4 +77,14 @@ public class PlayerLifeManager : MonoBehaviour
             textMesh.SetText(gameObject.name + ": " + life);
         }
     }
+
+    public void DontMove()
+    {
+        GetComponent<PlayerInputController>().enabled = false;
+    }
+
+    public void Move()
+    {
+        GetComponent<PlayerInputController>().enabled = true;
+    }
 }
