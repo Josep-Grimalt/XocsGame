@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
-    [SerializeField] private Vector3[] selectionSpawnPoints =
+    [SerializeField]
+    private Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
         new(-1, 0, -0.9f),
         new(1, 0, -0.9f),
         new(3, 0, -0.9f)
     };
-    [SerializeField] private Vector3[] gameSpawnPoints =
+    [SerializeField]
+    private Vector3[] gameSpawnPoints =
     {
         new (-19, 0, 19),
         new (19, 0, 19),
@@ -89,7 +91,7 @@ public class PlayerSpawnManager : MonoBehaviour
                 targets.AddMember(gameObject.transform, 0.5f, 1);
             }
 
-            // animator.SetTrigger("SceneChange");
+            animator.SetBool("SceneChange", true);
             transform.position = gameSpawnPoints[playerID];
             GetComponent<Rigidbody>().isKinematic = false;
         }
