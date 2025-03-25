@@ -70,7 +70,6 @@ public class UIController : MonoBehaviour
 
     public int Ready(int playerNum, bool ready)
     {
-        animator.SetBool("Ready", ready);
         _ready[playerNum] = _ready[playerNum] switch
         {
             false when ready => true,
@@ -78,6 +77,7 @@ public class UIController : MonoBehaviour
             _ => _ready[playerNum]
         };
 
+        animator.SetBool("Ready", _ready[playerNum]);
         return _ready.Count(r => r);
     }
 
