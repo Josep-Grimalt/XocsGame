@@ -1,21 +1,20 @@
 using System;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3[] selectionSpawnPoints =
+    [SerializeField] private Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
         new(-1, 0, -0.9f),
         new(1, 0, -0.9f),
         new(3, 0, -0.9f)
     };
-    [SerializeField]
-    private Vector3[] gameSpawnPoints =
+    [SerializeField] private Vector3[] gameSpawnPoints =
     {
         new (-19, 0, 19),
         new (19, 0, 19),
@@ -23,6 +22,7 @@ public class PlayerSpawnManager : MonoBehaviour
         new (19, 0, -19)
     };
     [SerializeField] private Animator animator;
+    [SerializeField] private NavMeshAgent navMeshAgent;
 
     private Rigidbody rb;
     private int playerID;
@@ -93,6 +93,10 @@ public class PlayerSpawnManager : MonoBehaviour
 
             if (animator)
                 animator.SetBool("SceneChange", true);
+
+            if (navMeshAgent)
+                navMeshAgent.enabled = true;
+            
             transform.position = gameSpawnPoints[playerID];
             GetComponent<Rigidbody>().isKinematic = false;
         }

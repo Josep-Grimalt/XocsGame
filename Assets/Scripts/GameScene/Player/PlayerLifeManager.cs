@@ -99,6 +99,5 @@ public class PlayerLifeManager : MonoBehaviour
         
         GetComponent<BoxCollider>().includeLayers = playerMask;
         GetComponent<BoxCollider>().excludeLayers = 0;
-        Debug.Log("Include");
     }
 }
