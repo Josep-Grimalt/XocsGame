@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class LimitController : MonoBehaviour
 {
-    [SerializeField] private Transform limitCenter;
-    [SerializeField] private Transform radiusReference;
-    
+    private Transform limitCenter;
+    private Transform radiusReference;
+
     private Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        limitCenter = GameObject.FindGameObjectWithTag("Limit").transform;
+        radiusReference = GameObject.FindGameObjectWithTag("RadRef").transform;
     }
 
     void FixedUpdate()
