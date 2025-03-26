@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private List<ModelMaterialControllerSO> colorsPlayer;
     [SerializeField] private List<GameObject> models;
+    [SerializeField] private List<GameObject> materials;
     [SerializeField] private List<Avatar> avatars;
     [SerializeField] private Animator animator;
 
@@ -89,7 +90,7 @@ public class UIController : MonoBehaviour
 
     private void ChangeColor()
     {
-        GetComponentInChildren<Renderer>().material = colorsPlayer[model].GetMaterials()[color];
+        materials[model].GetComponent<Renderer>().material = colorsPlayer[model].GetMaterials()[color];
     }
 
     private void ChangeModel()

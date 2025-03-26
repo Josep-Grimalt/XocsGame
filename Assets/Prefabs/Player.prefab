@@ -101,7 +101,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293847345116278}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1c9bb4de19779654a9e116fa4a2a7d41, type: 3}
+  m_Avatar: {fileID: 9000000, guid: adcff44bb646efc44a30c4b7c8aea1ed, type: 2}
   m_Controller: {fileID: 9100000, guid: 9bb64a5692015954a8fbe94608da10e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -238,6 +238,10 @@ MonoBehaviour:
   - {fileID: 6060687215231776828}
   - {fileID: 1778437523179217560}
   - {fileID: 3835605473849848150}
+  materials:
+  - {fileID: 1925639634872148820}
+  - {fileID: 8824123398898109603}
+  - {fileID: 4235453432348337694}
   avatars:
   - {fileID: 9000000, guid: 1c9bb4de19779654a9e116fa4a2a7d41, type: 3}
   - {fileID: 9000000, guid: 16e49b2b67c8c064e964705122f99e1a, type: 3}
@@ -4381,6 +4385,12 @@ PrefabInstance:
 --- !u!4 &100490933870535511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8540730292193957704, guid: 40d8d77e19d3019438a49a1468b91a6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8638967364112856095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4235453432348337694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5558741009773842945, guid: 40d8d77e19d3019438a49a1468b91a6b,
     type: 3}
   m_PrefabInstance: {fileID: 8638967364112856095}
   m_PrefabAsset: {fileID: 0}
