@@ -19,13 +19,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject multiplayerManager;
+    [SerializeField] private float speed = 5;
+    
     private List<GameObject> platforms;
     private List<GameObject> players;
     private bool victorySound;
 
     private void Awake()
     {
-        multiplayerManager.SetActive(true);
+        if (multiplayerManager)
+            multiplayerManager.SetActive(true);
 
         players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
 
@@ -50,18 +53,20 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject player in players.ToList())
         {
-
-            if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
-            {
-                players.Remove(player);
-            }
-
+            if (player.GetComponent<PlayerLifeManager>())
+                if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
+                {
+                    players.Remove(player);
+                }
         }
 
         if (players.Count < 2)
         {
-            PostGameHUD.SetActive(true);
-            multiplayerManager.SetActive(false);
+            if (PostGameHUD)
+                PostGameHUD.SetActive(true);
+
+            if (multiplayerManager)
+                multiplayerManager.SetActive(false);
 
             VictorySound();
 
@@ -73,12 +78,15 @@ public class GameManager : MonoBehaviour
                     cpu.enabled = false;
                 }
 
-                if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
-                {
-                    winnerText.text = player.name + " wins!";
-                }
+                if (player.GetComponent<PlayerLifeManager>())
+                    if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
+                    {
+                        winnerText.text = player.name + " wins!";
+                    }
             }
-            eventSystem.SetSelectedGameObject(continueButton);
+
+            if (eventSystem)
+                eventSystem.SetSelectedGameObject(continueButton);
         }
     }
 
@@ -89,10 +97,24 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
 
             int fallingPlat = Random.Range(0, platforms.Count);
+            platforms[fallingPlat].GetComponentInChildren<Animator>().Play("Fall");
+            
+            yield return new WaitForSeconds(1.1f);
+
+            float timer = 0;
+
+            while (timer < 2)
+            {
+                platforms[fallingPlat].transform.Translate(Vector3.down * speed * Time.deltaTime);
+                timer += Time.deltaTime;
+                yield return null;
+            }
 
             Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
-            surface.BuildNavMesh();
+            
+            if (surface)
+                surface.BuildNavMesh();
         }
     }
 
@@ -121,7 +143,9 @@ public class GameManager : MonoBehaviour
         if (!victorySound)
         {
             victorySound = true;
-            SoundManager.I.PlaySound(SoundName.Victory);
+            
+            if (SoundManager.I)
+                SoundManager.I.PlaySound(SoundName.Victory);
         }
     }
 }
