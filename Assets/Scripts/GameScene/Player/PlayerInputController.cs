@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerMovementController movementController;
     private UIController isReady;
-    private InputAction moveAction, cancelAction;
+    private InputAction moveAction, cancelAction, clickAction, navigateAction;
 
     private void Awake()
     {
@@ -18,6 +19,8 @@ public class PlayerInputController : MonoBehaviour
 
         moveAction = inputActions.actions.FindAction("Move");
         cancelAction = inputActions.actions.FindAction("Cancel");
+        clickAction = inputActions.actions.FindAction("Click");
+        navigateAction = inputActions.actions.FindAction("Navigate");
     }
 
 
@@ -26,6 +29,8 @@ public class PlayerInputController : MonoBehaviour
         moveAction.performed += Move;
         moveAction.canceled += Move;
         cancelAction.performed += Disconnect;
+        clickAction.performed += Click;
+        navigateAction.performed += MenuNavigation;
     }
 
     void OnDisable()
@@ -33,6 +38,8 @@ public class PlayerInputController : MonoBehaviour
         moveAction.performed -= Move;
         moveAction.canceled -= Move;
         cancelAction.performed -= Disconnect;
+        clickAction.performed -= Click;
+        navigateAction.performed -= MenuNavigation;
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -48,5 +55,19 @@ public class PlayerInputController : MonoBehaviour
 
         inputActions.DeactivateInput();
         Destroy(gameObject);
+    }
+
+    private void Click(InputAction.CallbackContext context)
+    {
+        if (SceneManager.GetActiveScene().buildIndex > 1) return;
+
+        SoundManager.I.PlaySound(SoundName.MenuClick);
+    }
+
+    private void MenuNavigation(InputAction.CallbackContext context)
+    {
+        if (SceneManager.GetActiveScene().buildIndex > 1) return;
+
+        SoundManager.I.PlaySound(SoundName.MenuNavigation);
     }
 }
