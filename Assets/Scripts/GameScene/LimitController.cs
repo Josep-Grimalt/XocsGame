@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LimitController : MonoBehaviour
 {
+    [SerializeField] private GameManagerSO manager;
     private Transform limitCenter;
     private Transform radiusReference;
 
@@ -22,7 +23,7 @@ public class LimitController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 1 && manager.Walls())
         {
             limitCenter = GameObject.FindGameObjectWithTag("Limit").transform;
             radiusReference = GameObject.FindGameObjectWithTag("RadRef").transform;
@@ -43,7 +44,7 @@ public class LimitController : MonoBehaviour
 
     private void SetLimits(Scene arg0, Scene arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 1 && manager.Walls())
         {
             limitCenter = GameObject.FindGameObjectWithTag("Limit").transform;
             radiusReference = GameObject.FindGameObjectWithTag("RadRef").transform;
