@@ -6,7 +6,7 @@ Avatar:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AnimationBazzAvatar
+  m_Name: GenericAvatar
   m_AvatarSize: 5096
   m_Avatar:
     serializedVersion: 3
