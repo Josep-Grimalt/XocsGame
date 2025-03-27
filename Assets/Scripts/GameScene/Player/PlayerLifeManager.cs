@@ -81,14 +81,14 @@ public class PlayerLifeManager : MonoBehaviour
         }
     }
 
-    public void DontMove()
+    public void StopPlayer()
     {
         GetComponent<PlayerMovementController>().enabled = false;
         GetComponent<BoxCollider>().excludeLayers = playerMask;
         GetComponent<BoxCollider>().includeLayers = 0;
     }
 
-    public void Move()
+    public void MovePlayer()
     {
         GetComponent<PlayerMovementController>().enabled = true;
         StartCoroutine(IncludeLayer());
