@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class TextLookAt : MonoBehaviour
 {
@@ -23,6 +22,8 @@ public class TextLookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cam = Camera.main;
+        
         if (cam)
             textTransform.LookAt(cam.transform);
     }
