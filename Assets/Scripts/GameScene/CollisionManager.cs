@@ -223,6 +223,7 @@ public class CollisionManager : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = true;
         targetCinemachine.RemoveTarget(player);
         player.GetComponent<PlayerLifeManager>().LoseLife();
+        player.GetComponent<LimitController>().enabled = false;
 
         yield return new WaitForSeconds(delay);
 
@@ -231,6 +232,7 @@ public class CollisionManager : MonoBehaviour
             player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
             targetCinemachine.AddTarget(player);
             player.GetComponent<Rigidbody>().isKinematic = false;
+            player.GetComponent<LimitController>().enabled = true;
             if (cpu)
             {
                 cpu.Undie();
