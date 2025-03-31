@@ -6,10 +6,10 @@ using Random = UnityEngine.Random;
 
 public class PlayerCollisionController : MonoBehaviour
 {
-    [SerializeField] private Element element = Element.Neutral;
-    [SerializeField] private GameObject[] armor;
-    [SerializeField] private float delay = 5;
-    [SerializeField] private List<Animator> animators;
+    [SerializeField] protected Element element = Element.Neutral;
+    [SerializeField] protected GameObject[] armor;
+    [SerializeField] protected float delay = 5;
+    [SerializeField] protected List<Animator> animators;
 
     public enum Element
     {
@@ -20,7 +20,7 @@ public class PlayerCollisionController : MonoBehaviour
         Neutral
     }
 
-    private void OnCollisionEnter(Collision other)
+    protected void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -46,7 +46,7 @@ public class PlayerCollisionController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Element Changer"))
         {
@@ -79,7 +79,7 @@ public class PlayerCollisionController : MonoBehaviour
         return element;
     }
 
-    private IEnumerator ChangerDisable(GameObject changer, float delay)
+    protected IEnumerator ChangerDisable(GameObject changer, float delay)
     {
         changer.SetActive(false);
         changer.transform.parent.GetChild(1).gameObject.SetActive(false);

@@ -7,28 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
-    [SerializeField] private Vector3[] selectionSpawnPoints =
+    [SerializeField] protected Vector3[] selectionSpawnPoints =
     {
         new (-3, 0, -0.9f),
         new(-1, 0, -0.9f),
         new(1, 0, -0.9f),
         new(3, 0, -0.9f)
     };
-    [SerializeField] private Vector3[] gameSpawnPoints =
+    [SerializeField] protected Vector3[] gameSpawnPoints =
     {
         new (-19, 0, 19),
         new (19, 0, 19),
         new (-19, 0, -19),
         new (19, 0, -19)
     };
-    [SerializeField] private List<Animator> animators;
-    [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] protected List<Animator> animators;
 
-    private Rigidbody rb;
-    private int playerID;
-    private CinemachineTargetGroup targets;
+    protected Rigidbody rb;
+    protected int playerID;
+    protected CinemachineTargetGroup targets;
 
-    private void Awake()
+    protected void Awake()
     {
         if (TryGetComponent<Rigidbody>(out var i))
         {
@@ -68,19 +67,19 @@ public class PlayerSpawnManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         SceneManager.sceneLoaded += ChangeSpawnPoint;
         SceneManager.sceneLoaded += DestroyPlayer;
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         SceneManager.sceneLoaded -= ChangeSpawnPoint;
         SceneManager.sceneLoaded -= DestroyPlayer;
     }
 
-    private void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
+    protected void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
@@ -93,16 +92,13 @@ public class PlayerSpawnManager : MonoBehaviour
 
             if (animators[GetComponent<UIController>().GetModel()])
                 animators[GetComponent<UIController>().GetModel()].SetBool("SceneChange", true);
-
-            if (navMeshAgent)
-                navMeshAgent.enabled = true;
             
             transform.position = gameSpawnPoints[playerID];
             GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
-    private void DestroyPlayer(Scene arg0, LoadSceneMode arg1)
+    protected void DestroyPlayer(Scene arg0, LoadSceneMode arg1)
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
