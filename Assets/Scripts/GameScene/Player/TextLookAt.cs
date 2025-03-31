@@ -37,7 +37,7 @@ public class TextLookAt : MonoBehaviour
 
     void OnDisable()
     {
-
+        SceneManager.activeSceneChanged -= ActivateVanishing;
     }
 
     private void ActivateVanishing(Scene arg0, Scene arg1)
