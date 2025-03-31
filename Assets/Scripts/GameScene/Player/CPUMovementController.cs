@@ -26,8 +26,8 @@ public class CPUMovementController : PlayerMovementController
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
         if (!gameManager.IsGameReady()) return;
-
-        animator.SetFloat("Speed", agent.speed);
+        
+        animators[GetComponent<UIController>().GetModel()].SetFloat("Speed", agent.speed);
         Fall();
         NearPlayer();
     }

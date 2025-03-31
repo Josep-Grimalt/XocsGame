@@ -1,18 +1,18 @@
 using System;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    private Rigidbody rb;
-    private Vector3 movementDirection;
-    protected GameManager gameManager;
-
     [SerializeField] private float speed = 10;
     [SerializeField] private float rotationSpeed = 45;
-    [SerializeField] protected Animator animator;
+    [SerializeField] protected List<Animator> animators;
+    
+    protected GameManager gameManager;
+    private Rigidbody rb;
+    private Vector3 movementDirection;
 
 
     void Start()
@@ -22,7 +22,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Speed", rb.linearVelocity.magnitude);
+        animators[GetComponent<UIController>().GetModel()].SetFloat("Speed", rb.linearVelocity.magnitude);
         Fall();
         Rotate(movementDirection);
     }
@@ -50,13 +50,13 @@ public class PlayerMovementController : MonoBehaviour
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
         if (!gameManager.IsGameReady()) return;
-
+        
         movementDirection = new(direction.x, 0, direction.y); ;
     }
 
     protected void Fall()
     {
-        animator.SetFloat("Height", transform.position.y);
+        animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
         if (transform.position.y <= -10)
         {
             GetComponent<PlayerLifeManager>().LoseLife();

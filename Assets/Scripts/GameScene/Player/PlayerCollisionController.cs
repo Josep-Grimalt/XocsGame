@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,7 +9,7 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] private Element element = Element.Neutral;
     [SerializeField] private GameObject[] armor;
     [SerializeField] private float delay = 5;
-    [SerializeField] private Animator animator;
+    [SerializeField] private List<Animator> animators;
 
     public enum Element
     {
@@ -23,7 +24,7 @@ public class PlayerCollisionController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            animator.SetTrigger("Hit");
+            animators[GetComponent<UIController>().GetModel()].SetTrigger("Hit");
             Element element2 = other.gameObject.GetComponent<PlayerCollisionController>().GetElement();
             CollisionManager.Instance.HandlePlayerCollision(gameObject, other.gameObject, other.GetContact(0).point, element, element2);
         }

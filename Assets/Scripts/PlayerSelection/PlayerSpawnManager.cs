@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,7 +21,7 @@ public class PlayerSpawnManager : MonoBehaviour
         new (-19, 0, -19),
         new (19, 0, -19)
     };
-    [SerializeField] private Animator animator;
+    [SerializeField] private List<Animator> animators;
     [SerializeField] private NavMeshAgent navMeshAgent;
 
     private Rigidbody rb;
@@ -91,8 +91,8 @@ public class PlayerSpawnManager : MonoBehaviour
                 targets.AddMember(gameObject.transform, 0.5f, 1);
             }
 
-            if (animator)
-                animator.SetBool("SceneChange", true);
+            if (animators[GetComponent<UIController>().GetModel()])
+                animators[GetComponent<UIController>().GetModel()].SetBool("SceneChange", true);
 
             if (navMeshAgent)
                 navMeshAgent.enabled = true;

@@ -7,8 +7,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private List<ModelMaterialControllerSO> colorsPlayer;
     [SerializeField] private List<GameObject> models;
     [SerializeField] private List<GameObject> materials;
-    [SerializeField] private List<Avatar> avatars;
-    [SerializeField] private Animator animator;
+    [SerializeField] private List<Animator> animators;
 
     private int color = 0;
     private int model = 0;
@@ -79,8 +78,13 @@ public class UIController : MonoBehaviour
             _ => _ready[playerNum]
         };
 
-        animator.SetBool("Ready", _ready[playerNum]);
+        animators[model].SetBool("Ready", _ready[playerNum]);
         return _ready.Count(r => r);
+    }
+
+    public int GetModel()
+    {
+        return model;
     }
 
     public bool[] GetReady()
@@ -100,7 +104,6 @@ public class UIController : MonoBehaviour
             models[i].SetActive(i == model);
         }
 
-        animator.avatar = avatars[model];
         color = 0;
         ChangeColor();
     }
