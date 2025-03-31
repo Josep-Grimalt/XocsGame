@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.AI.Navigation;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -20,13 +21,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject multiplayerManager;
     [SerializeField] private float speed = 5;
-    
+    [SerializeField] private CinemachineCamera cam;
+
     private List<GameObject> platforms;
     private List<GameObject> players;
-    private bool victorySound;
+    private bool victorySound, gameReady;
 
     private void Awake()
     {
+        gameReady = false;
+
         if (multiplayerManager)
             multiplayerManager.SetActive(true);
 
@@ -88,6 +92,11 @@ public class GameManager : MonoBehaviour
             if (eventSystem)
                 eventSystem.SetSelectedGameObject(continueButton);
         }
+
+        if (cam.Priority > 1)
+        {
+            Invoke(nameof(GameIsReady), 3f);
+        }
     }
 
     private IEnumerator Fall(float delay)
@@ -98,7 +107,7 @@ public class GameManager : MonoBehaviour
 
             int fallingPlat = Random.Range(0, platforms.Count);
             platforms[fallingPlat].GetComponentInChildren<Animator>().Play("Fall");
-            
+
             yield return new WaitForSeconds(1.1f);
 
             float timer = 0;
@@ -112,7 +121,7 @@ public class GameManager : MonoBehaviour
 
             Destroy(platforms[fallingPlat]);
             platforms.RemoveAt(fallingPlat);
-            
+
             if (surface)
                 surface.BuildNavMesh();
         }
@@ -138,14 +147,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public bool IsGameReady()
+    {
+        return gameReady;
+    }
+
     private void VictorySound()
     {
         if (!victorySound)
         {
             victorySound = true;
-            
+
             if (SoundManager.I)
                 SoundManager.I.PlaySound(SoundName.Victory);
         }
+    }
+
+    private void GameIsReady()
+    {
+        gameReady = true;
     }
 }

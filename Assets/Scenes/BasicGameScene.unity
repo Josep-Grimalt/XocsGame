@@ -2912,6 +2912,7 @@ MonoBehaviour:
   reductionTime: 1
   reductionAmount: 1
   minimumScale: 12.5
+  gameManager: {fileID: 1759740466}
 --- !u!1 &462378595
 GameObject:
   m_ObjectHideFlags: 0
@@ -9140,6 +9141,7 @@ MonoBehaviour:
   eventSystem: {fileID: 409378419}
   multiplayerManager: {fileID: 1775339764}
   speed: 5
+  cam: {fileID: 710572594}
 --- !u!114 &1759740467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9188,9 +9190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 710572594}
-  dollyCamera: {fileID: 803629250}
   cart: {fileID: 586466447}
-  targetGroup: {fileID: 375619987}
 --- !u!4 &1770275601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,

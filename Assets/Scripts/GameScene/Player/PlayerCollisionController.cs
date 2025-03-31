@@ -81,9 +81,11 @@ public class PlayerCollisionController : MonoBehaviour
     private IEnumerator ChangerDisable(GameObject changer, float delay)
     {
         changer.SetActive(false);
+        changer.transform.parent.GetChild(1).gameObject.SetActive(false);
 
         yield return new WaitForSeconds(delay);
 
         changer.SetActive(true);
+        changer.transform.parent.GetChild(1).gameObject.SetActive(true);
     }
 }

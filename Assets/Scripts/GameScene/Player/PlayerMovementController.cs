@@ -1,11 +1,14 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PlayerMovementController : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector3 movementDirection;
+    protected GameManager gameManager;
 
     [SerializeField] private float speed = 10;
     [SerializeField] private float rotationSpeed = 45;
@@ -40,6 +43,14 @@ public class PlayerMovementController : MonoBehaviour
 
     public void SetMovementDirection(Vector2 direction)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
+        if (!gameManager)
+        {
+            gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        }
+        if (!gameManager.IsGameReady()) return;
+
         movementDirection = new(direction.x, 0, direction.y); ;
     }
 
