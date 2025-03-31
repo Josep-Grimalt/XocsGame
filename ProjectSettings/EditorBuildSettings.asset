@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BasicGameScene.unity
     guid: 67e5e5797bc44f1469a154028de7ecd5
   - enabled: 1
-    path: Assets/Scenes/TestingGame.unity
+    path: Assets/Scenes/TestingAnimations.unity
     guid: 10e13b09091dd5f498792a3c25ce0762
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

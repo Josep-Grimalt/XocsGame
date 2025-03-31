@@ -6,6 +6,8 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private List<ModelMaterialControllerSO> colorsPlayer;
     [SerializeField] private List<GameObject> models;
+    [SerializeField] private List<GameObject> materials;
+    [SerializeField] private List<Avatar> avatars;
     [SerializeField] private Animator animator;
 
     private int color = 0;
@@ -70,7 +72,6 @@ public class UIController : MonoBehaviour
 
     public int Ready(int playerNum, bool ready)
     {
-        animator.SetTrigger("Ready");
         _ready[playerNum] = _ready[playerNum] switch
         {
             false when ready => true,
@@ -78,6 +79,7 @@ public class UIController : MonoBehaviour
             _ => _ready[playerNum]
         };
 
+        animator.SetBool("Ready", _ready[playerNum]);
         return _ready.Count(r => r);
     }
 
@@ -88,7 +90,7 @@ public class UIController : MonoBehaviour
 
     private void ChangeColor()
     {
-        GetComponentInChildren<Renderer>().material = colorsPlayer[model].GetMaterials()[color];
+        materials[model].GetComponent<Renderer>().material = colorsPlayer[model].GetMaterials()[color];
     }
 
     private void ChangeModel()
@@ -98,7 +100,9 @@ public class UIController : MonoBehaviour
             models[i].SetActive(i == model);
         }
 
+        animator.avatar = avatars[model];
         color = 0;
         ChangeColor();
     }
+
 }

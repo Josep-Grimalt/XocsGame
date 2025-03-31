@@ -323,13 +323,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6218951331329393053}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: -0.033033133}
   m_LocalScale: {x: 120, y: 120, z: 120}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9061373029246168415}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3319353739327514997
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5297,6 +5297,7 @@ GameObject:
   - component: {fileID: 9061373029246168415}
   - component: {fileID: 5749002470305008091}
   - component: {fileID: 5811273228024916206}
+  - component: {fileID: 6053775371104187753}
   m_Layer: 8
   m_Name: BallViento
   m_TagString: Untagged
@@ -5314,8 +5315,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.54, y: 0, z: -0.13890743}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 973330124009577554}
   - {fileID: 2743528246219928872}
@@ -5335,8 +5336,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-  m_Intensity: 5
+  m_Color: {r: 0.6528621, g: 1, b: 0, a: 0.7176471}
+  m_Intensity: 2
   m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5413,6 +5414,20 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &6053775371104187753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542104111010920421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6f32b6c539de4458f2b06580e6a73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 6218951331329393053}
+  rotationSpeed: 100
 --- !u!1001 &806144345283417679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5425,6 +5440,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: S_Fireball_03_Temperature
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964429153062912154, guid: 5f83705c3477c3640a62029d7215ad3e,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964429153062912154, guid: 5f83705c3477c3640a62029d7215ad3e,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 899854857
       objectReference: {fileID: 0}
     - target: {fileID: 5964429153062912155, guid: 5f83705c3477c3640a62029d7215ad3e,
         type: 3}

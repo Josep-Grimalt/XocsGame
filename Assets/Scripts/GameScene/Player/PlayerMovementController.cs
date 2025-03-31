@@ -45,7 +45,8 @@ public class PlayerMovementController : MonoBehaviour
 
     protected void Fall()
     {
-        if (transform.position.y <= -5)
+        animator.SetFloat("Height", transform.position.y);
+        if (transform.position.y <= -10)
         {
             GetComponent<PlayerLifeManager>().LoseLife();
             transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));

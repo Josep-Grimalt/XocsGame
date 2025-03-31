@@ -13,6 +13,9 @@ TagManager:
   - Neutral
   - PowerUp
   - Ready
+  - Limit
+  - RadRef
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -23,7 +26,7 @@ TagManager:
   - LimitWalls
   - CPU
   - PostProcesing
-  - 
+  - Player
   - 
   - 
   - 
@@ -47,6 +50,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: negative
+    uniqueID: 899854857
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
