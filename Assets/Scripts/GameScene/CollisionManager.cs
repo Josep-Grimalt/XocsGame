@@ -238,6 +238,10 @@ public class CollisionManager : MonoBehaviour
                 cpu.Undie();
                 StartCoroutine(ResetCPU(cpu, 0));
             }
+            else
+            {
+                player.GetComponent<TextLookAt>().Respawn();
+            }
         }
         else
             Destroy(player);
