@@ -44,7 +44,7 @@ public class TextLookAt : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex < 2) return;
 
-        Invoke(nameof(Deactivate), 3f);
+        Invoke(nameof(Deactivate), 20f);
     }
 
     private void Deactivate()
