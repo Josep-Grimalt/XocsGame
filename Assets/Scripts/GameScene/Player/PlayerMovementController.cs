@@ -54,7 +54,7 @@ public class PlayerMovementController : MonoBehaviour
         movementDirection = new(direction.x, 0, direction.y); ;
     }
 
-    protected void Fall()
+    protected virtual void Fall()
     {
         animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
         if (transform.position.y <= -10)

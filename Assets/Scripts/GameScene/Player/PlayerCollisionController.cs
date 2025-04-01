@@ -20,7 +20,7 @@ public class PlayerCollisionController : MonoBehaviour
         Neutral
     }
 
-    protected void OnCollisionEnter(Collision other)
+    protected virtual void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

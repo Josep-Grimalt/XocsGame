@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CPUCollisionController : PlayerCollisionController
 {
-    private void OnCollisionEnter(Collision other)
+    protected override void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

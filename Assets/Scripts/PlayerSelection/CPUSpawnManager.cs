@@ -7,7 +7,7 @@ public class CPUSpawnManager : PlayerSpawnManager
 {
     [SerializeField] private NavMeshAgent navMeshAgent;
 
-    private void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
+    protected override void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {

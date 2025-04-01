@@ -32,6 +32,17 @@ public class CPUMovementController : PlayerMovementController
         NearPlayer();
     }
 
+    protected override void Fall()
+    {
+        animators[0].SetFloat("Height", transform.position.y);
+        if (transform.position.y <= -10)
+        {
+            GetComponent<PlayerLifeManager>().LoseLife();
+            transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+
+        }
+    }
+
     private void NearPlayer()
     {
         GetTargets();

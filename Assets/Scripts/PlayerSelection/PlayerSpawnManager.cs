@@ -79,7 +79,7 @@ public class PlayerSpawnManager : MonoBehaviour
         SceneManager.sceneLoaded -= DestroyPlayer;
     }
 
-    protected void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
+    protected virtual void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
