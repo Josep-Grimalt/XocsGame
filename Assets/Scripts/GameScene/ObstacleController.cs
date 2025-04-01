@@ -53,7 +53,7 @@ public class ObstacleController : MonoBehaviour
                 obstacle.enabled = true;
             }
 
-            Destroy(go, 9f);
+            Destroy(go, delay * 3);
         }
     }
 }
