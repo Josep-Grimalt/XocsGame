@@ -66,11 +66,11 @@ public class CollisionManager : MonoBehaviour
 
         if (cpuP1)
         {
-            StartCoroutine(ResetCPU(cpuP1, 2));
+            StartCoroutine(ResetCPU(cpuP1, 3));
         }
         if (cpuP2)
         {
-            StartCoroutine(ResetCPU(cpuP2, 2));
+            StartCoroutine(ResetCPU(cpuP2, 3));
         }
 
         PlayerCollisionController.Element element;
