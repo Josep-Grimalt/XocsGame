@@ -97,4 +97,20 @@ public class GameManagerSO : ScriptableObject
     {
         return !powerups.Contains(true);
     }
+
+    public void SetAllObstacles(bool f)
+    {
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            obstacles[i] = f;
+        }
+    }
+
+    public void SetAllPowerUps(bool f)
+    {
+        for (int i = 0; i < powerups.Length; i++)
+        {
+            powerups[i] = f;
+        }
+    }
 }
