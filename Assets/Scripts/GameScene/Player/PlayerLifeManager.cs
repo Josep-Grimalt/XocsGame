@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeManager : MonoBehaviour
 {
     [SerializeField] private int life = 3;
-    [SerializeField] private LayerMask playerMask;
 
     private TextMeshProUGUI textMesh;
 
@@ -79,26 +78,5 @@ public class PlayerLifeManager : MonoBehaviour
         {
             textMesh.SetText(gameObject.name + ": " + life);
         }
-    }
-
-    public void StopPlayer()
-    {
-        GetComponent<PlayerMovementController>().enabled = false;
-        GetComponent<BoxCollider>().excludeLayers = playerMask;
-        GetComponent<BoxCollider>().includeLayers = 0;
-    }
-
-    public void MovePlayer()
-    {
-        GetComponent<PlayerMovementController>().enabled = true;
-        StartCoroutine(IncludeLayer());
-    }
-
-    private IEnumerator IncludeLayer()
-    {
-        yield return new WaitForSeconds(1f);
-        
-        GetComponent<BoxCollider>().includeLayers = playerMask;
-        GetComponent<BoxCollider>().excludeLayers = 0;
     }
 }
