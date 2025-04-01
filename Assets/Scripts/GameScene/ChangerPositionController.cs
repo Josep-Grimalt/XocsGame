@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ChangerPositionController : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if(other.name.Contains("Wall"))
         {
