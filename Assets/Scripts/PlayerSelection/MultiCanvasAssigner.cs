@@ -86,7 +86,7 @@ public class MultiCanvasAssigner : MonoBehaviour
                         buttons[input.playerIndex][i].interactable = false;
                     }
                 }
-                SoundManager.I.PlaySound(SoundName.Ready);
+                SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Ready : SoundName.ReadyAlt);
             }
             else
             {
