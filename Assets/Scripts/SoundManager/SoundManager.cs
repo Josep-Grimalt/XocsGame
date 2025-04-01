@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager I { get; private set; }
     [SerializeField] private SoundLibrary soundLibrary;
     [SerializeField] private bool playMusic;
-    [SerializeField] private SoundName musicClip;
+    [SerializeField] private SoundName menuBackClip, battleBackClip;
 
     private readonly AudioSource musicAudioSrc;
     private Dictionary<SoundName, float> soundTimers;
@@ -29,9 +31,19 @@ public class SoundManager : MonoBehaviour
     {
         if (playMusic)
         {
-            PlayBackgroundSound(musicClip, musicAudioSrc);
+            PlayBackgroundSound(menuBackClip, musicAudioSrc);
         }
 
+    }
+
+    void OnEnable()
+    {
+        SceneManager.activeSceneChanged += ChangeBackgroundSound;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= ChangeBackgroundSound;
     }
 
     public void PlaySound(SoundName soundName, float pitch = 1)
@@ -184,5 +196,11 @@ public class SoundManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void ChangeBackgroundSound(Scene arg0, Scene arg1)
+    {
+        StopBackgroundSound();
+        PlayBackgroundSound(battleBackClip, musicAudioSrc);
     }
 }
