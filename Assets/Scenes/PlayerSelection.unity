@@ -6208,6 +6208,16 @@ PrefabInstance:
       propertyPath: playMusic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
+        type: 3}
+      propertyPath: publicClip
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
+        type: 3}
+      propertyPath: battleBackClip
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2357166653497296948, guid: 3b1930722f00b824c86bce7bffd532fb,
         type: 3}
       propertyPath: m_LocalPosition.x

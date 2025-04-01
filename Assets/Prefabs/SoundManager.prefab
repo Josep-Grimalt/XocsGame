@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundLibrary: {fileID: 11400000, guid: b533cc9710d04bf4f9d8599eec0b0daf, type: 2}
   playMusic: 1
-  musicClip: 0
+  menuBackClip: 0
+  battleBackClip: 1
+  publicClip: 21
