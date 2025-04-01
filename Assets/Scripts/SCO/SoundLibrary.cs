@@ -40,7 +40,8 @@ public enum SoundName
     XocAlt,
     DeathAlt,
     VictoryAlt,
-    Public
+    Public,
+    ReadyAlt
 }
 
 [System.Serializable]

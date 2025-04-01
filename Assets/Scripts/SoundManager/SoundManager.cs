@@ -214,7 +214,7 @@ public class SoundManager : MonoBehaviour
             PlayBackgroundSound(publicClip, ambianceSound);
         }
 
-        // si l'escena NO es cap escena de batalla
+        // si l'escena NO es cap escena de batalla torna a posar la musica dels menus
         if (SceneManager.GetActiveScene().buildIndex < 2)
         {
             PlayBackgroundSound(menuBackClip, musicAudioSrc);
