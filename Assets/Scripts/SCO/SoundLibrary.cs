@@ -36,7 +36,10 @@ public enum SoundName
     Join,
     Ready,
     MenuNavigation,
-    MenuClick
+    MenuClick,
+    XocAlt,
+    DeathAlt,
+    VictoryAlt
 }
 
 [System.Serializable]

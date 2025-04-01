@@ -43,7 +43,7 @@ public class CollisionManager : MonoBehaviour
         if (recentCollisions.Contains(collisionKey)) return;
 
         recentCollisions.Add(collisionKey);
-        SoundManager.I.PlaySound(SoundName.Xoc);
+        SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Xoc : SoundName.XocAlt);
 
         Vector3 collisionDir = (p2.transform.position - p1.transform.position).normalized;
         collisionDir.y = 0;
@@ -132,7 +132,7 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Fire)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
-                SoundManager.I.PlaySound(SoundName.Death, player.transform);
+                SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
 
@@ -141,7 +141,7 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Water)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
-                SoundManager.I.PlaySound(SoundName.Death, player.transform);
+                SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
 
@@ -150,7 +150,7 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Wind)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
-                SoundManager.I.PlaySound(SoundName.Death, player.transform);
+                SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
 
@@ -159,14 +159,14 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Earth)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
-                SoundManager.I.PlaySound(SoundName.Death, player.transform);
+                SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
 
         if (orb.CompareTag("Neutral"))
         {
             StartCoroutine(RespawnPlayer(player, respawnDelay));
-            SoundManager.I.PlaySound(SoundName.Death, player.transform);
+            SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
         }
 
         PoolManager.ReturnObjectToPool(orb);

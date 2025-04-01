@@ -161,7 +161,9 @@ public class GameManager : MonoBehaviour
             victorySound = true;
 
             if (SoundManager.I)
-                SoundManager.I.PlaySound(SoundName.Victory);
+            {
+                SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Victory : SoundName.VictoryAlt);
+            }
         }
     }
 
