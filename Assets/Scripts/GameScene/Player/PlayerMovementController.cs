@@ -51,7 +51,7 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (!gameManager.IsGameReady()) return;
         
-        movementDirection = new(direction.x, 0, direction.y); ;
+        movementDirection = new(direction.x, 0, direction.y);
     }
 
     protected virtual void Fall()

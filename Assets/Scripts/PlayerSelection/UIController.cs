@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -12,6 +14,16 @@ public class UIController : MonoBehaviour
     private int color = 0;
     private int model = 0;
     private static bool[] _ready = { false, false, false, false };
+
+    void OnEnable()
+    {
+        SceneManager.activeSceneChanged += ResetReady;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= ResetReady;
+    }
 
     public void SelectColor(bool next)
     {
@@ -108,4 +120,11 @@ public class UIController : MonoBehaviour
         ChangeColor();
     }
 
+    private void ResetReady(Scene arg0, Scene arg1)
+    {
+        for (int i = 0; i < _ready.Length; i++)
+        {
+            _ready[i] = false;
+        }
+    }
 }
