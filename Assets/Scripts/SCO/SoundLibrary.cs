@@ -39,7 +39,8 @@ public enum SoundName
     MenuClick,
     XocAlt,
     DeathAlt,
-    VictoryAlt
+    VictoryAlt,
+    Public
 }
 
 [System.Serializable]

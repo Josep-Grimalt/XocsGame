@@ -8,9 +8,9 @@ public class SoundManager : MonoBehaviour
     public static SoundManager I { get; private set; }
     [SerializeField] private SoundLibrary soundLibrary;
     [SerializeField] private bool playMusic;
-    [SerializeField] private SoundName menuBackClip, battleBackClip;
+    [SerializeField] private SoundName menuBackClip, battleBackClip, publicClip;
 
-    private readonly AudioSource musicAudioSrc;
+    private readonly AudioSource musicAudioSrc, ambianceSound;
     private Dictionary<SoundName, float> soundTimers;
 
     void Awake()
@@ -202,5 +202,6 @@ public class SoundManager : MonoBehaviour
     {
         StopBackgroundSound();
         PlayBackgroundSound(battleBackClip, musicAudioSrc);
+        PlayBackgroundSound(publicClip, ambianceSound);
     }
 }

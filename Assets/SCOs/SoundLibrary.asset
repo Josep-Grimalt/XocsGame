@@ -157,3 +157,35 @@ MonoBehaviour:
     playTimer: 0
     spatialBlend: 0
     pitch: 0
+  - soundName: 21
+    audioClip: {fileID: 8300000, guid: e00de7af296214845acbe65cd0ea9635, type: 3}
+    loop: 1
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 18
+    audioClip: {fileID: 8300000, guid: 5e80c42c6029a9140b845444ab7fa8fa, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 19
+    audioClip: {fileID: 8300000, guid: 812ce085a64a36a429c8a7acc441d0d1, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
+  - soundName: 20
+    audioClip: {fileID: 8300000, guid: 3db33580e67b04641895ced902bdc6d0, type: 3}
+    loop: 0
+    volume: 1
+    hasPlayTimer: 0
+    playTimer: 0
+    spatialBlend: 0
+    pitch: 0
