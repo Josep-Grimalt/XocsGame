@@ -6,7 +6,7 @@ public class GameManagerSOReset : MonoBehaviour
 
     void Awake()
     {
-        gameManager.SetFallingPlatform(false);
+        gameManager.SetFallingPlatform(true);
         gameManager.SetWalls(true);
         gameManager.SetElements(true);
         gameManager.SetAllObstacles(false);
