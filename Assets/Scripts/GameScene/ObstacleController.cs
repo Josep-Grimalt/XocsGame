@@ -24,7 +24,11 @@ public class ObstacleController : MonoBehaviour
 
         while (gameObject.activeSelf)
         {
-            if (!gameManager.IsGameReady()) yield return null;
+            if (!gameManager.IsGameReady())
+            {
+                yield return null;
+                continue;
+            }
 
             yield return new WaitForSeconds(delay);
 

@@ -103,7 +103,11 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            if (!gameReady) continue;
+            if (!gameReady)
+            {
+                yield return null;
+                continue;
+            }
 
             yield return new WaitForSeconds(delay);
 

@@ -27,7 +27,11 @@ public class PowerUpController : MonoBehaviour
 
         while (gameObject.activeSelf)
         {
-            if (!gameManager.IsGameReady()) continue;
+            if (!gameManager.IsGameReady())
+            {
+                yield return null;
+                continue;
+            }
 
             yield return new WaitForSeconds(delay);
 

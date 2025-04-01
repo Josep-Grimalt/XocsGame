@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WallsController : MonoBehaviour
@@ -11,8 +12,6 @@ public class WallsController : MonoBehaviour
 
     private void Update()
     {
-        if (!gameManager.IsGameReady()) return;
-
         time += Time.deltaTime;
 
         if (delay <= time)
