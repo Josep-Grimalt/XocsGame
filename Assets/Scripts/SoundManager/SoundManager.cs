@@ -141,6 +141,7 @@ public class SoundManager : MonoBehaviour
     public void StopBackgroundSound()
     {
         if (musicAudioSrc) musicAudioSrc.Stop();
+        if (ambianceSound) ambianceSound.Stop();
     }
 
     public void StopAllSounds()
@@ -200,8 +201,23 @@ public class SoundManager : MonoBehaviour
 
     private void ChangeBackgroundSound(Scene arg0, Scene arg1)
     {
+        // si l'escena es la de player selection no fa cap canvi
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
+        // atura tots els sons
         StopBackgroundSound();
-        PlayBackgroundSound(battleBackClip, musicAudioSrc);
-        PlayBackgroundSound(publicClip, ambianceSound);
+
+        // si l'escena és una escena de batalla posa la musica de batalla i el public
+        if (SceneManager.GetActiveScene().buildIndex > 1)
+        {
+            PlayBackgroundSound(battleBackClip, musicAudioSrc);
+            PlayBackgroundSound(publicClip, ambianceSound);
+        }
+
+        // si l'escena NO es cap escena de batalla
+        if (SceneManager.GetActiveScene().buildIndex < 2)
+        {
+            PlayBackgroundSound(menuBackClip, musicAudioSrc);
+        }
     }
 }
