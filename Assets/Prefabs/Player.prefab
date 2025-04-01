@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293847345116278}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9636305, z: 0, w: 0.26723844}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,7 +44,7 @@ Transform:
   - {fileID: 7504329342923518622}
   - {fileID: 8895679110089995741}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 149, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &2440569401716948006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -157,10 +157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionSpawnPoints:
-  - {x: -3, y: 0, z: -0.9}
-  - {x: -1, y: 0, z: -0.9}
-  - {x: 1, y: 0, z: -0.9}
-  - {x: 3, y: 0, z: -0.9}
+  - {x: -3.92, y: 0, z: 0.04}
+  - {x: -1.27, y: 0, z: 0.04}
+  - {x: 1.27, y: 0, z: 0.04}
+  - {x: 3.92, y: 0, z: 0.04}
   gameSpawnPoints:
   - {x: -19, y: 0, z: 19}
   - {x: 19, y: 0, z: 19}
