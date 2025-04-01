@@ -103,8 +103,8 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            if (!gameReady) yield return null;
-            
+            if (!gameReady) continue;
+
             yield return new WaitForSeconds(delay);
 
             int fallingPlat = Random.Range(0, platforms.Count);

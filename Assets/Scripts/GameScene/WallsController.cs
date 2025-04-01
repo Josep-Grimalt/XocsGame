@@ -4,14 +4,17 @@ public class WallsController : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float delay, speed;
+    [SerializeField] private GameManager gameManager;
 
     private float time = 0;
     private bool moving = false;
 
     private void Update()
     {
+        if (!gameManager.IsGameReady()) return;
+
         time += Time.deltaTime;
-        
+
         if (delay <= time)
         {
             moving = true;
