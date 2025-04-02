@@ -24,7 +24,6 @@ public class CPUCollisionController : PlayerCollisionController
 
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            Debug.Log("Power Up");
             CollisionManager.Instance.HandlePowerUp(gameObject, other.gameObject);
         }
     }
