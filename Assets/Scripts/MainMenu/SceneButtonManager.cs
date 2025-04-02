@@ -24,6 +24,12 @@ public class SceneButtonManager : MonoBehaviour
     [SerializeField] private GameObject mainFrist, optionFirst, galleryFirst, powerUpDescriptionFirst, matchOptionsFirst, playerFirst;
     [SerializeField] private int startingScene = 2;
     [SerializeField] private PlayerInputManager inputManager;
+    [SerializeField] private int scenesCount = 2;
+
+    void Awake()
+    {
+        SetRandomStartingScene(scenesCount);
+    }
 
     public void StartButton()
     {
@@ -121,6 +127,7 @@ public class SceneButtonManager : MonoBehaviour
 
     public void StartGameButton()
     {
+        Debug.Log(startingScene);
         SceneManager.LoadScene(startingScene);
     }
 
@@ -131,6 +138,6 @@ public class SceneButtonManager : MonoBehaviour
 
     public void SetRandomStartingScene(int scenesCount)
     {
-        startingScene = Random.Range(0, 1) + 2;
+        startingScene = Random.Range(0, scenesCount) + 2;
     }
 }

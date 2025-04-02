@@ -2543,7 +2543,7 @@ MonoBehaviour:
   powerUpDescriptionFirst: {fileID: 0}
   matchOptionsFirst: {fileID: 563282825}
   playerFirst: {fileID: 689998551}
-  startingScene: 4
+  startingScene: 2
   inputManager: {fileID: 232347591}
 --- !u!114 &390973197
 MonoBehaviour:
