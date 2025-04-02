@@ -51,12 +51,16 @@ public class PlayerCollisionController : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other)
     {
+        // si entra en contacte amb un canviador d'elements
         if (other.gameObject.CompareTag("Element Changer"))
         {
+            // selecciona un element aleatòriament
             element = (Element)Random.Range(0, 4);
 
+            // sona el canvi d'element
             SoundManager.I.PlaySound(SoundName.Change);
 
+            // canvia el color de l'armadura i la icona gràfica d'acord amb l'element escollit
             switch (element)
             {
                 case Element.Fire:

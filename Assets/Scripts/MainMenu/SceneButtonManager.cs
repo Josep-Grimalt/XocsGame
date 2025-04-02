@@ -11,14 +11,15 @@ using Random = UnityEngine.Random;
 
 public class SceneButtonManager : MonoBehaviour
 {
-    [Serializable] private class PowerUp
+    [Serializable]
+    private class PowerUp
     {
         public Sprite sprite;
         public string name;
         public string description;
     }
     [SerializeField] private PowerUp[] powerUps;
-    [SerializeField] private GameObject mainMenu, optionsMenu ,gallery, powerUpDescription, matchOptionsMenu;
+    [SerializeField] private GameObject mainMenu, optionsMenu, gallery, powerUpDescription, matchOptionsMenu;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject mainFrist, optionFirst, galleryFirst, powerUpDescriptionFirst, matchOptionsFirst, playerFirst;
     [SerializeField] private int startingScene = 2;
@@ -80,22 +81,22 @@ public class SceneButtonManager : MonoBehaviour
         Application.Quit();
 
         // Función extra para el editor (solo útil durante el desarrollo)
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
-    
+
     public void BackButton()
     {
         SceneManager.LoadScene("MainMenu");
     }
-    
+
     public void StartGameReadyButton()
     {
         matchOptionsMenu.SetActive(true);
         eventSystem.SetSelectedGameObject(matchOptionsFirst);
         inputManager.DisableJoining();
-        
+
         GameObject[] buttons = GameObject.FindGameObjectsWithTag("Ready");
 
         for (int i = 0; i < buttons.Length; i++)
@@ -109,7 +110,7 @@ public class SceneButtonManager : MonoBehaviour
         matchOptionsMenu.SetActive(false);
         eventSystem.SetSelectedGameObject(playerFirst);
         inputManager.EnableJoining();
-        
+
         GameObject[] buttons = GameObject.FindGameObjectsWithTag("Ready");
 
         for (int i = 0; i < buttons.Length; i++)
@@ -117,7 +118,7 @@ public class SceneButtonManager : MonoBehaviour
             buttons[i].GetComponent<Button>().interactable = true;
         }
     }
-    
+
     public void StartGameButton()
     {
         SceneManager.LoadScene(startingScene);
@@ -125,11 +126,11 @@ public class SceneButtonManager : MonoBehaviour
 
     public void SetStartingScene(int newStartingScene)
     {
-        startingScene += newStartingScene;
+        startingScene = newStartingScene + 2;
     }
 
     public void SetRandomStartingScene(int scenesCount)
     {
-        startingScene += Random.Range(0, scenesCount);
+        startingScene = Random.Range(0, 1) + 2;
     }
 }
