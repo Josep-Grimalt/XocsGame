@@ -12,7 +12,7 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] protected float delay = 5;
     [SerializeField] protected List<Animator> animators;
     [SerializeField] protected List<Sprite> sprites;
-    
+
     private Sprite sprite;
 
     public enum Element
