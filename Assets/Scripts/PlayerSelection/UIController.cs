@@ -25,57 +25,29 @@ public class UIController : MonoBehaviour
         SceneManager.activeSceneChanged -= ResetReady;
     }
 
-    public void SelectColor(bool next)
+    public void SelectColor()
     {
-        if (next)
+        if (color == colorsPlayer[model].GetMaterials().Count - 1)
         {
-            if (color == colorsPlayer[model].GetMaterials().Count - 1)
-            {
-                color = 0;
-            }
-            else
-            {
-                color++;
-            }
+            color = 0;
         }
         else
         {
-            if (color == 0)
-            {
-                color = colorsPlayer[model].GetMaterials().Count - 1;
-            }
-            else
-            {
-                color--;
-            }
+            color++;
         }
 
         ChangeColor();
     }
 
-    public void SelectModel(bool next)
+    public void SelectModel()
     {
-        if (next)
+        if (model == models.Count - 1)
         {
-            if (model == models.Count - 1)
-            {
-                model = 0;
-            }
-            else
-            {
-                model++;
-            }
+            model = 0;
         }
         else
         {
-            if (model == 0)
-            {
-                model = models.Count - 1;
-            }
-            else
-            {
-                model--;
-            }
+            model++;
         }
 
         ChangeModel();
