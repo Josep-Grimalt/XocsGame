@@ -66,9 +66,9 @@ public class PlayerLifeManager : MonoBehaviour
             return;
         }
 
+        playerLife.GetChild(1).GetChild(life).GetChild(0).gameObject.SetActive(true);
+
         life++;
         SoundManager.I.PlaySound(SoundName.Healing, transform);
-
-        playerLife.GetChild(1).GetChild(life).GetChild(0).gameObject.SetActive(true);
     }
 }
