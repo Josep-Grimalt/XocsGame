@@ -22,6 +22,7 @@ public class PlayerCollisionController : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision other)
     {
+        // si xoca amb un altre player
         if (other.gameObject.CompareTag("Player"))
         {
             animators[GetComponent<UIController>().GetModel()].SetTrigger("Hit");
@@ -29,19 +30,21 @@ public class PlayerCollisionController : MonoBehaviour
             CollisionManager.Instance.HandlePlayerCollision(gameObject, other.gameObject, other.GetContact(0).point, element, element2);
         }
 
+        // posa l'element neutral a les armadures en comenaçar partida
         if (element == Element.Neutral)
         {
             armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.yellow));
         }
 
+        // si xoca amb un orb
         if (other.gameObject.layer == 3)
         {
             CollisionManager.Instance.HandleOrbCollision(gameObject, other.gameObject, element);
         }
 
+        // si interactua amb un power up
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            Debug.Log("Power Up");
             CollisionManager.Instance.HandlePowerUp(gameObject, other.gameObject);
         }
     }
@@ -81,12 +84,18 @@ public class PlayerCollisionController : MonoBehaviour
 
     protected IEnumerator ChangerDisable(GameObject changer, float delay)
     {
+        // desactiva el changer i l'efecte de partícules
         changer.SetActive(false);
-        changer.transform.parent.GetChild(1).gameObject.SetActive(false);
+        GameObject particles = changer.transform.parent.GetChild(1).gameObject;
+        particles.SetActive(false);
 
         yield return new WaitForSeconds(delay);
 
-        changer.SetActive(true);
-        changer.transform.parent.GetChild(1).gameObject.SetActive(true);
+        // revisa si el changer encara existeix i si es aixi ho reactiva
+        if (changer)
+        {
+            changer.SetActive(true);
+            particles.SetActive(true);
+        }
     }
 }

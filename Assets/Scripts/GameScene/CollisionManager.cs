@@ -33,7 +33,6 @@ public class CollisionManager : MonoBehaviour
         Instantiate(elementChanger, Vector3.zero, Quaternion.identity);
 
         StartCoroutine(RemoveCollisionKey(collisionKey, delay));
-
     }
 
     public void HandlePlayerCollision(GameObject p1, GameObject p2, Vector3 collisionPoint, PlayerCollisionController.Element e1, PlayerCollisionController.Element e2)
