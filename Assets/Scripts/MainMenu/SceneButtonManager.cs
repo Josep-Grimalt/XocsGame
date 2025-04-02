@@ -127,7 +127,6 @@ public class SceneButtonManager : MonoBehaviour
 
     public void StartGameButton()
     {
-        Debug.Log(startingScene);
         SceneManager.LoadScene(startingScene);
     }
 
