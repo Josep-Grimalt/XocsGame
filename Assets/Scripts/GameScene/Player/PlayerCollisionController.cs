@@ -119,6 +119,7 @@ public class PlayerCollisionController : MonoBehaviour
 
     protected void ChangeElement(int element)
     {
-        GameObject.Find(gameObject.name + " Life").GetComponent<Image>().sprite = sprites[element];
+        if (GameObject.Find(gameObject.name + " Life"))
+            GameObject.Find(gameObject.name + " Life").GetComponent<Image>().sprite = sprites[element];
     }
 }
