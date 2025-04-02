@@ -225,16 +225,16 @@ public class SoundManager : MonoBehaviour
 
     public void MusicVolume(float single)
     {
-        musicVolume = single;
+        musicVolume = single / 100;
     }
 
     public void GlobalVolume(float single)
     {
-        globalVolume = single;
+        globalVolume = single / 100;
     }
 
     public void EffectsVolume(float single)
     {
-        effectsVolume = single;
+        effectsVolume = single / 100;
     }
 }
