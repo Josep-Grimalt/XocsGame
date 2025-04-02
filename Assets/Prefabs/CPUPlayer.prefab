@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
+  maxLife: 3
 --- !u!114 &6453961317048202663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,12 @@ MonoBehaviour:
   delay: 5
   animators:
   - {fileID: 2371829180611393855}
+  sprites:
+  - {fileID: 329537692, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: -704405940, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 367315718, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 250230268, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 2125803352, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
 --- !u!114 &130612224964060350
 MonoBehaviour:
   m_ObjectHideFlags: 0
