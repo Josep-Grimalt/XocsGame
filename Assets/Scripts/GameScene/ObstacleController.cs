@@ -9,6 +9,7 @@ public class ObstacleController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private float delay;
     [SerializeField] private float minScale = 2.5f, maxScale = 10;
+    [SerializeField] private int maxObstacles = 5;
 
     private void OnEnable()
     {
@@ -53,7 +54,7 @@ public class ObstacleController : MonoBehaviour
                 obstacle.enabled = true;
             }
 
-            Destroy(go, delay * 3);
+            Destroy(go, delay * maxObstacles);
         }
     }
 }
