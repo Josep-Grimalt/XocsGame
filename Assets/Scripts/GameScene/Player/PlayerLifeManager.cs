@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeManager : MonoBehaviour
 {
     [SerializeField] private int life = 3;
+    [SerializeField] private int maxLife = 3;
 
     private TextMeshProUGUI textMesh;
 
@@ -65,7 +66,7 @@ public class PlayerLifeManager : MonoBehaviour
 
     public void Heal()
     {
-        if (life == 3)
+        if (life == maxLife)
         {
             Debug.LogWarning("Vida màxima");
             return;
