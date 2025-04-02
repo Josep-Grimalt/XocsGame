@@ -49,3 +49,6 @@ MonoBehaviour:
   menuBackClip: 0
   battleBackClip: 1
   publicClip: 21
+  globalVolume: 1
+  musicVolume: 1
+  effectsVolume: 1

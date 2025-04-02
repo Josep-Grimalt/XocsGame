@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private SoundLibrary soundLibrary;
     [SerializeField] private bool playMusic;
     [SerializeField] private SoundName menuBackClip, battleBackClip, publicClip;
+    [Range(0, 1)]
+    [SerializeField] private float globalVolume, musicVolume, effectsVolume;
 
     private readonly AudioSource musicAudioSrc, ambianceSound;
     private Dictionary<SoundName, float> soundTimers;
@@ -56,7 +58,7 @@ public class SoundManager : MonoBehaviour
 
         AudioSource audioSrc2D = soundGO.AddComponent<AudioSource>();
         audioSrc2D.loop = soundClip.loop;
-        audioSrc2D.volume = soundClip.volume;
+        audioSrc2D.volume = soundClip.volume * effectsVolume * globalVolume;
         audioSrc2D.pitch = pitch;
 
         if (audioSrc2D.loop)
@@ -81,7 +83,7 @@ public class SoundManager : MonoBehaviour
 
         AudioSource audioSrc3D = soundGO.AddComponent<AudioSource>();
         audioSrc3D.loop = soundClip.loop;
-        audioSrc3D.volume = soundClip.volume;
+        audioSrc3D.volume = soundClip.volume * effectsVolume * globalVolume;
         audioSrc3D.pitch = pitch;
 
         if (audioSrc3D.loop)
@@ -106,7 +108,7 @@ public class SoundManager : MonoBehaviour
 
         AudioSource audioSrc = soundGO.AddComponent<AudioSource>();
         audioSrc.loop = soundClip.loop;
-        audioSrc.volume = soundClip.volume;
+        audioSrc.volume = soundClip.volume * effectsVolume * globalVolume;
         audioSrc.pitch = pitch;
 
         if (audioSrc.loop)
@@ -132,7 +134,7 @@ public class SoundManager : MonoBehaviour
         }
 
         audioSource.loop = true;
-        audioSource.volume = soundClip.volume;
+        audioSource.volume = soundClip.volume * musicVolume * globalVolume;
         audioSource.clip = soundClip.audioClip;
 
         audioSource.Play();
@@ -219,5 +221,20 @@ public class SoundManager : MonoBehaviour
         {
             PlayBackgroundSound(menuBackClip, musicAudioSrc);
         }
+    }
+
+    public void MusicVolume(float single)
+    {
+        musicVolume = single;
+    }
+
+    public void GlobalVolume(float single)
+    {
+        globalVolume = single;
+    }
+
+    public void EffectsVolume(float single)
+    {
+        effectsVolume = single;
     }
 }
