@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
+  maxLife: 3
 --- !u!114 &-5471660463463307541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +269,12 @@ MonoBehaviour:
   - {fileID: 6026775565699178358}
   - {fileID: 1540847100953937144}
   - {fileID: 6306498720670021933}
+  sprites:
+  - {fileID: 329537692, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: -704405940, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 367315718, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 250230268, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 2125803352, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
 --- !u!114 &1165904185797105360
 MonoBehaviour:
   m_ObjectHideFlags: 0

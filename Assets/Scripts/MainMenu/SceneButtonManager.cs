@@ -87,9 +87,9 @@ public class SceneButtonManager : MonoBehaviour
         Application.Quit();
 
         // Función extra para el editor (solo útil durante el desarrollo)
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 
     public void BackButton()

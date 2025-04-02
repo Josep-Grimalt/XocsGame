@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class PlayerCollisionController : MonoBehaviour
@@ -10,6 +11,9 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] protected GameObject[] armor;
     [SerializeField] protected float delay = 5;
     [SerializeField] protected List<Animator> animators;
+    [SerializeField] protected List<Sprite> sprites;
+    
+    private Sprite sprite;
 
     public enum Element
     {
@@ -18,6 +22,12 @@ public class PlayerCollisionController : MonoBehaviour
         Wind,
         Earth,
         Neutral
+    }
+
+    private void Update()
+    {
+        if (element == Element.Neutral)
+            ChangeElement(4);
     }
 
     protected virtual void OnCollisionEnter(Collision other)
@@ -65,15 +75,19 @@ public class PlayerCollisionController : MonoBehaviour
             {
                 case Element.Fire:
                     armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.red));
+                    ChangeElement(0);
                     break;
                 case Element.Water:
                     armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.blue));
+                    ChangeElement(1);
                     break;
                 case Element.Wind:
                     armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.735849f, 0.735849f, 0.735849f, 1)));
+                    ChangeElement(2);
                     break;
                 case Element.Earth:
                     armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = new Color(0.2169811f, 0.1221835f, 0, 1)));
+                    ChangeElement(3);
                     break;
             }
 
@@ -101,5 +115,10 @@ public class PlayerCollisionController : MonoBehaviour
             changer.SetActive(true);
             particles.SetActive(true);
         }
+    }
+
+    protected void ChangeElement(int element)
+    {
+        GameObject.Find(gameObject.name + " Life").GetComponent<Image>().sprite = sprites[element];
     }
 }
