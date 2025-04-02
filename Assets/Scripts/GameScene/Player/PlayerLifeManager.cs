@@ -9,7 +9,7 @@ public class PlayerLifeManager : MonoBehaviour
     [SerializeField] private int life = 3;
     [SerializeField] private int maxLife = 3;
 
-    private TextMeshProUGUI textMesh;
+    private Transform playerLife;
 
     void OnEnable()
     {
@@ -18,10 +18,9 @@ public class PlayerLifeManager : MonoBehaviour
         // EDITOR MODE
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
+            if (GameObject.Find(gameObject.name + " Life"))
             {
-                textMesh = ugui;
-                textMesh.SetText(gameObject.name + ": " + life);
+                playerLife = GameObject.Find(gameObject.name + " Life").transform;
             }
         }
     }
@@ -35,10 +34,9 @@ public class PlayerLifeManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            if (GameObject.Find(gameObject.name + " Life").TryGetComponent<TextMeshProUGUI>(out var ugui))
+            if (GameObject.Find(gameObject.name + " Life"))
             {
-                textMesh = ugui;
-                textMesh.SetText(gameObject.name + ": " + life);
+                playerLife = GameObject.Find(gameObject.name + " Life").transform;
             }
         }
     }
@@ -47,16 +45,12 @@ public class PlayerLifeManager : MonoBehaviour
     {
         life--;
 
-        if (textMesh)
-        {
-            textMesh.SetText(gameObject.name + ": " + life);
-        }
-
         if (life <= 0)
         {
-            textMesh.SetText(gameObject.name + ": 0");
             life = 0;
         }
+
+        playerLife.GetChild(1).GetChild(life).GetChild(0).gameObject.SetActive(false);
     }
 
     public int GetLifes()
@@ -75,9 +69,6 @@ public class PlayerLifeManager : MonoBehaviour
         life++;
         SoundManager.I.PlaySound(SoundName.Healing, transform);
 
-        if (textMesh)
-        {
-            textMesh.SetText(gameObject.name + ": " + life);
-        }
+        playerLife.GetChild(1).GetChild(life).GetChild(0).gameObject.SetActive(true);
     }
 }
