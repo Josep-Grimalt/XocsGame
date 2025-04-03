@@ -17,3 +17,4 @@ MonoBehaviour:
   elements: 1
   powerups: 0101
   obstacles: 00
+  startingScene: 3

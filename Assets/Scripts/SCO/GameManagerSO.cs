@@ -7,6 +7,8 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private bool fallingPlatform;
     [SerializeField] private bool walls, elements;
     [SerializeField] private bool[] powerups, obstacles;
+    
+    public int startingScene = 3;
 
     private static GameManagerSO instance;
     private int number;

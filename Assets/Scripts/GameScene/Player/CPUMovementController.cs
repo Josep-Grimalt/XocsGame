@@ -19,7 +19,7 @@ public class CPUMovementController : PlayerMovementController
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+        if (SceneManager.GetActiveScene().buildIndex < 3) return;
 
         if (!gameManager)
         {

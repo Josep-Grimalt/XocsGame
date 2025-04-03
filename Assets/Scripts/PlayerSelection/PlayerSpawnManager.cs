@@ -44,7 +44,7 @@ public class PlayerSpawnManager : MonoBehaviour
             playerID = int.Parse(name[^1..]) - 1;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex < 3)
         {
             rb.isKinematic = true;
 
@@ -54,7 +54,7 @@ public class PlayerSpawnManager : MonoBehaviour
         }
 
         //EDITOR ONLY
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
 
@@ -81,7 +81,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     protected virtual void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
 

@@ -2543,8 +2543,9 @@ MonoBehaviour:
   powerUpDescriptionFirst: {fileID: 0}
   matchOptionsFirst: {fileID: 563282825}
   playerFirst: {fileID: 689998551}
-  startingScene: 2
   inputManager: {fileID: 232347591}
+  scenesCount: 2
+  gameManagerSO: {fileID: 11400000, guid: fd55128320599fb4faa283ef105713b8, type: 2}
 --- !u!114 &390973197
 MonoBehaviour:
   m_ObjectHideFlags: 0
