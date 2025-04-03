@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,7 @@ public class PlayerMovementController : MonoBehaviour
     protected GameManager gameManager;
     private Rigidbody rb;
     private Vector3 movementDirection;
+    private AddTargetCinemachine targetCinemachine;
 
 
     void Start()
@@ -57,11 +59,14 @@ public class PlayerMovementController : MonoBehaviour
     protected virtual void Fall()
     {
         animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
+        if(transform.position.y <= -1)
+        {
+            targetCinemachine.RemoveTarget(gameObject);
+        }
         if (transform.position.y <= -10)
         {
             GetComponent<PlayerLifeManager>().LoseLife();
-            transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-
+            StartCoroutine(RespawnPlayer(gameObject, 3));
         }
     }
 
@@ -83,5 +88,49 @@ public class PlayerMovementController : MonoBehaviour
     public void SpeedDown()
     {
         speed /= 2;
+    }
+
+    private IEnumerator RespawnPlayer(GameObject player, float delay)
+    {
+        if (player.TryGetComponent(out CPUMovementController cpu))
+        {
+            cpu.DisableAgent();
+            cpu.Die();
+        }
+
+        player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
+        player.GetComponent<Rigidbody>().isKinematic = true;
+        player.GetComponent<PlayerLifeManager>().LoseLife();
+        player.GetComponent<LimitController>().enabled = false;
+
+        yield return new WaitForSeconds(delay);
+
+        if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
+        {
+            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+            targetCinemachine.AddTarget(player);
+            player.GetComponent<Rigidbody>().isKinematic = false;
+            player.GetComponent<LimitController>().enabled = true;
+            if (cpu)
+            {
+                cpu.Undie();
+                StartCoroutine(ResetCPU(cpu, 0));
+            }
+            else
+            {
+                player.GetComponent<TextLookAt>().Respawn();
+            }
+        }
+        else
+            Destroy(player);
+    }
+
+    private IEnumerator ResetCPU(CPUMovementController cpu, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (cpu.IsDead()) yield break;
+
+        cpu.EnableAgent();
     }
 }
