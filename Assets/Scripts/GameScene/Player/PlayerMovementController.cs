@@ -10,7 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private float rotationSpeed = 45;
     [SerializeField] protected List<Animator> animators;
-    
+
     protected GameManager gameManager;
     private Rigidbody rb;
     private Vector3 movementDirection;
@@ -24,6 +24,10 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
+        if (!targetCinemachine && SceneManager.GetActiveScene().buildIndex > 2)
+        {
+            targetCinemachine = FindAnyObjectByType<AddTargetCinemachine>();
+        }
         animators[GetComponent<UIController>().GetModel()].SetFloat("Speed", rb.linearVelocity.magnitude);
         Fall();
         Rotate(movementDirection);
@@ -52,14 +56,14 @@ public class PlayerMovementController : MonoBehaviour
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
         if (!gameManager.IsGameReady()) return;
-        
+
         movementDirection = new(direction.x, 0, direction.y);
     }
 
     protected virtual void Fall()
     {
         animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
-        if(transform.position.y <= -1)
+        if (transform.position.y <= -1)
         {
             targetCinemachine.RemoveTarget(gameObject);
         }
