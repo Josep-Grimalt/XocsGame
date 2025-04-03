@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] protected bool isMainMenu;
     [SerializeField] private GameManagerSO manager;
     [SerializeField] private NavMeshSurface surface;
     [SerializeField] private float delay;
@@ -29,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (isMainMenu)
+            manager.SetFallingPlatform(false);
+        
         gameReady = false;
 
         if (multiplayerManager)
@@ -55,16 +59,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (GameObject player in players.ToList())
+        if (!isMainMenu)
         {
-            if (player.GetComponent<PlayerLifeManager>())
-                if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
-                {
-                    players.Remove(player);
-                }
+            foreach (GameObject player in players.ToList())
+            {
+                if (player.GetComponent<PlayerLifeManager>())
+                    if (player.GetComponent<PlayerLifeManager>().GetLifes() == 0)
+                    {
+                        players.Remove(player);
+                    }
+            }
         }
 
-        if (players.Count < 2)
+        if (players.Count < 2 && !isMainMenu)
         {
             if (PostGameHUD)
                 PostGameHUD.SetActive(true);
