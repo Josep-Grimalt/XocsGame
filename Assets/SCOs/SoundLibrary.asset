@@ -72,7 +72,7 @@ MonoBehaviour:
   - soundName: 7
     audioClip: {fileID: 8300000, guid: 0e51803a4cecd3e4aaa1cb798cc6d08e, type: 3}
     loop: 1
-    volume: 1
+    volume: 0.2
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   - soundName: 10
     audioClip: {fileID: 8300000, guid: 663bd81cba6f19f4e8550e72b487e1a4, type: 3}
     loop: 1
-    volume: 0.5
+    volume: 0.255
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   - soundName: 21
     audioClip: {fileID: 8300000, guid: e00de7af296214845acbe65cd0ea9635, type: 3}
     loop: 1
-    volume: 1
+    volume: 0.365
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0

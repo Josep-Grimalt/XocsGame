@@ -201,6 +201,18 @@ public class SoundManager : MonoBehaviour
         return null;
     }
 
+    private SoundClip GetAudioClip(string soundName)
+    {
+        foreach (SoundClip soundClip in soundLibrary.soundClips)
+        {
+            if (soundClip.audioClip.name.Equals(soundName))
+            {
+                return soundClip;
+            }
+        }
+        return null;
+    }
+
     private void ChangeBackgroundSound(Scene arg0, Scene arg1)
     {
         // si l'escena es la de player selection no fa cap canvi
@@ -227,13 +239,10 @@ public class SoundManager : MonoBehaviour
     {
         musicVolume = single / 100;
 
-        if(musicAudioSrc)
+        // updates music volume
+        if (musicAudioSrc)
         {
-            musicAudioSrc.volume *= musicVolume;
-        }
-        if(ambianceSound)
-        {
-            ambianceSound.volume *= musicVolume;
+            musicAudioSrc.volume = GetAudioClip(musicAudioSrc.clip.name).volume * musicVolume * globalVolume;
         }
     }
 
@@ -241,40 +250,15 @@ public class SoundManager : MonoBehaviour
     {
         globalVolume = single / 100;
 
-        // music volumes
-        if(musicAudioSrc)
+        // updates music volume
+        if (musicAudioSrc)
         {
-            musicAudioSrc.volume *= globalVolume;
-        }
-        if(ambianceSound)
-        {
-            ambianceSound.volume *= globalVolume;
-        }
-
-        //effects volumes
-        AudioSource[] audios = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
-
-        foreach(AudioSource source in audios)
-        {
-            if(source != musicAudioSrc && source != ambianceSound)
-            {
-                source.volume *= globalVolume;
-            }
+            musicAudioSrc.volume = GetAudioClip(musicAudioSrc.clip.name).volume * globalVolume * musicVolume;
         }
     }
 
     public void EffectsVolume(float single)
     {
         effectsVolume = single / 100;
-
-        AudioSource[] audios = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
-
-        foreach(AudioSource source in audios)
-        {
-            if(source != musicAudioSrc && source != ambianceSound)
-            {
-                source.volume *= globalVolume;
-            }
-        }
     }
 }
