@@ -14,7 +14,7 @@ public class PlayerMovementController : MonoBehaviour
     protected GameManager gameManager;
     private Rigidbody rb;
     private Vector3 movementDirection;
-    private AddTargetCinemachine targetCinemachine;
+    protected AddTargetCinemachine targetCinemachine;
 
 
     void Start()
@@ -69,7 +69,6 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (transform.position.y <= -10)
         {
-            GetComponent<PlayerLifeManager>().LoseLife();
             StartCoroutine(RespawnPlayer(gameObject, 3));
         }
     }
@@ -96,12 +95,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private IEnumerator RespawnPlayer(GameObject player, float delay)
     {
-        if (player.TryGetComponent(out CPUMovementController cpu))
-        {
-            cpu.DisableAgent();
-            cpu.Die();
-        }
-
         player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<PlayerLifeManager>().LoseLife();
@@ -115,26 +108,10 @@ public class PlayerMovementController : MonoBehaviour
             targetCinemachine.AddTarget(player);
             player.GetComponent<Rigidbody>().isKinematic = false;
             player.GetComponent<LimitController>().enabled = true;
-            if (cpu)
-            {
-                cpu.Undie();
-                StartCoroutine(ResetCPU(cpu, 0));
-            }
-            else
-            {
-                player.GetComponent<TextLookAt>().Respawn();
-            }
+            player.GetComponent<TextLookAt>().Respawn();
+
         }
         else
             Destroy(player);
-    }
-
-    private IEnumerator ResetCPU(CPUMovementController cpu, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        if (cpu.IsDead()) yield break;
-
-        cpu.EnableAgent();
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class CPUMovementController : PlayerMovementController
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
         if (!gameManager.IsGameReady()) return;
-        
+
         animators[0].SetFloat("Speed", agent.speed);
         Fall();
         NearPlayer();
@@ -34,12 +35,14 @@ public class CPUMovementController : PlayerMovementController
 
     protected override void Fall()
     {
+        if (transform.position.y < -1)
+        {
+            targetCinemachine.RemoveTarget(gameObject);
+        }
         animators[0].SetFloat("Height", transform.position.y);
         if (transform.position.y <= -10)
         {
-            GetComponent<PlayerLifeManager>().LoseLife();
-            transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-
+            StartCoroutine(RespawnPlayer(gameObject, 3));
         }
     }
 
@@ -94,5 +97,30 @@ public class CPUMovementController : PlayerMovementController
     public void Undie()
     {
         isDead = false;
+    }
+
+    private IEnumerator RespawnPlayer(GameObject player, float delay)
+    {
+        DisableAgent();
+        Die();
+        player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
+        player.GetComponent<Rigidbody>().isKinematic = true;
+        player.GetComponent<PlayerLifeManager>().LoseLife();
+        player.GetComponent<LimitController>().enabled = false;
+
+        yield return new WaitForSeconds(delay);
+
+        if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
+        {
+            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+            targetCinemachine.AddTarget(player);
+            player.GetComponent<Rigidbody>().isKinematic = false;
+            player.GetComponent<LimitController>().enabled = true;
+            Undie();
+            EnableAgent();
+
+        }
+        else
+            Destroy(player);
     }
 }
