@@ -239,7 +239,7 @@ public class SoundManager : MonoBehaviour
     {
         musicVolume = single / 100;
 
-        // updates music volume
+        // actualitza music volume
         if (musicAudioSrc)
         {
             musicAudioSrc.volume = GetAudioClip(musicAudioSrc.clip.name).volume * musicVolume * globalVolume;
@@ -250,7 +250,7 @@ public class SoundManager : MonoBehaviour
     {
         globalVolume = single / 100;
 
-        // updates music volume
+        // actualitza music volume
         if (musicAudioSrc)
         {
             musicAudioSrc.volume = GetAudioClip(musicAudioSrc.clip.name).volume * globalVolume * musicVolume;

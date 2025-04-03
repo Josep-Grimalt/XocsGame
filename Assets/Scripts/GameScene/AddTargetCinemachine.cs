@@ -26,7 +26,7 @@ public class AddTargetCinemachine : MonoBehaviour
     {
         if (targets != null)
         {
-            targets.AddMember(input.gameObject.transform, 0.5f, 1);
+            // targets.AddMember(input.gameObject.transform, 0.5f, 1);
         }
     }
 
