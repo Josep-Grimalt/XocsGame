@@ -226,15 +226,55 @@ public class SoundManager : MonoBehaviour
     public void MusicVolume(float single)
     {
         musicVolume = single / 100;
+
+        if(musicAudioSrc)
+        {
+            musicAudioSrc.volume *= musicVolume;
+        }
+        if(ambianceSound)
+        {
+            ambianceSound.volume *= musicVolume;
+        }
     }
 
     public void GlobalVolume(float single)
     {
         globalVolume = single / 100;
+
+        // music volumes
+        if(musicAudioSrc)
+        {
+            musicAudioSrc.volume *= globalVolume;
+        }
+        if(ambianceSound)
+        {
+            ambianceSound.volume *= globalVolume;
+        }
+
+        //effects volumes
+        AudioSource[] audios = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach(AudioSource source in audios)
+        {
+            if(source != musicAudioSrc && source != ambianceSound)
+            {
+                source.volume *= globalVolume;
+            }
+        }
     }
 
     public void EffectsVolume(float single)
     {
         effectsVolume = single / 100;
+
+        AudioSource[] audios = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach(AudioSource source in audios)
+        {
+            if(source != musicAudioSrc && source != ambianceSound)
+            {
+                source.volume *= globalVolume;
+            }
+        }
     }
 }
