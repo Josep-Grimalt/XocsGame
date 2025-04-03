@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CPUMovementController : PlayerMovementController
 {
+    
     private NavMeshAgent agent;
     private List<GameObject> targets;
     private int actualTarget = 0;
@@ -19,7 +20,7 @@ public class CPUMovementController : PlayerMovementController
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex < 3) return;
+        if (SceneManager.GetActiveScene().buildIndex < 4 && !isMainMenu) return;
 
         if (!gameManager)
         {

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    [SerializeField] protected bool isMainMenu;
     [SerializeField] private float speed = 10;
     [SerializeField] private float rotationSpeed = 45;
     [SerializeField] protected List<Animator> animators;
