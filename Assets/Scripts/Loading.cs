@@ -11,7 +11,6 @@ public class Loading : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log("Timer: " + timer);
         
         if (timer >= loadingTimer)
         {
