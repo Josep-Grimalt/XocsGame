@@ -38,8 +38,18 @@ public class PowerUpController : MonoBehaviour
             {
                 i = Random.Range(0, gameManager.Powerups().Length);
             } while (!gameManager.Powerups()[i]);
+            GameObject powerup = powerups[i];
+            PoolManager.SpawnObject(powerup, new(Random.Range(-9f, 9), 5, Random.Range(-9, 9f)), Quaternion.identity);
 
-            PoolManager.SpawnObject(powerups[i], new(Random.Range(-9f, 9), 5, Random.Range(-9, 9f)), Quaternion.identity);
+            StartCoroutine(ReturnToPool(powerup, delay));
         }
+    }
+
+    private IEnumerator ReturnToPool(GameObject go, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (go)
+            PoolManager.ReturnObjectToPool(go);
     }
 }

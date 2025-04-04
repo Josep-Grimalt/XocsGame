@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager I { get; private set; }
+    [SerializeField] private GameObject soundPref;
     [SerializeField] private SoundLibrary soundLibrary;
     [SerializeField] private bool playMusic;
     [SerializeField] private SoundName menuBackClip, battleBackClip, publicClip;
@@ -53,8 +55,8 @@ public class SoundManager : MonoBehaviour
         SoundClip soundClip = GetAudioClip(soundName);
         if (soundClip == null || !CanPlaySound(soundClip)) return;
 
-        GameObject soundGO = new("2D Sound");
-        soundGO.transform.SetParent(transform);
+        GameObject soundGO;
+        soundGO = PoolManager.SpawnObject(soundPref, transform);
 
         AudioSource audioSrc2D = soundGO.AddComponent<AudioSource>();
         audioSrc2D.loop = soundClip.loop;
@@ -69,7 +71,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             audioSrc2D.PlayOneShot(soundClip.audioClip);
-            Destroy(soundGO, soundClip.audioClip.length);
+            StartCoroutine(ReturnObjectToPool(soundGO, soundClip.audioClip.length));
         }
     }
 
@@ -78,8 +80,7 @@ public class SoundManager : MonoBehaviour
         SoundClip soundClip = GetAudioClip(soundName);
         if (soundClip == null || !CanPlaySound(soundClip)) return;
 
-        GameObject soundGO = new("3D Sound");
-        soundGO.transform.position = position;
+        GameObject soundGO = PoolManager.SpawnObject(soundPref, position, Quaternion.identity);
 
         AudioSource audioSrc3D = soundGO.AddComponent<AudioSource>();
         audioSrc3D.loop = soundClip.loop;
@@ -94,7 +95,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             audioSrc3D.PlayOneShot(soundClip.audioClip);
-            Destroy(soundGO, soundClip.audioClip.length);
+            StartCoroutine(ReturnObjectToPool(soundGO, soundClip.audioClip.length));
         }
     }
 
@@ -103,8 +104,7 @@ public class SoundManager : MonoBehaviour
         SoundClip soundClip = GetAudioClip(soundName);
         if (soundClip == null || !CanPlaySound(soundClip)) return;
 
-        GameObject soundGO = new("2D Sound");
-        soundGO.transform.SetParent(parent);
+        GameObject soundGO = PoolManager.SpawnObject(soundPref, parent);
 
         AudioSource audioSrc = soundGO.AddComponent<AudioSource>();
         audioSrc.loop = soundClip.loop;
@@ -119,7 +119,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             audioSrc.PlayOneShot(soundClip.audioClip);
-            Destroy(soundGO, soundClip.audioClip.length);
+            StartCoroutine(ReturnObjectToPool(soundGO, soundClip.audioClip.length));
         }
     }
 
@@ -216,13 +216,13 @@ public class SoundManager : MonoBehaviour
     private void ChangeBackgroundSound(Scene arg0, Scene arg1)
     {
         // si l'escena es la de player selection no fa cap canvi
-        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2) return;
 
         // atura tots els sons
         StopBackgroundSound();
 
         // si l'escena és una escena de batalla posa la musica de batalla i el public
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             PlayBackgroundSound(battleBackClip, musicAudioSrc);
             PlayBackgroundSound(publicClip, ambianceSound);
@@ -260,5 +260,12 @@ public class SoundManager : MonoBehaviour
     public void EffectsVolume(float single)
     {
         effectsVolume = single / 100;
+    }
+
+    private IEnumerator ReturnObjectToPool(GameObject go, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        PoolManager.ReturnObjectToPool(go);
     }
 }

@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70eeef038cf52da4bbd80337f2b4bd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundPref: {fileID: 1991047466957702686, guid: e929386147012ab4f88665fffef4d48f,
+    type: 3}
   soundLibrary: {fileID: 11400000, guid: b533cc9710d04bf4f9d8599eec0b0daf, type: 2}
   playMusic: 1
   menuBackClip: 0
