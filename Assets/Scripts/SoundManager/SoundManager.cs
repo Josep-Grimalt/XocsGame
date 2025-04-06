@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    [SerializeField] private Slider globalSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider effectsSlider;
     public static SoundManager I { get; private set; }
     [SerializeField] private GameObject soundPref;
     [SerializeField] private SoundLibrary soundLibrary;
@@ -39,7 +43,6 @@ public class SoundManager : MonoBehaviour
             effectsVolume = PlayerPrefs.HasKey("EffectsVolume") ? PlayerPrefs.GetFloat("EffectsVolume") : effectsVolume;
         }
     }
-
     void Start()
     {
         if (playMusic)
@@ -47,6 +50,10 @@ public class SoundManager : MonoBehaviour
             PlayBackgroundSound(menuBackClip, musicAudioSrc);
         }
 
+        // Establecer valores iniciales en los sliders basados en PlayerPrefs
+        if (globalSlider) globalSlider.value = globalVolume * 100f;
+        if (musicSlider) musicSlider.value = musicVolume * 100f;
+        if (effectsSlider) effectsSlider.value = effectsVolume * 100f;
     }
 
     void OnEnable()
@@ -248,21 +255,30 @@ public class SoundManager : MonoBehaviour
     {
         globalVolume = single / 100f;
         PlayerPrefs.SetFloat("GlobalVolume", globalVolume);
+
         UpdateAllVolumes();
+
+        Debug.Log($"[VOLUMEN GLOBAL] globalVolume: {globalVolume:F2} → musicVolume real: {(musicVolume * globalVolume):F2}, effectsVolume real: {(effectsVolume * globalVolume):F2}");
     }
 
     public void MusicVolume(float single)
     {
         musicVolume = single / 100f;
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+
         UpdateAllVolumes();
+
+        Debug.Log($"[VOLUMEN MÚSICA] musicVolume: {musicVolume:F2} → volumen aplicado: {(musicVolume * globalVolume):F2}");
     }
 
     public void EffectsVolume(float single)
     {
         effectsVolume = single / 100f;
         PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
+
         UpdateAllVolumes();
+
+        Debug.Log($"[VOLUMEN EFECTOS] effectsVolume: {effectsVolume:F2} → volumen aplicado: {(effectsVolume * globalVolume):F2}");
     }
 
     private void UpdateAllVolumes()

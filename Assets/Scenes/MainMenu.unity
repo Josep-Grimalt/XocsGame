@@ -757,6 +757,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1610777621}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &133779711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5034,6 +5046,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eacecfaaae619164b92140bee88d556e, type: 3}
+--- !u!1 &1610777621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4862865693569966847, guid: 3b1930722f00b824c86bce7bffd532fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 362904208578358275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1625234102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6922,6 +6940,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
+        type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 2006416982}
+    - target: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
+        type: 3}
+      propertyPath: globalSlider
+      value: 
+      objectReference: {fileID: 119634512}
+    - target: {fileID: 230583070422434967, guid: 3b1930722f00b824c86bce7bffd532fb,
+        type: 3}
+      propertyPath: effectsSlider
+      value: 
+      objectReference: {fileID: 402826530}
     - target: {fileID: 2357166653497296948, guid: 3b1930722f00b824c86bce7bffd532fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6988,7 +7021,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 362904208578358275}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1610777621}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70eeef038cf52da4bbd80337f2b4bd7c, type: 3}
