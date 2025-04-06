@@ -14,7 +14,8 @@ public class SoundManager : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private float globalVolume, musicVolume, effectsVolume;
 
-    private readonly AudioSource musicAudioSrc, ambianceSound;
+    private AudioSource musicAudioSrc;
+    private AudioSource ambianceSound;
     private Dictionary<SoundName, float> soundTimers;
 
     void Awake()
@@ -28,6 +29,14 @@ public class SoundManager : MonoBehaviour
             I = this;
             InitializeSoundTimers();
             DontDestroyOnLoad(I);
+
+            musicAudioSrc = gameObject.AddComponent<AudioSource>();
+            ambianceSound = gameObject.AddComponent<AudioSource>();
+
+            // Recuperar volúmenes guardados o usar los del Inspector
+            globalVolume = PlayerPrefs.HasKey("GlobalVolume") ? PlayerPrefs.GetFloat("GlobalVolume") : globalVolume;
+            musicVolume = PlayerPrefs.HasKey("MusicVolume") ? PlayerPrefs.GetFloat("MusicVolume") : musicVolume;
+            effectsVolume = PlayerPrefs.HasKey("EffectsVolume") ? PlayerPrefs.GetFloat("EffectsVolume") : effectsVolume;
         }
     }
 
@@ -235,31 +244,55 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void MusicVolume(float single)
-    {
-        musicVolume = single / 100;
-
-        // actualitza music volume
-        if (musicAudioSrc)
-        {
-            musicAudioSrc.volume = GetAudioClip(musicAudioSrc.clip.name).volume * musicVolume * globalVolume;
-        }
-    }
-
     public void GlobalVolume(float single)
     {
-        globalVolume = single / 100;
+        globalVolume = single / 100f;
+        PlayerPrefs.SetFloat("GlobalVolume", globalVolume);
+        UpdateAllVolumes();
+    }
 
-        // actualitza music volume
-        if (musicAudioSrc)
-        {
-            musicAudioSrc.volume = GetAudioClip(musicAudioSrc.clip.name).volume * globalVolume * musicVolume;
-        }
+    public void MusicVolume(float single)
+    {
+        musicVolume = single / 100f;
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        UpdateAllVolumes();
     }
 
     public void EffectsVolume(float single)
     {
-        effectsVolume = single / 100;
+        effectsVolume = single / 100f;
+        PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
+        UpdateAllVolumes();
+    }
+
+    private void UpdateAllVolumes()
+    {
+        // Actualiza música
+        if (musicAudioSrc && musicAudioSrc.clip != null)
+        {
+            SoundClip musicClip = GetAudioClip(musicAudioSrc.clip.name);
+            musicAudioSrc.volume = musicClip.volume * musicVolume * globalVolume;
+        }
+
+        // Actualiza sonido de ambiente
+        if (ambianceSound && ambianceSound.clip != null)
+        {
+            SoundClip ambianceClip = GetAudioClip(ambianceSound.clip.name);
+            ambianceSound.volume = ambianceClip.volume * musicVolume * globalVolume;
+        }
+
+        // Actualiza efectos activos (excepto música y ambiente)
+        foreach (AudioSource src in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            if (src == musicAudioSrc || src == ambianceSound) continue;
+            if (!src.isPlaying || src.clip == null) continue;
+
+            SoundClip effectClip = GetAudioClip(src.clip.name);
+            if (effectClip != null)
+            {
+                src.volume = effectClip.volume * effectsVolume * globalVolume;
+            }
+        }
     }
 
     private IEnumerator ReturnObjectToPool(GameObject go, float delay)
