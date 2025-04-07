@@ -4255,6 +4255,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 563282827}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 496479100}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 1224008461}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 2111678918}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetWalls
       objectReference: {fileID: 0}
