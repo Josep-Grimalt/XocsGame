@@ -16,6 +16,8 @@ TagManager:
   - Limit
   - RadRef
   - FxTemporaire
+  - Fall
+  - Death
   layers:
   - Default
   - TransparentFX

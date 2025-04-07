@@ -46,18 +46,4 @@ public class AddTargetCinemachine : MonoBehaviour
             targets.RemoveMember(input.transform);
         }
     }
-
-    public bool Contains(GameObject input)
-    {
-        foreach (var member in targets.Targets)
-        {
-            Debug.Log("object: " + member.Object);
-            if (member.Object.transform == input.transform)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }

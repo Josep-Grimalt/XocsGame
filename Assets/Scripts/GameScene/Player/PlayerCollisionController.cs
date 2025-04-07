@@ -14,6 +14,7 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] protected List<Sprite> sprites;
 
     private Sprite sprite;
+    private AddTargetCinemachine targetCinemachine;
 
     public enum Element
     {
@@ -26,6 +27,11 @@ public class PlayerCollisionController : MonoBehaviour
 
     private void Update()
     {
+        if (!targetCinemachine)
+        {
+            targetCinemachine = FindAnyObjectByType<AddTargetCinemachine>();
+        }
+
         if (element == Element.Neutral)
             ChangeElement(4);
     }
@@ -93,6 +99,15 @@ public class PlayerCollisionController : MonoBehaviour
 
             StartCoroutine(ChangerDisable(other.gameObject, delay));
         }
+
+        if (other.gameObject.CompareTag("Fall"))
+        {
+            targetCinemachine.RemoveTarget(gameObject);
+        }
+        if (other.gameObject.CompareTag("Death"))
+        {
+            StartCoroutine(RespawnPlayer(gameObject, 3));
+        }
     }
 
     public Element GetElement()
@@ -124,5 +139,49 @@ public class PlayerCollisionController : MonoBehaviour
             Image[] images = GameObject.Find(gameObject.name + " Life").GetComponentsInChildren<Image>();
             images[images.Count() - 1].sprite = sprites[element];
         }
+    }
+
+    private IEnumerator RespawnPlayer(GameObject player, float delay)
+    {
+        if (player.TryGetComponent(out CPUMovementController cpu))
+        {
+            cpu.DisableAgent();
+            cpu.Die();
+        }
+
+        player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
+        player.GetComponent<Rigidbody>().isKinematic = true;
+        player.GetComponent<PlayerLifeManager>().LoseLife();
+        player.GetComponent<LimitController>().enabled = false;
+
+        yield return new WaitForSeconds(delay);
+
+        if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
+        {
+            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+            targetCinemachine.AddTarget(player);
+            player.GetComponent<Rigidbody>().isKinematic = false;
+            player.GetComponent<LimitController>().enabled = true;
+            if (cpu)
+            {
+                cpu.Undie();
+                StartCoroutine(ResetCPU(cpu, 0));
+            }
+            else
+            {
+                player.GetComponent<TextLookAt>().Respawn();
+            }
+        }
+        else
+            Destroy(player);
+    }
+
+    private IEnumerator ResetCPU(CPUMovementController cpu, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (cpu.IsDead()) yield break;
+
+        cpu.EnableAgent();
     }
 }

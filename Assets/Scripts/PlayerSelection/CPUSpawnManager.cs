@@ -12,6 +12,7 @@ public class CPUSpawnManager : PlayerSpawnManager
         if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
+            transform.position = gameSpawnPoints[playerID];
 
             if (targets)
             {
@@ -23,8 +24,7 @@ public class CPUSpawnManager : PlayerSpawnManager
 
             if (navMeshAgent)
                 navMeshAgent.enabled = true;
-            
-            transform.position = gameSpawnPoints[playerID];
+
             GetComponent<Rigidbody>().isKinematic = false;
         }
     }

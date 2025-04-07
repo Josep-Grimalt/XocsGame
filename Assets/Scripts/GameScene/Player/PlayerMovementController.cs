@@ -63,14 +63,6 @@ public class PlayerMovementController : MonoBehaviour
     protected virtual void Fall()
     {
         animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
-        if (transform.position.y <= -10)
-        {
-            StartCoroutine(RespawnPlayer(gameObject, 3));
-        }
-        if (transform.position.y <= -1 && targetCinemachine.Contains(gameObject))
-        {
-            targetCinemachine.RemoveTarget(gameObject);
-        }
     }
 
     private void Rotate(Vector3 direction)
@@ -91,28 +83,5 @@ public class PlayerMovementController : MonoBehaviour
     public void SpeedDown()
     {
         speed /= 2;
-    }
-
-    private IEnumerator RespawnPlayer(GameObject player, float delay)
-    {
-        player.transform.position = new(Random.Range(100, 200), 0, Random.Range(100, 200));
-        player.GetComponent<Rigidbody>().isKinematic = true;
-        player.GetComponent<PlayerLifeManager>().LoseLife();
-        player.GetComponent<LimitController>().enabled = false;
-
-        yield return new WaitForSeconds(delay);
-
-        if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
-        {
-            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-            if (!targetCinemachine.Contains(player))
-                targetCinemachine.AddTarget(player);
-            player.GetComponent<Rigidbody>().isKinematic = false;
-            player.GetComponent<LimitController>().enabled = true;
-            player.GetComponent<TextLookAt>().Respawn();
-
-        }
-        else
-            Destroy(player);
     }
 }
