@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,5 +45,18 @@ public class AddTargetCinemachine : MonoBehaviour
         {
             targets.RemoveMember(input.transform);
         }
+    }
+
+    public bool Contains(GameObject input)
+    {
+        foreach(var member in targets.Targets)
+        {
+            if(member.Object == input.transform)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

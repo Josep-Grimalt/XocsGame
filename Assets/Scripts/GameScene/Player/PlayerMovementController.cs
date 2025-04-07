@@ -63,13 +63,13 @@ public class PlayerMovementController : MonoBehaviour
     protected virtual void Fall()
     {
         animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
-        if (transform.position.y <= -1)
-        {
-            targetCinemachine.RemoveTarget(gameObject);
-        }
         if (transform.position.y <= -10)
         {
             StartCoroutine(RespawnPlayer(gameObject, 3));
+        }
+        if (transform.position.y <= -1 && targetCinemachine.Contains(gameObject))
+        {
+            targetCinemachine.RemoveTarget(gameObject);
         }
     }
 
