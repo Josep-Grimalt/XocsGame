@@ -788,6 +788,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8373123139902664297, guid: eacecfaaae619164b92140bee88d556e,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 308a1aa4642b36046b89924058cbf2fa,
+        type: 2}
     - target: {fileID: 8638712260222668724, guid: eacecfaaae619164b92140bee88d556e,
         type: 3}
       propertyPath: m_AnchorMax.y
