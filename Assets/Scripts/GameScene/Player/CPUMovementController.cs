@@ -36,10 +36,12 @@ public class CPUMovementController : PlayerMovementController
     protected override void Fall()
     {
         animators[0].SetFloat("Height", transform.position.y);
+        
         if (transform.position.y <= -10)
         {
             StartCoroutine(RespawnPlayer(gameObject, 3));
         }
+        
         if (transform.position.y < -1 && targetCinemachine.Contains(gameObject))
         {
             targetCinemachine.RemoveTarget(gameObject);
