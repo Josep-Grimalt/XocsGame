@@ -105,7 +105,8 @@ public class PlayerMovementController : MonoBehaviour
         if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
         {
             player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-            targetCinemachine.AddTarget(player);
+            if (!targetCinemachine.Contains(player))
+                targetCinemachine.AddTarget(player);
             player.GetComponent<Rigidbody>().isKinematic = false;
             player.GetComponent<LimitController>().enabled = true;
             player.GetComponent<TextLookAt>().Respawn();

@@ -3047,6 +3047,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3861,6 +3866,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4156,6 +4166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
@@ -4527,6 +4542,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4823,6 +4843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5118,6 +5143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
@@ -6175,6 +6205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6892,6 +6927,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7039,6 +7079,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475836741548234123, guid: 4f81106100ab87d47a42fa53a6da0782,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5575601948535733788, guid: 4f81106100ab87d47a42fa53a6da0782,
         type: 3}

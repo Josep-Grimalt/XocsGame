@@ -27,7 +27,7 @@ public class CPUMovementController : PlayerMovementController
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
         if (!gameManager.IsGameReady()) return;
-        
+
         if (!targetCinemachine && SceneManager.GetActiveScene().buildIndex > 2)
         {
             targetCinemachine = FindAnyObjectByType<AddTargetCinemachine>();
@@ -120,7 +120,8 @@ public class CPUMovementController : PlayerMovementController
         if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
         {
             player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
-            targetCinemachine.AddTarget(player);
+            if (!targetCinemachine.Contains(player))
+                targetCinemachine.AddTarget(player);
             player.GetComponent<Rigidbody>().isKinematic = false;
             player.GetComponent<LimitController>().enabled = true;
             Undie();
