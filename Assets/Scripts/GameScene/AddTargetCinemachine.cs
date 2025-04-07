@@ -49,9 +49,10 @@ public class AddTargetCinemachine : MonoBehaviour
 
     public bool Contains(GameObject input)
     {
-        foreach(var member in targets.Targets)
+        foreach (var member in targets.Targets)
         {
-            if(member.Object == input.transform)
+            Debug.Log("object: " + member.Object);
+            if (member.Object.transform == input.transform)
             {
                 return true;
             }
