@@ -1460,6 +1460,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 403166309}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1224008461}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 1224008461}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 923867918}
+    - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetElements
       objectReference: {fileID: 0}
@@ -2060,7 +2080,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 992650491}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 2010829921}
     m_SelectOnLeft: {fileID: 1224008461}
     m_SelectOnRight: {fileID: 1224008461}
   m_Transition: 1
