@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -249,6 +250,18 @@ public class SoundManager : MonoBehaviour
         {
             PlayBackgroundSound(menuBackClip, musicAudioSrc);
         }
+
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Slider[] sliders = Resources.FindObjectsOfTypeAll<Slider>();
+            
+            sliders[0].value = globalVolume * 100;
+            sliders[0].onValueChanged.AddListener(GlobalVolume);
+            sliders[2].value = musicVolume * 100;
+            sliders[2].onValueChanged.AddListener(MusicVolume);
+            sliders[1].value = effectsVolume * 100;
+            sliders[1].onValueChanged.AddListener(EffectsVolume);
+        }
     }
 
     public void GlobalVolume(float single)
@@ -257,8 +270,6 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("GlobalVolume", globalVolume);
 
         UpdateAllVolumes();
-
-        Debug.Log($"[VOLUMEN GLOBAL] globalVolume: {globalVolume:F2} → musicVolume real: {(musicVolume * globalVolume):F2}, effectsVolume real: {(effectsVolume * globalVolume):F2}");
     }
 
     public void MusicVolume(float single)
@@ -267,8 +278,6 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
 
         UpdateAllVolumes();
-
-        Debug.Log($"[VOLUMEN MÚSICA] musicVolume: {musicVolume:F2} → volumen aplicado: {(musicVolume * globalVolume):F2}");
     }
 
     public void EffectsVolume(float single)
@@ -277,8 +286,6 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
 
         UpdateAllVolumes();
-
-        Debug.Log($"[VOLUMEN EFECTOS] effectsVolume: {effectsVolume:F2} → volumen aplicado: {(effectsVolume * globalVolume):F2}");
     }
 
     private void UpdateAllVolumes()
