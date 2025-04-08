@@ -51,7 +51,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void Disconnect(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().buildIndex != 1 || isReady.GetReady()[inputActions.playerIndex]) return;
+        if (SceneManager.GetActiveScene().buildIndex != 2 || isReady.GetReady()[inputActions.playerIndex]) return;
 
         inputActions.DeactivateInput();
         Destroy(gameObject);
@@ -59,14 +59,14 @@ public class PlayerInputController : MonoBehaviour
 
     private void Click(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1) return;
+        if (SceneManager.GetActiveScene().buildIndex > 2) return;
 
         SoundManager.I.PlaySound(SoundName.MenuClick);
     }
 
     private void MenuNavigation(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1) return;
+        if (SceneManager.GetActiveScene().buildIndex > 2) return;
 
         SoundManager.I.PlaySound(SoundName.MenuNavigation);
     }

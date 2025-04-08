@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
+    [SerializeField] private bool isSplashScreen;
     [SerializeField] private GameManagerSO gameManagerSO;
     [SerializeField] private float loadingTimer = 10f;
 
@@ -14,10 +15,11 @@ public class Loading : MonoBehaviour
         
         if (timer >= loadingTimer)
         {
-            if (gameManagerSO)
-            {
+            if (isSplashScreen)
+                SceneManager.LoadScene(1);
+            
+            else if (gameManagerSO)
                 SceneManager.LoadScene(gameManagerSO.startingScene);
-            }
         }
     }
 }

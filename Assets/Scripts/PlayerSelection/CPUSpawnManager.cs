@@ -9,7 +9,7 @@ public class CPUSpawnManager : PlayerSpawnManager
 
     protected override void ChangeSpawnPoint(Scene arg0, LoadSceneMode arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 2)
+        if (SceneManager.GetActiveScene().buildIndex > 3)
         {
             targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
             transform.position = gameSpawnPoints[playerID];

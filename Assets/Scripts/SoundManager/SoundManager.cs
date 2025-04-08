@@ -233,25 +233,25 @@ public class SoundManager : MonoBehaviour
     private void ChangeBackgroundSound(Scene arg0, Scene arg1)
     {
         // si l'escena es la de player selection no fa cap canvi
-        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2) return;
+        if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3) return;
 
         // atura tots els sons
         StopBackgroundSound();
 
         // si l'escena és una escena de batalla posa la musica de batalla i el public
-        if (SceneManager.GetActiveScene().buildIndex > 2)
+        if (SceneManager.GetActiveScene().buildIndex > 3)
         {
             PlayBackgroundSound(battleBackClip, musicAudioSrc);
             PlayBackgroundSound(publicClip, ambianceSound);
         }
 
         // si l'escena NO es cap escena de batalla torna a posar la musica dels menus
-        if (SceneManager.GetActiveScene().buildIndex < 2)
+        if (SceneManager.GetActiveScene().buildIndex < 3)
         {
             PlayBackgroundSound(menuBackClip, musicAudioSrc);
         }
 
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        if(SceneManager.GetActiveScene().buildIndex == 1)
         {
             Slider[] sliders = Resources.FindObjectsOfTypeAll<Slider>();
             
