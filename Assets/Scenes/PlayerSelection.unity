@@ -261,7 +261,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 403166309}
+      objectReference: {fileID: 2010829921}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -505,7 +505,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 403166309}
+      objectReference: {fileID: 2010829921}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -1008,6 +1008,11 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8804936953343758474, guid: d8452cca6e097a94ab2e69085bdf5d7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9040276984638175743, guid: d8452cca6e097a94ab2e69085bdf5d7e,
         type: 3}
       propertyPath: m_Type
@@ -1368,6 +1373,41 @@ PrefabInstance:
       propertyPath: m_Text
       value: Elements
       objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1451,7 +1491,7 @@ PrefabInstance:
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -142
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
@@ -1487,7 +1527,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 923867918}
+      objectReference: {fileID: 2010829921}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1902,7 +1942,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 393975866}
+      objectReference: {fileID: 496479100}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -2892,8 +2932,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3291,7 +3331,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 1091828891}
+      objectReference: {fileID: 336795755}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -3301,7 +3341,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 403166309}
+      objectReference: {fileID: 2010829921}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -3805,8 +3845,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4077,6 +4117,26 @@ PrefabInstance:
       propertyPath: m_Text
       value: Exterior walls
       objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329041321798315327, guid: 5bc84b6e2c424464daaf02dc656bd068,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4160,7 +4220,7 @@ PrefabInstance:
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 102.5
       objectReference: {fileID: 0}
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
@@ -4196,7 +4256,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 2111678918}
+      objectReference: {fileID: 2010829921}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5086,7 +5146,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 2111678918}
+      objectReference: {fileID: 923867918}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
@@ -5096,7 +5156,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 992650491}
+      objectReference: {fileID: 2111678918}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -5540,7 +5600,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 826837718}
+      objectReference: {fileID: 2111678918}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -5949,8 +6009,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7255,7 +7315,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 923867918}
+      objectReference: {fileID: 2111678918}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -7453,7 +7513,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 1091828891}
+      objectReference: {fileID: 496479100}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -7720,7 +7780,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 403166309}
+      objectReference: {fileID: 2010829921}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -8483,7 +8543,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 336795755}
+      objectReference: {fileID: 1091828891}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -8493,7 +8553,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 2010829921}
+      objectReference: {fileID: 496479100}
     - target: {fileID: 6893895599494576229, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -8645,7 +8705,7 @@ PrefabInstance:
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 142
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 6773736891641498198, guid: 5bc84b6e2c424464daaf02dc656bd068,
         type: 3}
