@@ -13,6 +13,7 @@ public class CPUSpawnManager : PlayerSpawnManager
         {
             targets = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
             transform.position = gameSpawnPoints[playerID];
+            transform.LookAt(Vector3.zero);
 
             if (targets)
             {
