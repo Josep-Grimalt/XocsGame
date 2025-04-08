@@ -94,6 +94,7 @@ public class PlayerSpawnManager : MonoBehaviour
                 animators[GetComponent<UIController>().GetModel()].SetBool("SceneChange", true);
             
             transform.position = gameSpawnPoints[playerID];
+            transform.LookAt(Vector3.zero);
             GetComponent<Rigidbody>().isKinematic = false;
         }
     }
