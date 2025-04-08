@@ -17,7 +17,7 @@ public class CPUCollisionController : PlayerCollisionController
             armor.ToList().ForEach(a => a.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.color = Color.yellow));
         }
 
-        if (other.gameObject.layer == 3)
+        if (other.gameObject.layer == 4)
         {
             CollisionManager.Instance.HandleOrbCollision(gameObject, other.gameObject, element);
         }

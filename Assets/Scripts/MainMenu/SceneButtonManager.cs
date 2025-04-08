@@ -128,16 +128,16 @@ public class SceneButtonManager : MonoBehaviour
 
     public void StartGameButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void SetStartingScene(int newStartingScene)
     {
-        gameManagerSO.startingScene = newStartingScene + 3;
+        gameManagerSO.startingScene = newStartingScene + 4;
     }
 
     public void SetRandomStartingScene(int scenesCount)
     {
-        gameManagerSO.startingScene = Random.Range(0, scenesCount) + 3;
+        gameManagerSO.startingScene = Random.Range(0, scenesCount) + 4;
     }
 }

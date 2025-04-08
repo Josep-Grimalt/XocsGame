@@ -24,7 +24,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        if (!targetCinemachine && SceneManager.GetActiveScene().buildIndex > 2)
+        if (!targetCinemachine && SceneManager.GetActiveScene().buildIndex > 3)
         {
             targetCinemachine = FindAnyObjectByType<AddTargetCinemachine>();
         }
@@ -48,7 +48,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void SetMovementDirection(Vector2 direction)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+        if (SceneManager.GetActiveScene().buildIndex == 2) return;
 
         if (!gameManager)
         {

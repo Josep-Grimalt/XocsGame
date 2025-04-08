@@ -23,7 +23,7 @@ public class LimitController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        if (SceneManager.GetActiveScene().buildIndex > 2 && manager.Walls())
+        if (SceneManager.GetActiveScene().buildIndex > 3 && manager.Walls())
         {
             limitCenter = GameObject.FindGameObjectWithTag("Limit").transform;
             radiusReference = GameObject.FindGameObjectWithTag("RadRef").transform;
@@ -44,7 +44,7 @@ public class LimitController : MonoBehaviour
 
     private void SetLimits(Scene arg0, Scene arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 2 && manager.Walls())
+        if (SceneManager.GetActiveScene().buildIndex > 3 && manager.Walls())
         {
             limitCenter = GameObject.FindGameObjectWithTag("Limit").transform;
             radiusReference = GameObject.FindGameObjectWithTag("RadRef").transform;

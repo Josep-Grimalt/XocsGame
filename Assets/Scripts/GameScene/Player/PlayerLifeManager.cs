@@ -16,7 +16,7 @@ public class PlayerLifeManager : MonoBehaviour
         SceneManager.activeSceneChanged += SearchForHUDText;
 
         // EDITOR MODE
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             if (GameObject.Find(gameObject.name + " Life"))
             {
@@ -32,7 +32,7 @@ public class PlayerLifeManager : MonoBehaviour
 
     private void SearchForHUDText(Scene arg0, Scene arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             if (GameObject.Find(gameObject.name + " Life"))
             {
