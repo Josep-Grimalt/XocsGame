@@ -34,13 +34,7 @@ public class CPUMovementController : PlayerMovementController
         }
 
         animators[0].SetFloat("Speed", agent.speed);
-        Fall();
         NearPlayer();
-    }
-
-    protected override void Fall()
-    {
-        animators[0].SetFloat("Height", transform.position.y);
     }
 
     private void NearPlayer()

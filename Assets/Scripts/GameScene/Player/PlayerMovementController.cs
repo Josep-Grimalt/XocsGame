@@ -29,7 +29,6 @@ public class PlayerMovementController : MonoBehaviour
             targetCinemachine = FindAnyObjectByType<AddTargetCinemachine>();
         }
         animators[GetComponent<UIController>().GetModel()].SetFloat("Speed", rb.linearVelocity.magnitude);
-        Fall();
         Rotate(movementDirection);
     }
 
@@ -58,11 +57,6 @@ public class PlayerMovementController : MonoBehaviour
         if (!gameManager.IsGameReady()) return;
 
         movementDirection = new(direction.x, 0, direction.y);
-    }
-
-    protected virtual void Fall()
-    {
-        animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
     }
 
     private void Rotate(Vector3 direction)
