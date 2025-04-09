@@ -191,11 +191,11 @@ MonoBehaviour:
   animators:
   - {fileID: 2371829180611393855}
   sprites:
-  - {fileID: 329537692, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
-  - {fileID: -704405940, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
-  - {fileID: 367315718, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
-  - {fileID: 250230268, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
-  - {fileID: 2125803352, guid: 024e39397cc497e4b84d9a758a17a878, type: 3}
+  - {fileID: 21300000, guid: 8668b1ef2d13ced4d8be9a807fc2761a, type: 3}
+  - {fileID: 21300000, guid: 95fb6bbc677ff0a4fb6b54ca438c24ac, type: 3}
+  - {fileID: 21300000, guid: 587ca2f130cf7324280cbcc4030f093d, type: 3}
+  - {fileID: 21300000, guid: 5737b03103b32a94096ce81674127d06, type: 3}
+  - {fileID: 21300000, guid: c5eee24c6144768458ff0023aa9380ec, type: 3}
 --- !u!114 &130612224964060350
 MonoBehaviour:
   m_ObjectHideFlags: 0

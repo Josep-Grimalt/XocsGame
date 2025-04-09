@@ -102,7 +102,8 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Fall"))
         {
-            animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
+            if (animators[GetComponent<UIController>().GetModel()])
+                animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
             targetCinemachine.RemoveTarget(gameObject);
         }
         if (other.gameObject.CompareTag("Death"))
