@@ -76,14 +76,17 @@ public class CollisionManager : MonoBehaviour
         if (e1 == e2)
         {
             element = PlayerCollisionController.Element.Neutral;
+            SoundManager.I.PlaySound(SoundName.Neutral, collisionPoint);
         }
         else if (e1 == PlayerCollisionController.Element.Neutral)
         {
             element = e2;
+            SoundManager.I.PlaySound(SoundName.Neutral, collisionPoint);
         }
         else if (e2 == PlayerCollisionController.Element.Neutral)
         {
             element = e1;
+            SoundManager.I.PlaySound(SoundName.Neutral, collisionPoint);
         }
         else
         {

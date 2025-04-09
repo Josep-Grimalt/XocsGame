@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
             Destroy(player);
         }
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public bool IsGameReady()

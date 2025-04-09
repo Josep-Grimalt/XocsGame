@@ -36,7 +36,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (TryGetComponent(out UIController ui))
         {
-            animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
+            animators[ui.GetModel()].SetFloat("Height", transform.position.y);
         }
         else
         {
