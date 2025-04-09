@@ -16,7 +16,6 @@ public class PlayerMovementController : MonoBehaviour
     private Vector3 movementDirection;
     protected AddTargetCinemachine targetCinemachine;
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,6 +29,19 @@ public class PlayerMovementController : MonoBehaviour
         }
         animators[GetComponent<UIController>().GetModel()].SetFloat("Speed", rb.linearVelocity.magnitude);
         Rotate(movementDirection);
+        Fall();
+    }
+
+    protected virtual void Fall()
+    {
+        if (TryGetComponent(out UIController ui))
+        {
+            animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
+        }
+        else
+        {
+            animators[0].SetFloat("Height", transform.position.y);
+        }
     }
 
     private void FixedUpdate()

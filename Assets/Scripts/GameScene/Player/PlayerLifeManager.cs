@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerLifeManager : MonoBehaviour
 {
     [SerializeField] private int life = 3;
     [SerializeField] private int maxLife = 3;
+    [SerializeField] private List<Sprite> hearts;
 
     private Transform playerLife;
 
@@ -16,7 +20,7 @@ public class PlayerLifeManager : MonoBehaviour
         SceneManager.activeSceneChanged += SearchForHUDText;
 
         // EDITOR MODE
-        if (SceneManager.GetActiveScene().buildIndex > 2)
+        if (SceneManager.GetActiveScene().buildIndex > 3)
         {
             if (GameObject.Find(gameObject.name + " Life"))
             {
@@ -32,7 +36,7 @@ public class PlayerLifeManager : MonoBehaviour
 
     private void SearchForHUDText(Scene arg0, Scene arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex > 2)
+        if (SceneManager.GetActiveScene().buildIndex > 3)
         {
             if (GameObject.Find(gameObject.name + " Life"))
             {
@@ -50,7 +54,7 @@ public class PlayerLifeManager : MonoBehaviour
             life = 0;
         }
 
-        playerLife.GetChild(1).GetChild(life).GetChild(0).gameObject.SetActive(false);
+        playerLife.GetChild(1).GetChild(life).GetComponent<UnityEngine.UI.Image>().sprite = hearts[1];
     }
 
     public int GetLifes()
@@ -66,7 +70,7 @@ public class PlayerLifeManager : MonoBehaviour
             return;
         }
 
-        playerLife.GetChild(1).GetChild(life).GetChild(0).gameObject.SetActive(true);
+        playerLife.GetChild(1).GetChild(life).GetComponent<UnityEngine.UI.Image>().sprite = hearts[0];
 
         life++;
         SoundManager.I.PlaySound(SoundName.Healing, transform);

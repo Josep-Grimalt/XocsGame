@@ -235,7 +235,7 @@ public class CollisionManager : MonoBehaviour
             if (cpu)
             {
                 cpu.Undie();
-                StartCoroutine(ResetCPU(cpu, 0));
+                StartCoroutine(ResetCPU(cpu, 0.1f));
             }
             else
             {

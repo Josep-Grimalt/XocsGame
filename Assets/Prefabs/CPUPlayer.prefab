@@ -171,6 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 3
   maxLife: 3
+  hearts:
+  - {fileID: 21300000, guid: dd0ada088d467754fa1a3e4223a66aab, type: 3}
+  - {fileID: 21300000, guid: 9bb0512ce24097e49a3bf09ed9f4b549, type: 3}
 --- !u!114 &6453961317048202663
 MonoBehaviour:
   m_ObjectHideFlags: 0

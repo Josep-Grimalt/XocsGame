@@ -42,11 +42,10 @@ public class TextLookAt : MonoBehaviour
 
     private void ActivateVanishing(Scene arg0, Scene arg1)
     {
-        if(SceneManager.GetActiveScene().buildIndex > 2)
+        if(SceneManager.GetActiveScene().buildIndex > 3)
         {
             textTransform.gameObject.SetActive(true);
         }
-        if (SceneManager.GetActiveScene().buildIndex < 3) return;
 
         Invoke(nameof(Deactivate), 35f);
     }

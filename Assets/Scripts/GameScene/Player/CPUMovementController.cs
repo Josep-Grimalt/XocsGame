@@ -28,13 +28,14 @@ public class CPUMovementController : PlayerMovementController
         }
         if (!gameManager.IsGameReady()) return;
 
-        if (!targetCinemachine && SceneManager.GetActiveScene().buildIndex > 2)
+        if (!targetCinemachine && SceneManager.GetActiveScene().buildIndex > 3)
         {
             targetCinemachine = FindAnyObjectByType<AddTargetCinemachine>();
         }
 
         animators[0].SetFloat("Speed", agent.speed);
         NearPlayer();
+        Fall();
     }
 
     private void NearPlayer()

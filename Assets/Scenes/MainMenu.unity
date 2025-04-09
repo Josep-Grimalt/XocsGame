@@ -1463,7 +1463,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 88a1adcc3d632ee4a845d4c10f6960bd, type: 3}
     name: Healing
     description: Cure 1 life
-  - sprite: {fileID: 21300000, guid: eb8a6f42440e5a5479576cc1bc772841, type: 3}
+  - sprite: {fileID: 21300000, guid: 71b0cad21fb65b144b64b38caff6b4e6, type: 3}
     name: Speed Up
     description: X 2 speed
   mainMenu: {fileID: 826725425}

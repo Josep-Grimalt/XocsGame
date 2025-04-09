@@ -102,8 +102,6 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Fall"))
         {
-            if (animators[GetComponent<UIController>().GetModel()])
-                animators[GetComponent<UIController>().GetModel()].SetFloat("Height", transform.position.y);
             targetCinemachine.RemoveTarget(gameObject);
         }
         if (other.gameObject.CompareTag("Death"))
@@ -167,7 +165,7 @@ public class PlayerCollisionController : MonoBehaviour
             if (cpu)
             {
                 cpu.Undie();
-                StartCoroutine(ResetCPU(cpu, 0));
+                StartCoroutine(ResetCPU(cpu, 0.1f));
             }
             else
             {
@@ -182,7 +180,7 @@ public class PlayerCollisionController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        if (cpu.IsDead()) yield break;
+        if (cpu.IsDead()) yield return null;
 
         cpu.EnableAgent();
     }

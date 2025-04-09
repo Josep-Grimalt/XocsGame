@@ -101,7 +101,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     protected void DestroyPlayer(Scene arg0, LoadSceneMode arg1)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             Destroy(gameObject);
         }
