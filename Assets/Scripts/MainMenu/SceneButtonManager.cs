@@ -27,9 +27,24 @@ public class SceneButtonManager : MonoBehaviour
     [SerializeField] private int scenesCount = 2;
     [SerializeField] private GameManagerSO gameManagerSO;
 
+    private GameObject lastSelected;
+
     void Awake()
     {
         SetRandomStartingScene(scenesCount);
+    }
+
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (EventSystem.current.currentSelectedGameObject != lastSelected)
+        {
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+
+            SoundManager.I.PlaySound(SoundName.MenuNavigation);
+        }
+        }
     }
 
     public void StartButton()
@@ -139,5 +154,10 @@ public class SceneButtonManager : MonoBehaviour
     public void SetRandomStartingScene(int scenesCount)
     {
         gameManagerSO.startingScene = Random.Range(0, scenesCount) + 4;
+    }
+
+    public void Click()
+    {
+        SoundManager.I.PlaySound(SoundName.MenuClick);
     }
 }
