@@ -99,4 +99,9 @@ public class UIController : MonoBehaviour
             _ready[i] = false;
         }
     }
+
+    public void StartMatch()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

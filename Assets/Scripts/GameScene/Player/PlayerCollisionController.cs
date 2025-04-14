@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,6 +16,9 @@ public class PlayerCollisionController : MonoBehaviour
     [SerializeField] protected List<Animator> animators;
     [SerializeField] protected List<Sprite> sprites;
 
+    private GameObject spawnPlats;
+    private List<GameObject> spawns;
+    private NavMeshSurface surface;
     private Sprite sprite;
     private AddTargetCinemachine targetCinemachine;
 
@@ -25,6 +31,11 @@ public class PlayerCollisionController : MonoBehaviour
         Neutral
     }
 
+    private void OnEnable()
+    {
+        SceneManager.activeSceneChanged += SearchSpawnObjs;
+    }
+
     private void Update()
     {
         if (!targetCinemachine)
@@ -34,6 +45,11 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (element == Element.Neutral)
             ChangeElement(4);
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= SearchSpawnObjs;
     }
 
     protected virtual void OnCollisionEnter(Collision other)
@@ -158,13 +174,17 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
         {
-            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+            spawnPlats.SetActive(true);
+            player.transform.position = spawns[player.GetComponent<PlayerSpawnManager>().GetPlayerID()].transform.position;
+            StartCoroutine(RemoveSpawnPlats());
             targetCinemachine.AddTarget(player);
             player.GetComponent<Rigidbody>().isKinematic = false;
             player.GetComponent<LimitController>().enabled = true;
             if (cpu)
             {
                 cpu.Undie();
+                if(surface)
+                    surface.BuildNavMesh();
                 StartCoroutine(ResetCPU(cpu, 0.1f));
             }
             else
@@ -183,5 +203,22 @@ public class PlayerCollisionController : MonoBehaviour
         if (cpu.IsDead()) yield return null;
 
         cpu.EnableAgent();
+    }
+    
+    private IEnumerator RemoveSpawnPlats()
+    {
+        yield return new WaitForSeconds(3);
+        
+        spawnPlats.SetActive(false);
+    }
+    
+    private void SearchSpawnObjs(Scene arg0, Scene arg1)
+    {
+        if (SceneManager.GetActiveScene().buildIndex < 4) return;
+        
+        surface = FindAnyObjectByType<NavMeshSurface>();
+
+        spawnPlats = GameObject.Find("SpawnPlats");
+        spawns = GameObject.FindGameObjectsWithTag("Spawn").ToList();
     }
 }
