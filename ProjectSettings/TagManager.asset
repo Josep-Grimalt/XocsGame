@@ -18,6 +18,7 @@ TagManager:
   - FxTemporaire
   - Fall
   - Death
+  - Spawn
   layers:
   - Default
   - TransparentFX

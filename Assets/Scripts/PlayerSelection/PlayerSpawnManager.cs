@@ -106,4 +106,9 @@ public class PlayerSpawnManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public int GetPlayerID()
+    {
+        return playerID;
+    }
 }

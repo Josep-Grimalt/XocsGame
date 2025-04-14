@@ -72,7 +72,7 @@ MonoBehaviour:
   - soundName: 7
     audioClip: {fileID: 8300000, guid: 0e51803a4cecd3e4aaa1cb798cc6d08e, type: 3}
     loop: 1
-    volume: 0.2
+    volume: 0.005
     hasPlayTimer: 0
     playTimer: 0
     spatialBlend: 0

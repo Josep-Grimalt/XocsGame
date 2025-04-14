@@ -93,7 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 71e174a1936dfdc4d9d2961c2b3dd1fb,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -523,6 +524,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2844817086808314793, guid: eacecfaaae619164b92140bee88d556e,
+        type: 3}
+      propertyPath: surface
+      value: 
+      objectReference: {fileID: 594588688}
     - target: {fileID: 2856330824821626420, guid: eacecfaaae619164b92140bee88d556e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -582,11 +588,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4402493790396633562, guid: eacecfaaae619164b92140bee88d556e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5228542217670795416, guid: eacecfaaae619164b92140bee88d556e,
         type: 3}
@@ -758,16 +759,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8128366071484758412, guid: eacecfaaae619164b92140bee88d556e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 594588688}
-    - target: {fileID: 8128366071484758412, guid: eacecfaaae619164b92140bee88d556e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Continue
-      objectReference: {fileID: 0}
     - target: {fileID: 8270453013229169532, guid: eacecfaaae619164b92140bee88d556e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -792,7 +783,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 308a1aa4642b36046b89924058cbf2fa,
+      objectReference: {fileID: 23800000, guid: c57e318615ea5154c8e90107e9c5213d,
         type: 2}
     - target: {fileID: 8638712260222668724, guid: eacecfaaae619164b92140bee88d556e,
         type: 3}
@@ -821,14 +812,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: eacecfaaae619164b92140bee88d556e, type: 3}
 --- !u!114 &594588688 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6110897051858463620, guid: eacecfaaae619164b92140bee88d556e,
+  m_CorrespondingSourceObject: {fileID: 8373123139902664297, guid: eacecfaaae619164b92140bee88d556e,
     type: 3}
   m_PrefabInstance: {fileID: 594588687}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb5a564270ecfc4293905ded6868756, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1021427271

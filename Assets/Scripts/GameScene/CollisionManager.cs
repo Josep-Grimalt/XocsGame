@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class CollisionManager : MonoBehaviour
 {
@@ -9,6 +12,9 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] private float delay = 0.18f, respawnDelay = 3;
     [SerializeField] private GameObject elementChanger;
     [SerializeField] private AddTargetCinemachine targetCinemachine;
+    [SerializeField] private List<Transform> spawns;
+    [SerializeField] private GameObject smokePrefab, spawnPlats;
+    [SerializeField] private NavMeshSurface surface;
 
     private HashSet<string> recentCollisions = new HashSet<string>();
 
@@ -128,12 +134,15 @@ public class CollisionManager : MonoBehaviour
         if (recentCollisions.Contains(collisionKey)) return;
 
         recentCollisions.Add(collisionKey);
-
+        GameObject smoke;
+        
         if (orb.CompareTag("Fire"))
         {
             if (element != PlayerCollisionController.Element.Fire)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                smoke = PoolManager.SpawnObject(smokePrefab, orb.transform.position, Quaternion.identity);
+                StartCoroutine(ReturnSmoke(smoke));
                 SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
@@ -143,6 +152,8 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Water)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                smoke = PoolManager.SpawnObject(smokePrefab, orb.transform.position, Quaternion.identity);
+                StartCoroutine(ReturnSmoke(smoke));
                 SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
@@ -152,6 +163,8 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Wind)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                smoke = PoolManager.SpawnObject(smokePrefab, orb.transform.position, Quaternion.identity);
+                StartCoroutine(ReturnSmoke(smoke));
                 SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
@@ -161,6 +174,8 @@ public class CollisionManager : MonoBehaviour
             if (element != PlayerCollisionController.Element.Earth)
             {
                 StartCoroutine(RespawnPlayer(player, respawnDelay));
+                smoke = PoolManager.SpawnObject(smokePrefab, orb.transform.position, Quaternion.identity);
+                StartCoroutine(ReturnSmoke(smoke));
                 SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
             }
         }
@@ -168,6 +183,8 @@ public class CollisionManager : MonoBehaviour
         if (orb.CompareTag("Neutral"))
         {
             StartCoroutine(RespawnPlayer(player, respawnDelay));
+            smoke = PoolManager.SpawnObject(smokePrefab, orb.transform.position, Quaternion.identity);
+            StartCoroutine(ReturnSmoke(smoke));
             SoundManager.I.PlaySound(Random.Range(0, 2) % 2 == 0 ? SoundName.Death : SoundName.DeathAlt);
         }
 
@@ -231,13 +248,17 @@ public class CollisionManager : MonoBehaviour
 
         if (player.GetComponent<PlayerLifeManager>().GetLifes() > 0)
         {
-            player.transform.position = new(Random.Range(-9, 9), 1, Random.Range(-9, 9));
+            spawnPlats.SetActive(true);
+            player.transform.position = spawns[player.GetComponent<PlayerSpawnManager>().GetPlayerID()].position;
+            StartCoroutine(RemoveSpawnPlats());
             targetCinemachine.AddTarget(player);
             player.GetComponent<Rigidbody>().isKinematic = false;
             player.GetComponent<LimitController>().enabled = true;
             if (cpu)
             {
                 cpu.Undie();
+                if(surface)
+                    surface.BuildNavMesh();
                 StartCoroutine(ResetCPU(cpu, 0.1f));
             }
             else
@@ -256,5 +277,19 @@ public class CollisionManager : MonoBehaviour
         if (cpu.IsDead()) yield break;
 
         cpu.EnableAgent();
+    }
+
+    private IEnumerator RemoveSpawnPlats()
+    {
+        yield return new WaitForSeconds(3);
+        
+        spawnPlats.SetActive(false);
+    }
+
+    private IEnumerator ReturnSmoke(GameObject smoke)
+    {
+        yield return new WaitForSeconds(1);
+        
+        PoolManager.ReturnObjectToPool(smoke);
     }
 }
